@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{F3D12165-F762-4CD7-8583-5836EBE969DB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>ConsoleApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>CentreLocationOutils_back_end</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="dao\implementations\AdresseDAO.cs" />
+    <Compile Include="dao\implementations\CategorieDAO.cs" />
+    <Compile Include="dao\implementations\ClientDAO.cs" />
+    <Compile Include="dao\implementations\Client_AdresseDAO.cs" />
+    <Compile Include="dao\implementations\DAO.cs" />
+    <Compile Include="dao\implementations\EmployeDAO.cs" />
+    <Compile Include="dao\implementations\Employe_AdresseDAO.cs" />
+    <Compile Include="dao\implementations\FacturationDAO.cs" />
+    <Compile Include="dao\implementations\LocationDAO.cs" />
+    <Compile Include="dao\implementations\OutilDAO.cs" />
+    <Compile Include="dao\implementations\ReservationDAO.cs" />
+    <Compile Include="dao\interfaces\IAdresseDAO.cs" />
+    <Compile Include="dao\interfaces\ICategorieDAO.cs" />
+    <Compile Include="dao\interfaces\IClientDAO.cs" />
+    <Compile Include="dao\interfaces\IDAO.cs" />
+    <Compile Include="dao\interfaces\IEmployeDAO.cs" />
+    <Compile Include="dao\interfaces\IFacturationDAO.cs" />
+    <Compile Include="dao\interfaces\ILocationDAO.cs" />
+    <Compile Include="dao\interfaces\IOutilDAO.cs" />
+    <Compile Include="dao\interfaces\IReservationDAO.cs" />
+    <Compile Include="db\Connection.cs" />
+    <Compile Include="dto\AdresseDTO.cs" />
+    <Compile Include="dto\CategorieDTO.cs" />
+    <Compile Include="dto\ClientDTO.cs" />
+    <Compile Include="dto\Client_AdresseDTO.cs" />
+    <Compile Include="dto\DTO.cs" />
+    <Compile Include="dto\EmployeDTO.cs" />
+    <Compile Include="dto\FacturationDTO.cs" />
+    <Compile Include="dto\LocationDTO.cs" />
+    <Compile Include="dto\OutilDTO.cs" />
+    <Compile Include="dto\ReservationDTO.cs" />
+    <Compile Include="exception\CentreLocationOutilsException.cs" />
+    <Compile Include="exception\dao\DAOException.cs" />
+    <Compile Include="exception\dao\InvalidConnectionException.cs" />
+    <Compile Include="exception\dao\InvalidCriterionException.cs" />
+    <Compile Include="exception\dao\InvalidPrimaryKeyException.cs" />
+    <Compile Include="exception\dao\InvalidPrimaryKeyRequestException.cs" />
+    <Compile Include="exception\dao\InvalidSortByPropertyException.cs" />
+    <Compile Include="exception\db\ConnectionException.cs" />
+    <Compile Include="exception\dto\DTOException.cs" />
+    <Compile Include="exception\dto\DuplicateDTOException.cs" />
+    <Compile Include="exception\dto\InvalidDTOClassException.cs" />
+    <Compile Include="exception\dto\InvalidDTOException.cs" />
+    <Compile Include="exception\dto\MissingDTOException.cs" />
+    <Compile Include="exception\facade\FacadeException.cs" />
+    <Compile Include="exception\facade\InvalidServiceException.cs" />
+    <Compile Include="exception\service\ExistingLoanException.cs" />
+    <Compile Include="exception\service\ExistingReservationException.cs" />
+    <Compile Include="exception\service\InvalidDAOException.cs" />
+    <Compile Include="exception\service\InvalidLoanLimitException.cs" />
+    <Compile Include="exception\service\MissingLoanException.cs" />
+    <Compile Include="exception\service\ServiceException.cs" />
+    <Compile Include="exception\util\CentreCreateurException.cs" />
+    <Compile Include="facade\implementations\AdresseFacade.cs" />
+    <Compile Include="facade\implementations\CategorieFacade.cs" />
+    <Compile Include="facade\implementations\ClientFacade.cs" />
+    <Compile Include="facade\implementations\EmployeFacade.cs" />
+    <Compile Include="facade\implementations\Facade.cs" />
+    <Compile Include="facade\implementations\FacturationFacade.cs" />
+    <Compile Include="facade\implementations\LocationFacade.cs" />
+    <Compile Include="facade\implementations\OutilFacade.cs" />
+    <Compile Include="facade\implementations\ReservationFacade.cs" />
+    <Compile Include="facade\interfaces\IAdresseFacade.cs" />
+    <Compile Include="facade\interfaces\ICategorieFacade.cs" />
+    <Compile Include="facade\interfaces\IClientFacade.cs" />
+    <Compile Include="facade\interfaces\IEmployeFacade.cs" />
+    <Compile Include="facade\interfaces\IFacade.cs" />
+    <Compile Include="facade\interfaces\IFacturationFacade.cs" />
+    <Compile Include="facade\interfaces\ILocationFacade.cs" />
+    <Compile Include="facade\interfaces\IOutilFacade.cs" />
+    <Compile Include="facade\interfaces\IReservationFacade.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="Properties\Settings.Designer.cs" />
+    <Compile Include="service\implementations\AdresseService.cs" />
+    <Compile Include="service\implementations\CategorieService.cs" />
+    <Compile Include="service\implementations\ClientService.cs" />
+    <Compile Include="service\implementations\EmployeService.cs" />
+    <Compile Include="service\implementations\FacturationService.cs" />
+    <Compile Include="service\implementations\LocationService.cs" />
+    <Compile Include="service\implementations\OutilService.cs" />
+    <Compile Include="service\implementations\ReservationService.cs" />
+    <Compile Include="service\implementations\Service.cs" />
+    <Compile Include="service\interfaces\IAdresseService.cs" />
+    <Compile Include="service\interfaces\ICategorieService.cs" />
+    <Compile Include="service\interfaces\IClientService.cs" />
+    <Compile Include="service\interfaces\IEmployeService.cs" />
+    <Compile Include="service\interfaces\IFacturationService.cs" />
+    <Compile Include="service\interfaces\ILocationService.cs" />
+    <Compile Include="service\interfaces\IOutilService.cs" />
+    <Compile Include="service\interfaces\IReservationService.cs" />
+    <Compile Include="service\interfaces\IService.cs" />
+    <Compile Include="util\FormatteurDate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\ConnexionControl.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="optimizedForms\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>

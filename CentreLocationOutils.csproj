@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6284C853-6A61-4F23-A195-40D6E9CDDA39}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CentreLocationOutils</RootNamespace>
+    <AssemblyName>CentreLocationOutils</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publier\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ConnexionControl">
+      <HintPath>lib\ConnexionControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="facade\interfaces\ICategorieFacade.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="dao\implementations\AdresseDAO.cs" />
+    <Compile Include="dao\implementations\CategorieDAO.cs" />
+    <Compile Include="dao\implementations\ClientDAO.cs" />
+    <Compile Include="dao\implementations\Client_AdresseDAO.cs" />
+    <Compile Include="dao\implementations\DAO.cs" />
+    <Compile Include="dao\implementations\EmployeDAO.cs" />
+    <Compile Include="dao\implementations\Employe_AdresseDAO.cs" />
+    <Compile Include="dao\implementations\FacturationDAO.cs" />
+    <Compile Include="dao\implementations\LocationDAO.cs" />
+    <Compile Include="dao\implementations\OutilDAO.cs" />
+    <Compile Include="dao\implementations\ReservationDAO.cs" />
+    <Compile Include="dto\Client_AdresseDTO.cs" />
+    <Compile Include="service\implementations\Service.cs" />
+    <Compile Include="dao\interfaces\IAdresseDAO.cs" />
+    <Compile Include="dao\interfaces\ICategorieDAO.cs" />
+    <Compile Include="dao\interfaces\IClientDAO.cs" />
+    <Compile Include="dao\interfaces\IDAO.cs" />
+    <Compile Include="dao\interfaces\IEmployeDAO.cs" />
+    <Compile Include="dao\interfaces\IFacturationDAO.cs" />
+    <Compile Include="dao\interfaces\ILocationDAO.cs" />
+    <Compile Include="dao\interfaces\IOutilDAO.cs" />
+    <Compile Include="dao\interfaces\IReservationDAO.cs" />
+    <Compile Include="service\interfaces\IService.cs" />
+    <Compile Include="db\Connection.cs" />
+    <Compile Include="dto\AdresseDTO.cs" />
+    <Compile Include="dto\CategorieDTO.cs" />
+    <Compile Include="dto\ClientDTO.cs" />
+    <Compile Include="dto\DTO.cs" />
+    <Compile Include="dto\EmployeDTO.cs" />
+    <Compile Include="dto\FacturationDTO.cs" />
+    <Compile Include="dto\LocationDTO.cs" />
+    <Compile Include="dto\OutilDTO.cs" />
+    <Compile Include="dto\ReservationDTO.cs" />
+    <Compile Include="exception\CentreLocationOutilsException.cs" />
+    <Compile Include="exception\db\ConnectionException.cs" />
+    <Compile Include="exception\dao\DAOException.cs" />
+    <Compile Include="exception\dto\DTOException.cs" />
+    <Compile Include="exception\dto\DuplicateDTOException.cs" />
+    <Compile Include="exception\dto\InvalidDTOClassException.cs" />
+    <Compile Include="exception\service\ExistingLoanException.cs" />
+    <Compile Include="exception\service\ExistingReservationException.cs" />
+    <Compile Include="exception\facade\FacadeException.cs" />
+    <Compile Include="exception\dao\InvalidCriterionException.cs" />
+    <Compile Include="exception\service\InvalidDAOException.cs" />
+    <Compile Include="exception\dto\InvalidDTOException.cs" />
+    <Compile Include="exception\dao\InvalidConnectionException.cs" />
+    <Compile Include="exception\service\InvalidLoanLimitException.cs" />
+    <Compile Include="exception\dao\InvalidPrimaryKeyException.cs" />
+    <Compile Include="exception\dao\InvalidPrimaryKeyRequestException.cs" />
+    <Compile Include="exception\facade\InvalidServiceException.cs" />
+    <Compile Include="exception\dao\InvalidSortByPropertyException.cs" />
+    <Compile Include="exception\dto\MissingDTOException.cs" />
+    <Compile Include="exception\service\MissingLoanException.cs" />
+    <Compile Include="exception\service\ServiceException.cs" />
+    <Compile Include="exception\util\CentreCreateurException.cs" />
+    <Compile Include="facade\implementations\AdresseFacade.cs" />
+    <Compile Include="facade\implementations\CategorieFacade.cs" />
+    <Compile Include="facade\implementations\ClientFacade.cs" />
+    <Compile Include="facade\implementations\EmployeFacade.cs" />
+    <Compile Include="facade\implementations\Facade.cs" />
+    <Compile Include="facade\implementations\FacturationFacade.cs" />
+    <Compile Include="facade\implementations\LocationFacade.cs" />
+    <Compile Include="facade\implementations\OutilFacade.cs" />
+    <Compile Include="facade\implementations\ReservationFacade.cs" />
+    <Compile Include="facade\interfaces\IAdresseFacade.cs" />
+    <Compile Include="facade\interfaces\IClientFacade.cs" />
+    <Compile Include="facade\interfaces\IEmployeFacade.cs" />
+    <Compile Include="facade\interfaces\IFacade.cs" />
+    <Compile Include="facade\interfaces\IFacturationFacade.cs" />
+    <Compile Include="facade\interfaces\ILocationFacade.cs" />
+    <Compile Include="facade\interfaces\IOutilFacade.cs" />
+    <Compile Include="facade\interfaces\IReservationFacade.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="service\implementations\AdresseService.cs" />
+    <Compile Include="service\implementations\CategorieService.cs" />
+    <Compile Include="service\implementations\ClientService.cs" />
+    <Compile Include="service\implementations\EmployeService.cs" />
+    <Compile Include="service\implementations\FacturationService.cs" />
+    <Compile Include="service\implementations\LocationService.cs" />
+    <Compile Include="service\implementations\OutilService.cs" />
+    <Compile Include="service\implementations\ReservationService.cs" />
+    <Compile Include="service\interfaces\IAdresseService.cs" />
+    <Compile Include="service\interfaces\ICategorieService.cs" />
+    <Compile Include="service\interfaces\IClientService.cs" />
+    <Compile Include="service\interfaces\IEmployeService.cs" />
+    <Compile Include="service\interfaces\IFacturationService.cs" />
+    <Compile Include="service\interfaces\ILocationService.cs" />
+    <Compile Include="service\interfaces\IOutilService.cs" />
+    <Compile Include="service\interfaces\IReservationService.cs" />
+    <Compile Include="util\FormatteurDate.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="lib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 et x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
