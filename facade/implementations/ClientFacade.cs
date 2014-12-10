@@ -72,5 +72,18 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("", serviceException);
             }
         }
+
+
+        public void desinscrire(Connection connection, ClientDTO clientDTO)
+        {
+            try
+            {
+                getClientService().desinscrireClient(connection, clientDTO);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("", serviceException);
+            }
+        }
     }
 }
