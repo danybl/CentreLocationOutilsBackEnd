@@ -1,6 +1,7 @@
 ﻿using CentreLocationOutils.exception.db;
 using System;
 using System.Data.Common;
+//using Oracle.DataAccess.Client;
 
 namespace CentreLocationOutils.db
 {
@@ -10,6 +11,7 @@ namespace CentreLocationOutils.db
 
         DbProviderFactory provider = DbProviderFactories.GetFactory("System.Data.OracleClient");
         DbConnection connection;
+        //OracleClientFactory oracleProvider = OracleClientFactory.Instance;
 
         private static   string TYPE_SERVEUR_LOCAL = "local";
 
@@ -56,7 +58,7 @@ namespace CentreLocationOutils.db
                 if (typeServeur.Equals(Connection.TYPE_SERVEUR_LOCAL))
                 {
                     connection = provider.CreateConnection();
-                    connection.ConnectionString = @"Data Source=xe;User ID=" + nomUtilisateur + ";Password=" + motPasse + ";Unicode=True; Min Pool Size=10; Connection Lifetime=120;Connection Timeout=60;Incr Pool Size=5;Decr Pool Size=2";
+                    connection.ConnectionString = @"Data Source=xe;User ID=" + nomUtilisateur + ";Password=" + motPasse + ";"; /*Min Pool Size=10; Connection Lifetime=120;Connection Timeout=60;Incr Pool Size=5;Decr Pool Size=2";*/
                 }
 
             }
