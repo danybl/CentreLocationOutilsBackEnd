@@ -61,6 +61,7 @@ namespace CentreLocationOutils.dao.implementations
             //EmployeDTO employeDTO = employeDTO;//(EmployeDTO) dto;
             try
             {
+               // connection.getConnection().Open();
                 DbCommand command = connection.getConnection().CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = EmployeDAO.ADD_REQUEST;
@@ -77,6 +78,10 @@ namespace CentreLocationOutils.dao.implementations
             {
                 throw new DAOException(dbException);
             }
+            //finally
+            //{
+            //    connection.getConnection().Close();
+            //}
         }
 
         /// <inheritdoc />

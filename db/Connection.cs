@@ -2,6 +2,7 @@
 using System;
 using System.Data.Common;
 //using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Client;
 
 namespace CentreLocationOutils.db
 {
@@ -9,8 +10,9 @@ namespace CentreLocationOutils.db
     {
         //private OracleConnection connection;
 
-        DbProviderFactory provider = DbProviderFactories.GetFactory("System.Data.OracleClient");
+        DbProviderFactory provider = DbProviderFactories.GetFactory("Oracle.DataAccess.Client");
         DbConnection connection;
+      //  OracleClientFactory provider = OracleClientFactory.Instance;
         //OracleClientFactory oracleProvider = OracleClientFactory.Instance;
 
         private static   string TYPE_SERVEUR_LOCAL = "local";
