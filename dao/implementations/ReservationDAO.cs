@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Data.OracleClient;
+using Oracle.DataAccess.Client;
 
 namespace CentreLocationOutils.dao.implementations
 {
@@ -75,7 +75,7 @@ namespace CentreLocationOutils.dao.implementations
             //EmployeDTO employeDTO = employeDTO;//(EmployeDTO) dto;
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = ReservationDAO.ADD_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idReservation", reservationDTO.IdReservation));
@@ -109,7 +109,7 @@ namespace CentreLocationOutils.dao.implementations
             ReservationDTO reservationDTO = null;
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = ReservationDAO.READ_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idReservation", idReservation));
@@ -157,7 +157,7 @@ namespace CentreLocationOutils.dao.implementations
             //EmployeDTO employeDTO = (EmployeDTO)dto;
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = ReservationDAO.UPDATE_REQUEST;
                 command.Parameters.Add(new OracleParameter(":dateLimite", reservationDTO.DateLimite));
@@ -192,7 +192,7 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = ReservationDAO.DELETE_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idReservation", reservationDTO.IdReservation));
@@ -220,7 +220,7 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = ReservationDAO.GET_ALL_REQUEST;
 
@@ -276,7 +276,7 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = ReservationDAO.FIND_BY_CLIENT_REQUEST;
 
@@ -329,7 +329,7 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = ReservationDAO.FIND_BY_OUTIL_REQUEST;
 

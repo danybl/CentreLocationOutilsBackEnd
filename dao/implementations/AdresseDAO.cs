@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Data.OracleClient;
+using Oracle.DataAccess.Client;
 
 namespace CentreLocationOutils.dao.implementations
 {
@@ -71,7 +71,7 @@ namespace CentreLocationOutils.dao.implementations
             //EmployeDTO employeDTO = employeDTO;//(EmployeDTO) dto;
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = AdresseDAO.ADD_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idAdresse", adresseDTO.IdAdresse));
@@ -107,7 +107,7 @@ namespace CentreLocationOutils.dao.implementations
             AdresseDTO adresseDTO = null;
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = AdresseDAO.READ_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idReservation", idReservation));
@@ -153,7 +153,7 @@ namespace CentreLocationOutils.dao.implementations
             //EmployeDTO employeDTO = (EmployeDTO)dto;
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = AdresseDAO.UPDATE_REQUEST;
                 command.Parameters.Add(new OracleParameter(":numero", adresseDTO.Numero));
@@ -194,7 +194,7 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = AdresseDAO.DELETE_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idAdresse", adresseDTO.IdAdresse));
@@ -221,7 +221,7 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = AdresseDAO.FINF_BY_VILLE;
 
@@ -275,7 +275,7 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = AdresseDAO.GET_ALL_REQUEST;
 

@@ -46,7 +46,7 @@ namespace CentreLocationOutils.dao.implementations
             }
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = createPrimaryKeyRequest;
                 DbDataReader dataReader = command.ExecuteReader();

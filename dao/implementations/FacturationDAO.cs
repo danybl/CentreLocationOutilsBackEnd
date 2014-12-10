@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Data.OracleClient;
+using Oracle.DataAccess.Client;
 
 namespace CentreLocationOutils.dao.implementations
 {
@@ -77,7 +77,7 @@ namespace CentreLocationOutils.dao.implementations
             //EmployeDTO employeDTO = employeDTO;//(EmployeDTO) dto;
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = FacturationDAO.ADD_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idFacturation", facturationDTO.IdFacturation));
@@ -108,7 +108,7 @@ namespace CentreLocationOutils.dao.implementations
             FacturationDTO facturationDTO = null;
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = FacturationDAO.READ_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idLocation", idLocation));
@@ -155,7 +155,7 @@ namespace CentreLocationOutils.dao.implementations
             //EmployeDTO employeDTO = (EmployeDTO)dto;
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.Parameters.Add(new OracleParameter(":idEmploye", facturationDTO.IdFacturation));
                 command.Parameters.Add(new OracleParameter(":idLocation", facturationDTO.LocationDTO.IdLocation));
@@ -190,7 +190,7 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = FacturationDAO.DELETE_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idFacturation", facturationDTO.IdFacturation));
@@ -219,7 +219,7 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = FacturationDAO.GET_ALL_REQUEST;
 
@@ -272,7 +272,7 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = FacturationDAO.FIND_BY_EMPLOYE;
 
@@ -325,7 +325,7 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = FacturationDAO.FIND_BY_CLIENT;
 

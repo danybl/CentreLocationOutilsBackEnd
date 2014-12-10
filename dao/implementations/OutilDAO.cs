@@ -6,7 +6,7 @@ using CentreLocationOutils.exception.dto;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Data.OracleClient;
+using Oracle.DataAccess.Client;
 
 namespace CentreLocationOutils.dao.implementations
 {
@@ -59,7 +59,7 @@ namespace CentreLocationOutils.dao.implementations
             //OutilDTO outilDTO = outilDTO;//(OutilDTO) dto;
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = OutilDAO.ADD_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idOutil", outilDTO.IdOutil));
@@ -93,7 +93,7 @@ namespace CentreLocationOutils.dao.implementations
             OutilDTO outilDTO = null;
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = OutilDAO.READ_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idOutil", idOutil));
@@ -138,7 +138,7 @@ namespace CentreLocationOutils.dao.implementations
             //OutilDTO outilDTO = (OutilDTO)dto;
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = OutilDAO.UPDATE_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idCategorie", outilDTO.IdCategorie));
@@ -177,7 +177,7 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = OutilDAO.DELETE_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idOutil", outilDTO.IdOutil));
@@ -206,7 +206,7 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = OutilDAO.GET_ALL_REQUEST;
 
@@ -254,7 +254,7 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = OutilDAO.FIND_BY_NOM;
 

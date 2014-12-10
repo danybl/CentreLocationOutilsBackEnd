@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Data.OracleClient;
+using Oracle.DataAccess.Client;
 
 namespace CentreLocationOutils.dao.implementations
 {
@@ -65,7 +65,7 @@ namespace CentreLocationOutils.dao.implementations
             //EmployeDTO employeDTO = employeDTO;//(EmployeDTO) dto;
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = LocationDAO.ADD_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idLocation", locationDTO.IdLocation));
@@ -101,7 +101,7 @@ namespace CentreLocationOutils.dao.implementations
             LocationDTO locationDTO = null;
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = LocationDAO.READ_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idLocation", idLocation));
@@ -152,7 +152,7 @@ namespace CentreLocationOutils.dao.implementations
             //EmployeDTO employeDTO = (EmployeDTO)dto;
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.Parameters.Add(new OracleParameter(":dateLimite", locationDTO.DateLimite));
                 command.Parameters.Add(new OracleParameter(":idLocation", locationDTO.IdLocation));
@@ -186,7 +186,7 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = LocationDAO.DELETE_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idLocation", locationDTO.IdLocation));
@@ -215,7 +215,7 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = LocationDAO.GET_ALL_REQUEST;
 
@@ -274,7 +274,7 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = LocationDAO.FIND_BY_CLIENT_REQUEST;
 
@@ -331,7 +331,7 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.getConnection().CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = LocationDAO.FIND_BY_OUTIL_REQUEST;
 
