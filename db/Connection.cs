@@ -1,6 +1,6 @@
 ﻿using CentreLocationOutils.exception.db;
 using System;
-using System.Data.Common;
+//using System.Data.Common;
 //using Oracle.DataAccess.Client;
 using Oracle.DataAccess.Client;
 
@@ -10,10 +10,11 @@ namespace CentreLocationOutils.db
     {
         //private OracleConnection connection;
 
-        DbProviderFactory provider = DbProviderFactories.GetFactory("Oracle.DataAccess.Client");
-        DbConnection connection;
-      //  OracleClientFactory provider = OracleClientFactory.Instance;
-        //OracleClientFactory oracleProvider = OracleClientFactory.Instance;
+        //DbProviderFactory provider = DbProviderFactories.GetFactory("Oracle.DataAccess.Client");
+        //DbConnection connection;
+        //OracleClientFactory provider = OracleClientFactory.Instance;
+        private OracleClientFactory oracleProvider = OracleClientFactory.Instance;
+        public OracleConnection ConnectionOracle { get; set; }
 
         private static   string TYPE_SERVEUR_LOCAL = "local";
 
@@ -59,34 +60,18 @@ namespace CentreLocationOutils.db
                 // DbConnectionStringBuilder csb = new DbConnectionStringBuilder();
                 if (typeServeur.Equals(Connection.TYPE_SERVEUR_LOCAL))
                 {
-                    connection = provider.CreateConnection();
-                    connection.ConnectionString = @"Data Source=xe;User ID=" + nomUtilisateur + ";Password=" + motPasse + ";"; /*Min Pool Size=10; Connection Lifetime=120;Connection Timeout=60;Incr Pool Size=5;Decr Pool Size=2";*/
+                    //connection = provider.CreateConnection();
+                    //connection.ConnectionString = @"Data Source=xe;User ID=" + nomUtilisateur + ";Password=" + motPasse + ";"; /*Min Pool Size=10; Connection Lifetime=120;Connection Timeout=60;Incr Pool Size=5;Decr Pool Size=2";*/
+                    ConnectionOracle = new OracleConnection();
+                    ConnectionOracle.ConnectionString = @"Data Source=xe;User ID=" + nomUtilisateur + ";Password=" + motPasse + ";Min Pool Size=10; Connection Lifetime=120;Connection Timeout=60;Incr Pool Size=5;Decr Pool Size=2;";
                 }
 
             }
-            catch (DbException dbException)
+            catch (OracleException dbException)
             {
                 throw new ConnectionException(dbException.Message);
             }
         }
-
-        /// <summary>
-        /// Getter de la variable d'insctance
-        /// </summary>
-        /// <returns>La variable d'instance</returns>
-        public DbConnection getConnection()
-        {
-            return this.connection;
-        }
-        /// <summary>
-        /// Setter de la variable d'instance
-        /// </summary>
-        /// <param name="connection">Valeur de la variable d'instance</param>
-        private void setConnection(DbConnection connection)
-        {
-            this.connection = connection;
-        }
-
 
         /// <summary>
         /// Effectue un Close sur la connexion
@@ -95,12 +80,12 @@ namespace CentreLocationOutils.db
         {
             try
             {
-                getConnection().Close();
+                ConnectionOracle.Close();
                 Console.WriteLine("\nConnexion fermée"
                     + " "
-                    + getConnection());
+                    + ConnectionOracle);
             }
-            catch (DbException dbException)
+            catch (OracleException dbException)
             {
                 throw new ConnectionException(dbException.Message);
             }
