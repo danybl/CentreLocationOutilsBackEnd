@@ -33,6 +33,7 @@ namespace CentreLocationOutils.service.interfaces
         /// <param name="sortByPropertyName"></param>
         /// <returns></returns>
         List<ReservationDTO> findByClient(Connection connection, ReservationDTO reservationDTO);
+        List<ReservationDTO> findByOutil(Connection connection, ReservationDTO reservationDTO);
 
         void placerReservation(Connection connection,
         ReservationDTO reservationDTO);

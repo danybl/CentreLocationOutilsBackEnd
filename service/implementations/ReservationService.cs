@@ -274,5 +274,25 @@ namespace CentreLocationOutils.service.implementations
                 throw new ServiceException("", daoException);
             }
         }
+        /// <inheritdoc />
+        public List<ReservationDTO> findByOutil(Connection connection, ReservationDTO reservationDTO)
+        {
+            if (connection == null)
+            {
+                throw new InvalidConnectionException("La connection ne peut être null");
+            }
+            if (reservationDTO == null)
+            {
+                throw new InvalidDTOException("La réservation ne peut être null");
+            }
+            try
+            {
+                return getReservationDAO().findByOutil(connection, reservationDTO.ClientDTO.IdClient, ReservationDTO.ID_CLIENT_COLUMN_NAME);
+            }
+            catch (DAOException daoException)
+            {
+                throw new ServiceException("", daoException);
+            }
+        }
     }
 }

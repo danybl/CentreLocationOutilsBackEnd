@@ -4,6 +4,7 @@ using CentreLocationOutils.exception.facade;
 using CentreLocationOutils.exception.service;
 using CentreLocationOutils.facade.interfaces;
 using CentreLocationOutils.service.interfaces;
+using System.Collections.Generic;
 
 namespace CentreLocationOutils.facade.implementations
 {
@@ -30,7 +31,7 @@ namespace CentreLocationOutils.facade.implementations
            this.reservationService = reservationService;
        }
 
-       public   void placerReservation(Connection connection, ReservationDTO reservationDTO)
+       public void placerReservation(Connection connection, ReservationDTO reservationDTO)
        {
            try
            {
@@ -42,7 +43,7 @@ namespace CentreLocationOutils.facade.implementations
            }
        }
 
-       public   void utiliserReservation(Connection connection, ReservationDTO reservationDTO)
+       public void utiliserReservation(Connection connection, ReservationDTO reservationDTO)
        {
            try
            {
@@ -54,7 +55,7 @@ namespace CentreLocationOutils.facade.implementations
            }
        }
 
-       public   void annulerReservation(Connection connection, ReservationDTO reservationDTO)
+       public void annulerReservation(Connection connection, ReservationDTO reservationDTO)
        {
            try
            {
@@ -66,6 +67,17 @@ namespace CentreLocationOutils.facade.implementations
            }
        }
 
+       public List<ReservationDTO> findByOutil(Connection connection, ReservationDTO reservationDTO)
+       {
+           try
+           {
+               return getReservationService().findByOutil(connection, reservationDTO);
+           }
+           catch (ServiceException serviceException)
+           {
+               throw new FacadeException("", serviceException);
+           }
+       }
        //TODO intégrer les findByXXXXX
 
     }
