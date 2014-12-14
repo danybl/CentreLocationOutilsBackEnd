@@ -75,9 +75,9 @@ namespace CentreLocationOutils.dao.implementations
 
                 command.ExecuteNonQuery();
             }
-            catch (DbException dbException)
+            catch (OracleException dbException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(dbException.Message);
             }
             //finally
             //{
@@ -120,9 +120,9 @@ namespace CentreLocationOutils.dao.implementations
 
                     }
             }
-            catch (DbException dbException)
+            catch (OracleException dbException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(dbException.Message);
             }
             return employeDTO;
         }
@@ -159,7 +159,7 @@ namespace CentreLocationOutils.dao.implementations
 
                 command.ExecuteNonQuery();
             }
-            catch (DbException dbException)
+            catch (OracleException dbException)
             {
                 throw new DAOException(dbException);
             }
@@ -194,9 +194,9 @@ namespace CentreLocationOutils.dao.implementations
                 command.ExecuteNonQuery();
 
             }
-            catch (DbException dbException)
+            catch (OracleException dbException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(dbException.Message);
             }
         }
 
@@ -238,8 +238,10 @@ namespace CentreLocationOutils.dao.implementations
                     }
                         while(dataReader.NextResult());
                     }
-                }catch(DbException dbException){
-                    throw new DAOException(dbException);
+            }
+            catch (OracleException dbException)
+            {
+                    throw new DAOException(dbException.Message);
                 }
             return employes;
         }
@@ -288,9 +290,9 @@ namespace CentreLocationOutils.dao.implementations
                     while (dataReader.NextResult());
                 }
             }
-            catch (DbException dbException)
+            catch (OracleException dbException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(dbException.Message);
             }
             return employes;
         }
