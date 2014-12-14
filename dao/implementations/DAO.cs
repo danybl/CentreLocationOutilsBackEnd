@@ -4,6 +4,7 @@ using CentreLocationOutils.exception.dto;
 using System;
 using System.Data;
 using System.Data.Common;
+using Oracle.DataAccess.Client;
 
 namespace CentreLocationOutils.dao.implementations 
 {
@@ -46,7 +47,7 @@ namespace CentreLocationOutils.dao.implementations
             }
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = createPrimaryKeyRequest;
                 DbDataReader dataReader = command.ExecuteReader();

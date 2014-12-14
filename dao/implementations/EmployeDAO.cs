@@ -62,7 +62,7 @@ namespace CentreLocationOutils.dao.implementations
             try
             {
                // connection.ConnectionOracle.Open();
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = EmployeDAO.ADD_REQUEST;
                 command.Parameters.Add(new OracleParameter("idEmploye", getPrimaryKey(connection, EmployeDAO.CREATE_PRIMARY_KEY)));
