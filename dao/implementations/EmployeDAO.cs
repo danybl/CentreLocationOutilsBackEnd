@@ -12,24 +12,24 @@ namespace CentreLocationOutils.dao.implementations
 {
     public class EmployeDAO : DAO, IEmployeDAO
     {
-        private static   string ADD_REQUEST = "INSERT INTO Employe (idEmploye, nom, prenom, telephone, email, dateRecrutement) "
-      + "VALUES (:idEmploye, :nom, :prenom, :telephone, :email, :dateRecrutement)";
+        private static   string ADD_REQUEST = "INSERT INTO Employe (idEmploye, nom, prenom, telephone, email, dateRecrutement, poste) "
+      + "VALUES (:idEmploye, :nom, :prenom, :telephone, :email, :dateRecrutement, :poste)";
 
-        private static   string READ_REQUEST = "SELECT idEmploye, nom, prenom, telephone, email, dateRecrutement "
+        private static   string READ_REQUEST = "SELECT idEmploye, nom, prenom, telephone, email, dateRecrutement, poste "
            + "FROM employe "
            + "WHERE idEmploye = :idEmploye";
 
         private static   string UPDATE_REQUEST = "UPDATE employe "
-            + "SET nom = :nom, prenom = :prenom, telephone = :telephone, email = :email "
+            + "SET nom = :nom, prenom = :prenom, telephone = :telephone, email = :email, poste = :poste "
             + "WHERE idEmploye = :idEmploye";
 
         private static   string DELETE_REQUEST = "DELETE FROM employe "
             + "WHERE idEmploye = :idEmploye";
 
-        private static   string GET_ALL_REQUEST = "SELECT idEmploye, nom, prenom, telephone, email, dateRecrutement "
+        private static   string GET_ALL_REQUEST = "SELECT idEmploye, nom, prenom, telephone, email, dateRecrutement, poste "
             + "FROM employe";
 
-        private static   string FIND_BY_NOM = "SELECT idEmploye, nom, prenom, telephone, email, dateRecrutement "
+        private static   string FIND_BY_NOM = "SELECT idEmploye, nom, prenom, telephone, email, dateRecrutement, poste "
             + "FROM employe "
             + "where nom like :nom";
 
@@ -70,7 +70,8 @@ namespace CentreLocationOutils.dao.implementations
                 command.Parameters.Add(new OracleParameter(":prenom", employeDTO.Prenom));
                 command.Parameters.Add(new OracleParameter(":telephone", employeDTO.Telephone));
                 command.Parameters.Add(new OracleParameter(":email", employeDTO.Email));
-                command.Parameters.Add(new OracleParameter("idEmploye", employeDTO.IdEmploye));
+                command.Parameters.Add(new OracleParameter(":dateRecrutement", employeDTO.DateRecrutement));
+                command.Parameters.Add(new OracleParameter(":poste", employeDTO.Poste));
 
                 command.ExecuteNonQuery();
             }
@@ -115,6 +116,7 @@ namespace CentreLocationOutils.dao.implementations
                         employeDTO.Telephone = dataReader.GetString(4);
                         employeDTO.Email = dataReader.GetString(5);
                         employeDTO.DateRecrutement = dataReader.GetDateTime(6).ToString();
+                        employeDTO.Poste = dataReader.GetDateTime(7).ToString();
 
                     }
             }
@@ -152,7 +154,7 @@ namespace CentreLocationOutils.dao.implementations
                 command.Parameters.Add(new OracleParameter(":prenom", employeDTO.Prenom));
                 command.Parameters.Add(new OracleParameter(":telephone", employeDTO.Telephone));
                 command.Parameters.Add(new OracleParameter(":email", employeDTO.Email));
-                command.Parameters.Add(new OracleParameter(":dateRecrutement", employeDTO.DateRecrutement));
+                command.Parameters.Add(new OracleParameter(":poste", employeDTO.Poste));
                 command.Parameters.Add(new OracleParameter("idEmploye", employeDTO.IdEmploye));
 
                 command.ExecuteNonQuery();
@@ -231,6 +233,7 @@ namespace CentreLocationOutils.dao.implementations
                         employeDTO.Telephone = dataReader.GetString(4);
                         employeDTO.Email = dataReader.GetString(5);
                         employeDTO.DateRecrutement = dataReader.GetDateTime(6).ToString();
+                        employeDTO.Poste = dataReader.GetDateTime(7).ToString();
                         employes.Add(employeDTO);
                     }
                         while(dataReader.NextResult());
@@ -279,6 +282,7 @@ namespace CentreLocationOutils.dao.implementations
                         employeDTO.Telephone = dataReader.GetString(4);
                         employeDTO.Email = dataReader.GetString(5);
                         employeDTO.DateRecrutement = dataReader.GetDateTime(6).ToString();
+                        employeDTO.Poste = dataReader.GetDateTime(7).ToString();
                         employes.Add(employeDTO);
                     }
                     while (dataReader.NextResult());
