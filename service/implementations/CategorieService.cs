@@ -10,7 +10,7 @@ using System.Data.Common;
 
 namespace CentreLocationOutils.service.implementations
 {
-    public class CategorieService : ICategorieService
+    public class CategorieService : Service, ICategorieService
     {
 
         private ICategorieDAO categorieDAO;
