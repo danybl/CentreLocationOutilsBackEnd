@@ -61,7 +61,7 @@ namespace CentreLocationOutils.dao.implementations
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = CategorieDAO.ADD_REQUEST;
-                command.Parameters.Add(new OracleParameter(":idCategorie", categorieDTO.IdCategorie));
+                command.Parameters.Add(new OracleParameter(":idCategorie", getPrimaryKey(connection, CategorieDAO.CREATE_PRIMARY_KEY)));
                 command.Parameters.Add(new OracleParameter(":nom", categorieDTO.Nom));
                 command.Parameters.Add(new OracleParameter(":description", categorieDTO.Description));
 

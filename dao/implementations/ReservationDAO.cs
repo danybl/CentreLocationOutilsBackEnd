@@ -78,7 +78,7 @@ namespace CentreLocationOutils.dao.implementations
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = ReservationDAO.ADD_REQUEST;
-                command.Parameters.Add(new OracleParameter(":idReservation", reservationDTO.IdReservation));
+                command.Parameters.Add(new OracleParameter(":idReservation", getPrimaryKey(connection, ReservationDAO.CREATE_PRIMARY_KEY)));
                 command.Parameters.Add(new OracleParameter(":idClient", reservationDTO.ClientDTO.IdClient));
                 command.Parameters.Add(new OracleParameter(":idOutil", reservationDTO.OutilDTO.IdOutil));
                 command.Parameters.Add(new OracleParameter(":dateReservation", reservationDTO.DateReservation));

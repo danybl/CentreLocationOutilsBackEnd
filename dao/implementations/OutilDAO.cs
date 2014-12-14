@@ -15,25 +15,25 @@ namespace CentreLocationOutils.dao.implementations
         private static   string ADD_REQUEST = "INSERT INTO outil (idOutil, idCategorie ,nom, numSerie, dateAqcuisition, prixLocation, description) "
       + "VALUES (:idOutil, :idCategorie, :nom, :numSerie, :dateAqcuisition, :prixLocation, :description)";
 
-        private static   string READ_REQUEST = "SELECT idOutil, idCategorie ,nom, numSerie, dateAqcuisition, prixLocation, description "
+        private static string READ_REQUEST = "SELECT idOutil, idCategorie ,nom, numSerie, dateAqcuisition, prixLocation, description "
            + "FROM outil "
            + "WHERE idOutil = :idOutil";
 
-        private static   string UPDATE_REQUEST = "UPDATE outil "
+        private static string UPDATE_REQUEST = "UPDATE outil "
             + "SET idCategorie = :idCategorie, nom = :nom, numSerie = :numSerie, dateAcquisition = :dateAcquisition, prixLocation = :prixLocation, description = :description "
             + "WHERE idOutil = :idOutil";
 
-        private static   string DELETE_REQUEST = "DELETE FROM outil "
+        private static string DELETE_REQUEST = "DELETE FROM outil "
             + "WHERE idOutil = :idOutil";
 
-        private static   string GET_ALL_REQUEST = "SELECT idOutil, idCategorie ,nom, numSerie, dateAqcuisition, prixLocation, description "
+        private static string GET_ALL_REQUEST = "SELECT idOutil, idCategorie ,nom, numSerie, dateAqcuisition, prixLocation, description "
             + "FROM outil";
 
-        private static   string FIND_BY_NOM = "SELECT idOutil, idCategorie ,nom, numSerie, dateAqcuisition, prixLocation, description "
+        private static string FIND_BY_NOM = "SELECT idOutil, idCategorie ,nom, numSerie, dateAqcuisition, prixLocation, description "
             + "FROM outil "
             + "where nom like :nom";
 
-        private static   string CREATE_PRIMARY_KEY = "SELECT SEQ_OUTIL_ID.NEXTVAL from DUAL";
+        private static string CREATE_PRIMARY_KEY = "SELECT SEQ_OUTIL_ID.NEXTVAL from DUAL";
 
 
         //public OutilDAO(OutilDTO outilDTOClass) : base(outilDTOClass) { }
@@ -62,7 +62,7 @@ namespace CentreLocationOutils.dao.implementations
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = OutilDAO.ADD_REQUEST;
-                command.Parameters.Add(new OracleParameter(":idOutil", outilDTO.IdOutil));
+                command.Parameters.Add(new OracleParameter(":idOutil", getPrimaryKey(connection, OutilDAO.CREATE_PRIMARY_KEY)));
                 command.Parameters.Add(new OracleParameter(":idCategorie", outilDTO.IdCategorie));
                 command.Parameters.Add(new OracleParameter(":nom", outilDTO.Nom));
                 command.Parameters.Add(new OracleParameter(":numSerie", outilDTO.NumSerie));

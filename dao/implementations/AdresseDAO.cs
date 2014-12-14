@@ -74,7 +74,7 @@ namespace CentreLocationOutils.dao.implementations
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = AdresseDAO.ADD_REQUEST;
-                command.Parameters.Add(new OracleParameter(":idAdresse", adresseDTO.IdAdresse));
+                command.Parameters.Add(new OracleParameter(":idAdresse", getPrimaryKey(connection, AdresseDAO.CREATE_PRIMARY_KEY)));
                 command.Parameters.Add(new OracleParameter(":numero", adresseDTO.Numero));
                 command.Parameters.Add(new OracleParameter(":rue", adresseDTO.Rue));
                 command.Parameters.Add(new OracleParameter(":appartement", adresseDTO.Appartement));

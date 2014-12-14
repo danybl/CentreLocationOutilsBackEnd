@@ -14,24 +14,24 @@ namespace CentreLocationOutils.dao.implementations
     public class ClientDAO : DAO, IClientDAO
     {
 
-        private static   string ADD_REQUEST = "INSERT INTO Client (idClient, nom, prenom, telephone, email, dateInscription, nbLocations, limiteLocations) "
+        private static string ADD_REQUEST = "INSERT INTO Client (idClient, nom, prenom, telephone, email, dateInscription, nbLocations, limiteLocations) "
        + "VALUES (:idClient, :nom, :prenom, :telephone, :email, :dateInscription, :nbLocations, :limiteLocations)";
 
-        private static   string READ_REQUEST = "SELECT idClient, nom, prenom, telephone, email, dateInscription, nbLocations, limiteLocations "
+        private static string READ_REQUEST = "SELECT idClient, nom, prenom, telephone, email, dateInscription, nbLocations, limiteLocations "
             + "FROM client "
             + "WHERE idClient = :idClient";
 
-        private static   string UPDATE_REQUEST = "UPDATE client "
+        private static string UPDATE_REQUEST = "UPDATE client "
             + "SET nom = :nom, prenom = :prenom, telephone = :telephone, email = :email, nbLocations = :nbLocations, limiteLocations = :limiteLocations "
             + "WHERE idClient = :idClient";
 
-        private static   string DELETE_REQUEST = "DELETE FROM client "
+        private static string DELETE_REQUEST = "DELETE FROM client "
             + "WHERE idClient = :idClient";
 
         private static   string GET_ALL_REQUEST = "SELECT idClient, nom, prenom, telephone, email, dateInscription, nbLocations, limiteLocations "
             + "FROM client";
 
-        private static   string FIND_BY_NOM = "SELECT idClient, nom, prenom, telephone, email, dateInscription, nbLocations, limiteLocations "
+        private static string FIND_BY_NOM = "SELECT idClient, nom, prenom, telephone, email, dateInscription, nbLocations, limiteLocations "
             + "FROM client "
             + "where nom like :nom";
 
@@ -39,7 +39,7 @@ namespace CentreLocationOutils.dao.implementations
         //    + " FROM membre"
         //    + " where telephone = ?";
 
-        private static   string CREATE_PRIMARY_KEY = "SELECT SEQ_CLIENT_ID.NEXTVAL from DUAL";
+        private static string CREATE_PRIMARY_KEY = "SELECT SEQ_CLIENT_ID.NEXTVAL from DUAL";
 
         /// <summary>
         /// Crée le DAO de la table Client <code>client</code>
@@ -79,7 +79,7 @@ namespace CentreLocationOutils.dao.implementations
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = ClientDAO.ADD_REQUEST;
-                command.Parameters.Add(new OracleParameter(":idClient", clientDTO.IdClient));
+                command.Parameters.Add(new OracleParameter(":idClient", getPrimaryKey(connection, ClientDAO.CREATE_PRIMARY_KEY)));
                 command.Parameters.Add(new OracleParameter(":nom", clientDTO.Nom));
                 command.Parameters.Add(new OracleParameter(":prenom", clientDTO.Prenom));
                 command.Parameters.Add(new OracleParameter(":telephone", clientDTO.Telephone));

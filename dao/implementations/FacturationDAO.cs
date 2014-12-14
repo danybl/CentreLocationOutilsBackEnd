@@ -80,7 +80,7 @@ namespace CentreLocationOutils.dao.implementations
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = FacturationDAO.ADD_REQUEST;
-                command.Parameters.Add(new OracleParameter(":idFacturation", facturationDTO.IdFacturation));
+                command.Parameters.Add(new OracleParameter(":idFacturation", getPrimaryKey(connection, FacturationDAO.CREATE_PRIMARY_KEY));
                 command.Parameters.Add(new OracleParameter(":idEmploye", facturationDTO.EmployerDTO.IdEmploye));
                 command.Parameters.Add(new OracleParameter(":idLocation", facturationDTO.LocationDTO.IdLocation));
                 command.Parameters.Add(new OracleParameter(":coutTotal", facturationDTO.CoutTotal));

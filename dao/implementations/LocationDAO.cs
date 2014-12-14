@@ -68,7 +68,7 @@ namespace CentreLocationOutils.dao.implementations
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = LocationDAO.ADD_REQUEST;
-                command.Parameters.Add(new OracleParameter(":idLocation", locationDTO.IdLocation));
+                command.Parameters.Add(new OracleParameter(":idLocation", getPrimaryKey(connection, LocationDAO.CREATE_PRIMARY_KEY)));
                 command.Parameters.Add(new OracleParameter(":idClient", locationDTO.ClientDTO.IdClient));
                 command.Parameters.Add(new OracleParameter(":idEmploye", locationDTO.EmployeDTO.IdEmploye));
                 command.Parameters.Add(new OracleParameter(":idOutil", locationDTO.OutilDTO.IdOutil));
