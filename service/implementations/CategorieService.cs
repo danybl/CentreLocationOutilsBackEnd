@@ -1,31 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using CentreLocationOutils.dao.implementations;
-using CentreLocationOutils.dao.interfaces;
-using CentreLocationOutils.exception.dao;
-using CentreLocationOutils.exception.dto;
-using CentreLocationOutils.exception.service;
-using CentreLocationOutils.exception.db;
+﻿using CentreLocationOutils.dao.interfaces;
 using CentreLocationOutils.db;
 using CentreLocationOutils.dto;
+using CentreLocationOutils.exception.dao;
+using CentreLocationOutils.exception.service;
+using CentreLocationOutils.service.interfaces;
+using System;
+using System.Collections.Generic;
 using System.Data.Common;
 
 namespace CentreLocationOutils.service.implementations
 {
-    class CategorieService
+    public class CategorieService : ICategorieService
     {
 
         private ICategorieDAO categorieDAO;
 
-        public CategorieService(ICategorieDAO categorieDAO) {
+        public CategorieService(ICategorieDAO categorieDAO)
+        {
 
-                if (categorieDAO == null)
-                {
-                    throw new InvalidDAOException("Le DAO de categorie ne peut être null");
-                }
-                setCategorieDAO(categorieDAO);
+            if (categorieDAO == null)
+            {
+                throw new InvalidDAOException("Le DAO de categorie ne peut être null");
+            }
+            setCategorieDAO(categorieDAO);
         }
 
         //set et get
@@ -39,8 +36,10 @@ namespace CentreLocationOutils.service.implementations
         }
 
         //Ajout d'une catégorie
-        public   void add(Connection connection, CategorieDTO categorieDTO) {
-            try {
+        public void add(Connection connection, CategorieDTO categorieDTO)
+        {
+            try
+            {
                 getCategorieDAO().add(connection,
                     categorieDTO);
             }
@@ -50,20 +49,25 @@ namespace CentreLocationOutils.service.implementations
             }
         }
         //Lecture des catégories
-        public   CategorieDTO get(Connection connection, String idCategorie) {
-            try {
-                return (CategorieDTO) getCategorieDAO().get(connection,
+        public CategorieDTO get(Connection connection, String idCategorie)
+        {
+            try
+            {
+                return (CategorieDTO)getCategorieDAO().get(connection,
                     idCategorie);
-            } catch(DbException dbException) {
+            }
+            catch (DbException dbException)
+            {
                 throw new DAOException(dbException);
             }
         }
 
         //Mise à jour d'une catégorie
-        public   void update(Connection connection,
-        CategorieDTO categorieDTO) 
-         {
-            try {
+        public void update(Connection connection,
+        CategorieDTO categorieDTO)
+        {
+            try
+            {
                 getCategorieDAO().update(connection,
                     categorieDTO);
             }
@@ -73,9 +77,11 @@ namespace CentreLocationOutils.service.implementations
             }
         }
         //Suppression d'une catégorie
-        public   void delete(Connection connection,
-        CategorieDTO categorieDTO){
-            try {
+        public void delete(Connection connection,
+        CategorieDTO categorieDTO)
+        {
+            try
+            {
                 getCategorieDAO().delete(connection,
                     categorieDTO);
             }
@@ -85,9 +91,11 @@ namespace CentreLocationOutils.service.implementations
             }
         }
         //Lecture de toutes les catégories
-        public   List<CategorieDTO> getAll(Connection connection,
-        String sortByPropertyName){
-            try {
+        public List<CategorieDTO> getAll(Connection connection,
+        String sortByPropertyName)
+        {
+            try
+            {
                 return (List<CategorieDTO>)getCategorieDAO().getAll(connection,
                     sortByPropertyName);
             }
@@ -97,19 +105,21 @@ namespace CentreLocationOutils.service.implementations
             }
         }
         //Trouver une catégorie par son nom
-        public   List<CategorieDTO> findByNom(Connection connection,
+        public List<CategorieDTO> findByNom(Connection connection,
         String nom,
-        String sortByPropertyName){
-        try {
-            return getCategorieDAO().findByNom(connection,
-                nom,
-                sortByPropertyName);
-        }
-        catch (DbException dbException)
+        String sortByPropertyName)
         {
-            throw new DAOException(dbException);
+            try
+            {
+                return getCategorieDAO().findByNom(connection,
+                    nom,
+                    sortByPropertyName);
+            }
+            catch (DbException dbException)
+            {
+                throw new DAOException(dbException);
+            }
         }
-    }
 
     }
 }
