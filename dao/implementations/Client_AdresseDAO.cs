@@ -27,9 +27,9 @@ namespace CentreLocationOutils.dao.implementations
         private static   string CREATE_PRIMARY_KEY = "SELECT SEQ_CLIENT_ID.NEXTVAL from DUAL";
 
         /// <summary>
-        /// Crée le DAO de la table Client_Adresse <code>client</code>
+        /// Crée le DAO de la table Client_Adresse <code>client_Adresse</code>
         /// </summary>
-        /// <param name="clientDTOClass">La classe de client_AdresseDTO à utiliser</param>
+        /// <param name="client_AdresseDTOClass">La classe de client_AdresseDTO à utiliser</param>
         public Client_AdresseDAO() : base() { }
 
         /// <inheritdoc />
