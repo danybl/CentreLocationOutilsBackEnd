@@ -53,7 +53,7 @@ namespace CentreLocationOutils.service.implementations
         {
             try
             {
-                return (CategorieDTO)getCategorieDAO().get(connection,
+                return getCategorieDAO().get(connection,
                     idCategorie);
             }
             catch (DbException dbException)
@@ -96,7 +96,7 @@ namespace CentreLocationOutils.service.implementations
         {
             try
             {
-                return (List<CategorieDTO>)getCategorieDAO().getAll(connection,
+                return getCategorieDAO().getAll(connection,
                     sortByPropertyName);
             }
             catch (DbException dbException)

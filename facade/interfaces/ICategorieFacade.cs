@@ -10,6 +10,7 @@ namespace CentreLocationOutils.facade.interfaces
 {
     public interface ICategorieFacade : IFacade
     {
-        List<CategorieDTO> findByNom(Connection connection, String nom, String sortByPropertyName);
+        List<CategorieDTO> findByNom(Connection connection, string nom, String sortByPropertyName);
+        CategorieDTO getCategorie(Connection connection, string idCategorie);
     }
 }

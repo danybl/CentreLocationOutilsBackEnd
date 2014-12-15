@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CentreLocationOutils.exception.db;
 
 namespace CentreLocationOutils.facade.implementations
 {
@@ -39,9 +40,23 @@ namespace CentreLocationOutils.facade.implementations
         String nom,
         String sortByPropertyName)
         {
+
             try
             {
                 return getCategorieService().findByNom(connection, nom, sortByPropertyName);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("", serviceException);
+            }
+        }
+
+
+        public CategorieDTO getCategorie(Connection connection, string idCategorie)
+        {
+            try
+            {
+                return getCategorieService().get(connection, idCategorie);
             }
             catch (ServiceException serviceException)
             {
