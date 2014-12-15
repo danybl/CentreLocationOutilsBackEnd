@@ -35,17 +35,12 @@ namespace CentreLocationOutils.dao.implementations
             + "FROM client "
             + "where nom like :nom";
 
-        //private static   string FIND_BY_TEL = "SELECT idClient, nom, telephone, limitePret, nbpret"
-        //    + " FROM membre"
-        //    + " where telephone = ?";
-
         private static string CREATE_PRIMARY_KEY = "SELECT SEQ_CLIENT_ID.NEXTVAL from DUAL";
 
         /// <summary>
         /// Crée le DAO de la table Client <code>client</code>
         /// </summary>
-        /// <param name="clientDTOClass">La classe de membre DTO à utiliser</param>
-        //public ClientDAO(ClientDTO clientDTOClass) : base(clientDTOClass) { }
+        /// <param name="clientDTOClass">La classe de clientDTO à utiliser</param>
 
         public ClientDAO() : base() { }
 
@@ -68,12 +63,6 @@ namespace CentreLocationOutils.dao.implementations
             {
                 throw new InvalidDTOException("Le DTO ne peut être null");
             }
-            //if (!dto.GetType().Equals(getDtoClass()))
-            //{
-            //    throw new InvalidDTOClassException("Le DTO doit être un "
-            //        + getDtoClass().getName());
-            //}
-            //ClientDTO clientDTO = clientDTO;//(ClientDTO) dto;
             try
             {
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
@@ -151,12 +140,6 @@ namespace CentreLocationOutils.dao.implementations
             {
                 throw new InvalidDTOException("Le DTO ne peut être null");
             }
-            //if (!dto.GetType().Equals(getDtoClass()))
-            //{
-            //    throw new InvalidDTOClassException("Le DTO doit être un "
-            //        + getDtoClass().getName());
-            //}
-            //ClientDTO clientDTO = (ClientDTO)dto;
             try
             {
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
@@ -191,13 +174,6 @@ namespace CentreLocationOutils.dao.implementations
             {
                 throw new InvalidDTOException("Le DTO ne peut être null");
             }
-            //if (!dto.GetType().Equals(getDtoClass()))
-            //{
-            //    throw new InvalidDTOClassException("Le DTO doit être un "
-            //        + getDtoClass().getName());
-            //}
-            // ClientDTO clientDTO = (ClientDTO)dto;
-
             try
             {
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
