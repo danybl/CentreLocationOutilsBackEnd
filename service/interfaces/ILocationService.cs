@@ -73,7 +73,7 @@ namespace CentreLocationOutils.service.interfaces
         void terminerLocation(Connection connection, LocationDTO locationDTO);
 
         /// <summary>
-        /// Trouve les clients à partir d'une location. 
+        /// Trouve les locations à partir d'un client. 
         /// Si aucune location n'est trouvé, une liste vide est retournée.  
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>
@@ -83,7 +83,7 @@ namespace CentreLocationOutils.service.interfaces
         List<LocationDTO> findByClient(Connection connection, LocationDTO locationDTO);
 
         /// <summary>
-        /// Trouve les outils à partir d'une location. 
+        /// Trouve les locations à partir d'un outil. 
         /// Si aucune location n'est trouvé, une liste vide est retournée.  
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>
