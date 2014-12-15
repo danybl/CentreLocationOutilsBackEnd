@@ -53,12 +53,18 @@ namespace CentreLocationOutils.service.implementations
         {
             this.locationDAO = locationDAO;
         }
-
+        /// <summary>
+        /// Getter de la variable d'instance <code>this.reservationDAO</code>.
+        /// </summary>
+        /// <returns>La variable d'instance <code>this.reservationDAO</code></returns>
         private IReservationDAO getReservationDAO()
         {
             return this.reservationDAO;
         }
-
+        /// <summary>
+        /// Setter de la variable d'instance <code>this.reservationDAO</code>.
+        /// </summary>
+        /// <param name="reservationDAO">La valeur à utiliser pour la variable d'instance <code>this.reservationDAO</code></param>
         private void setReservationDAO(IReservationDAO reservationDAO)
         {
             this.reservationDAO = reservationDAO;
@@ -135,7 +141,7 @@ namespace CentreLocationOutils.service.implementations
         }
 
         #endregion
-
+        /// <inheritdoc />
         public void commencerLocation(Connection connection, LocationDTO locationDTO)
         {
             if (connection == null)
@@ -198,11 +204,9 @@ namespace CentreLocationOutils.service.implementations
             }
 
             locationDTO.ClientDTO.NbLocations = (int.Parse(locationDTO.ClientDTO.NbLocations + 1)).ToString();
-            //locationDTO.DateLocation = System.DateTime.Today;
-            // locationDTO.DateRetour = null;
             addLocation(connection, locationDTO);
         }
-
+        /// <inheritdoc />
         public void renouvelerLocation(Connection connection, LocationDTO locationDTO)
         {
             if (connection == null)
@@ -222,11 +226,9 @@ namespace CentreLocationOutils.service.implementations
                     + ") est retourné"
                     );
             }
-            //locationDTO.DateLocation = (System.DateTime.Now);
-            //locationDTO.DateRetour = null
             updateLocation(connection, locationDTO);
         }
-
+        /// <inheritdoc />
         public void terminerLocation(Connection connection, LocationDTO locationDTO)
         {
             if (connection == null)
@@ -248,7 +250,6 @@ namespace CentreLocationOutils.service.implementations
             }
 
             locationDTO.ClientDTO.NbLocations = int.Parse(locationDTO.ClientDTO.NbLocations).ToString();
-            //locationDTO.DateRetour = System.DateTime.Now;
             updateLocation(connection, locationDTO);
         }
 
@@ -272,7 +273,7 @@ namespace CentreLocationOutils.service.implementations
                 throw new ServiceException("", daoException);
             }
         }
-
+        /// <inheritdoc />
         public List<LocationDTO> findByOutil(Connection connection, LocationDTO locationDTO)
         {
             if (connection == null)
@@ -292,8 +293,5 @@ namespace CentreLocationOutils.service.implementations
                 throw new ServiceException("", daoException);
             }
         }
-
-
-        //TODO findByDatePret() et findByDateRetour();
     }
 }
