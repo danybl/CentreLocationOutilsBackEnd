@@ -35,9 +35,10 @@ namespace CentreLocationOutils.dao.implementations
 
         private static   string CREATE_PRIMARY_KEY = "SELECT seq_employe_id.NEXTVAL from DUAL";
 
-
-
-        //public EmployeDAO(EmployeDTO employeDTOClass) : base(employeDTOClass) { }
+        /// <summary>
+        /// Crée le DAO de la table Employe <code>employe</code>
+        /// </summary>
+        /// <param name="employeDTOClass">La classe de employeDTO à utiliser</param>
 
         public EmployeDAO() : base() { }
 
@@ -53,16 +54,9 @@ namespace CentreLocationOutils.dao.implementations
             {
                 throw new InvalidDTOException("Le DTO ne peut être null");
             }
-            //if (!dto.GetType().Equals(getDtoClass()))
-            //{
-            //    throw new InvalidDTOClassException("Le DTO doit être un "
-            //        + getDtoClass().getName());
-            //}
-            //EmployeDTO employeDTO = employeDTO;//(EmployeDTO) dto;
             try
             {
-               // connection.ConnectionOracle.Open();
-                OracleCommand command = connection.ConnectionOracle.CreateCommand();
+                DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = EmployeDAO.ADD_REQUEST;
                 command.Parameters.Add(new OracleParameter("idEmploye", getPrimaryKey(connection, EmployeDAO.CREATE_PRIMARY_KEY)));
@@ -75,14 +69,10 @@ namespace CentreLocationOutils.dao.implementations
 
                 command.ExecuteNonQuery();
             }
-            catch (OracleException dbException)
+            catch (DbException dbException)
             {
                 throw new DAOException(dbException.Message);
             }
-            //finally
-            //{
-            //    connection.ConnectionOracle.Close();
-            //}
         }
 
         /// <inheritdoc />
@@ -120,7 +110,7 @@ namespace CentreLocationOutils.dao.implementations
 
                     }
             }
-            catch (OracleException dbException)
+            catch (DbException dbException)
             {
                 throw new DAOException(dbException.Message);
             }
@@ -133,18 +123,12 @@ namespace CentreLocationOutils.dao.implementations
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut être null");
             }
             if (employeDTO == null)
             {
                 throw new InvalidDTOException("Le DTO ne peut être null");
             }
-            //if (!dto.GetType().Equals(getDtoClass()))
-            //{
-            //    throw new InvalidDTOClassException("Le DTO doit être un "
-            //        + getDtoClass().getName());
-            //}
-            //EmployeDTO employeDTO = (EmployeDTO)dto;
             try
             {
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
@@ -159,7 +143,7 @@ namespace CentreLocationOutils.dao.implementations
 
                 command.ExecuteNonQuery();
             }
-            catch (OracleException dbException)
+            catch (DbException dbException)
             {
                 throw new DAOException(dbException);
             }
@@ -171,19 +155,12 @@ namespace CentreLocationOutils.dao.implementations
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut être null");
             }
             if (employeDTO == null)
             {
                 throw new InvalidDTOException("Le DTO ne peut être null");
             }
-            //if (!dto.GetType().Equals(getDtoClass()))
-            //{
-            //    throw new InvalidDTOClassException("Le DTO doit être un "
-            //        + getDtoClass().getName());
-            //}
-           // EmployeDTO employeDTO = (EmployeDTO)dto;
-
             try
             {
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
@@ -194,7 +171,7 @@ namespace CentreLocationOutils.dao.implementations
                 command.ExecuteNonQuery();
 
             }
-            catch (OracleException dbException)
+            catch (DbException dbException)
             {
                 throw new DAOException(dbException.Message);
             }
@@ -206,7 +183,7 @@ namespace CentreLocationOutils.dao.implementations
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut être null");
             }
             if (sortByPropertyName == null)
             {
@@ -239,7 +216,7 @@ namespace CentreLocationOutils.dao.implementations
                         while(dataReader.NextResult());
                     }
             }
-            catch (OracleException dbException)
+            catch (DbException dbException)
             {
                     throw new DAOException(dbException.Message);
                 }
@@ -252,7 +229,7 @@ namespace CentreLocationOutils.dao.implementations
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut être null");
             }
             if (nom == null)
             {
@@ -290,7 +267,7 @@ namespace CentreLocationOutils.dao.implementations
                     while (dataReader.NextResult());
                 }
             }
-            catch (OracleException dbException)
+            catch (DbException dbException)
             {
                 throw new DAOException(dbException.Message);
             }
