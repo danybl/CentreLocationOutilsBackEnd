@@ -22,7 +22,7 @@ namespace CentreLocationOutils.service.implementations
         /// <param name="adresseDAO">Le DAO de la table <code>adresse</code></param>
         public AdresseService(IAdresseDAO adresseDAO)
             : base()
-        {
+            {
             if (adresseDAO == null)
             {
                 throw new InvalidDAOException("Le DAO d'adresse ne peut être null");
@@ -134,12 +134,13 @@ namespace CentreLocationOutils.service.implementations
         #endregion
 
 
-
-        void IAdresseService.get(Connection connection, string idAdresse)
+        /// <inheritdoc />
+        public void IAdresseService.get(Connection connection, string idAdresse)
         {
             throw new NotImplementedException();
         }
 
+        /// <inheritdoc />
         public void changerAdresse(Connection connection, AdresseDTO adresseDTO)
         {
             throw new NotImplementedException();
