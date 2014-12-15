@@ -9,10 +9,17 @@ using System.Collections.Generic;
 
 namespace CentreLocationOutils.service.implementations
 {
+    /// <summary>
+    /// Service de la table <code>employe</code>.
+    /// </summary>
     public class EmployeService : Service, IEmployeService
     {
         private IEmployeDAO employeDAO;
 
+        /// <summary>
+        /// Crée le service de l'employe <code>employe</code>.
+        /// </summary>
+        /// <param name="employeDAO">Le DAO de la table <code>employe</code></param>
         public EmployeService(IEmployeDAO employeDAO)
             : base()
         {
@@ -22,6 +29,8 @@ namespace CentreLocationOutils.service.implementations
             }
             setEmployeDAO(employeDAO);
         }
+
+        #region Getters & Setters
         /// <summary>
         /// Getter de la variable d'instance employeDAO
         /// </summary>
@@ -38,6 +47,10 @@ namespace CentreLocationOutils.service.implementations
         {
             this.employeDAO = employeDAO;
         }
+
+        #endregion
+
+        #region CRUD
         /// <inheritdoc />
         public void addEmploye(Connection connection,
         EmployeDTO employeDTO)
@@ -164,6 +177,6 @@ namespace CentreLocationOutils.service.implementations
             deleteEmploye(connection, employeDTO);
         }
 
-
+        #endregion
     }
 }
