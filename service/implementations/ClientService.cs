@@ -10,10 +10,17 @@ using System.Collections.Generic;
 
 namespace CentreLocationOutils.service.implementations
 {
+    /// <summary>
+    /// Service de la table <code>client</code>.
+    /// </summary>
     public class ClientService : Service, IClientService
     {
         private IClientDAO clientDAO;
-        
+
+        /// <summary>
+        /// Crée le service de la client <code>client</code>.
+        /// </summary>
+        /// <param name="clientDAO">Le DAO de la table <code>client</code></param>
         public ClientService(IClientDAO clientDAO) : base()
         {
           if(clientDAO == null) {
@@ -22,18 +29,30 @@ namespace CentreLocationOutils.service.implementations
         setClientDAO(clientDAO);
         }
 
-        //set et get
+        #region Getters & Setters
+
+        /// <summary>
+        /// Getter de la variable d'instance <code>this.clientDAO</code>.
+        /// </summary>
+        /// <returns>La variable d'instance <code>this.clientDAO</code></returns>
         private IClientDAO getClientDAO()
         {
             return this.clientDAO;
         }
 
+        /// <summary>
+        /// Setter de la variable d'instance <code>this.clientDAO</code>.
+        /// </summary>
+        /// <param name="adresseDAO">La valeur à utiliser pour la variable d'instance <code>this.clientDAO</code></param>
         private void setClientDAO(IClientDAO clientDAO)
         {
             this.clientDAO = clientDAO;
         }
 
-        //Ajout d'un client
+        #endregion
+
+        #region CRUD
+        /// <inheritdoc />
         public void addClient(Connection connection,
         ClientDTO clientDTO)
         {
@@ -46,7 +65,7 @@ namespace CentreLocationOutils.service.implementations
         }
         }
 
-        //Lecture des clients
+        /// <inheritdoc />
         public ClientDTO getClient(Connection connection, String primaryKey)
         {
         try {
@@ -58,7 +77,7 @@ namespace CentreLocationOutils.service.implementations
         }
         }
 
-        //Mise à jour d'un client
+        /// <inheritdoc />
         public void updateClient(Connection connection,
         ClientDTO clientDTO)
         {
@@ -72,7 +91,7 @@ namespace CentreLocationOutils.service.implementations
             }
         }
 
-        //Suppression d'un client
+        /// <inheritdoc />
         public void deleteClient(Connection connection,
         ClientDTO clientDTO)
         {
@@ -86,7 +105,7 @@ namespace CentreLocationOutils.service.implementations
             }
         }
 
-      //Lecture de toutes les clients
+        /// <inheritdoc />
         public List<ClientDTO> getAllClients(Connection connection, String sortByPropertyName)
         {
             try
@@ -99,7 +118,7 @@ namespace CentreLocationOutils.service.implementations
             }
         }
 
-        //Trouver un client par son nom
+        /// <inheritdoc />
         public List<ClientDTO> findByNom(Connection connection, String nom, String sortByPropertyName)
         {
          if (connection == null)
@@ -118,7 +137,7 @@ namespace CentreLocationOutils.service.implementations
          }
        }
 
-        // Inscrire un client
+        /// <inheritdoc />
         public void inscrireClient(Connection connection, ClientDTO clientDTO)
         {
             if (connection == null)
@@ -132,7 +151,7 @@ namespace CentreLocationOutils.service.implementations
             addClient(connection, clientDTO);
         }
 
-        //Desinscrire un client
+        /// <inheritdoc />
          public void desinscrireClient(Connection connection, ClientDTO clientDTO)
          {
             if (connection == null)
@@ -147,7 +166,7 @@ namespace CentreLocationOutils.service.implementations
         }
 
 
-
+         /// <inheritdoc />
          public void mettreAJourClient(Connection connection, ClientDTO clientDTO)
          {
              if (connection == null)
@@ -160,5 +179,6 @@ namespace CentreLocationOutils.service.implementations
              }
              updateClient(connection, clientDTO);
          }
+        #endregion
     }
 }

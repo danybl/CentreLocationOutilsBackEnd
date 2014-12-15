@@ -10,68 +10,69 @@ using CentreLocationOutils.exception.service;
 namespace CentreLocationOutils.service.interfaces
 {
     /// <summary>
-    /// 
+    /// Interface de base pour les services.<br/>
+    /// Toutes les interfaces de service devrait en hériter.
     /// </summary>
     public interface IClientService : IService
     {
-        /**
-        * Ajoute une nouveau client.
-        *
-        * @param connection La connection à utiliser
-        * @param clientDTO Le client à ajouter
-        */
+        /// <summary>
+        /// Ajoute une nouveau client dans la base de données.
+        /// </summary>
+        /// <param name="connection">La connection à utiliser</param>
+        /// <param name="clientDTO">clientDTO Le client à ajouter</param>
         void addClient(Connection connection, ClientDTO clientDTO);
-        /**
-        * Lit une client.
-        *
-        * @param connection La connection à utiliser
-        * @param clientDTO La client à lire
-        */
+        /// <summary>
+        /// Lit un client à partir de la base de données.
+        /// </summary>
+        /// <param name="connection">La connection à utiliser</param>
+        /// <param name="clientDTO">Le client à trouver</param>
         ClientDTO getClient(Connection connection, String idClient);
-        /**
-        * Met à jour un client.
-        *
-        * @param connection La connection à utiliser
-        * @param clientDTO Le client à mettre à jour
-        */
+        /// <summary>
+        /// Met à jour un client dans la base de données.
+        /// </summary>
+        /// <param name="connection">La connexion à utiliser</param>
+        /// <param name="clientDTO">Le client à mettre à jour</param>
         void updateClient(Connection connection, ClientDTO clientDTO);
-        /**
-        * Efface une client.
-        *
-        * @param connection La connection à utiliser
-        * @param clientDTO La client à effacer
-        */
+        /// <summary>
+        /// Supprime un client de la base de données.
+        /// </summary>
+        /// <param name="connection">La connexion à utiliser</param>
+        /// <param name="clientDTO">Le client à enlever</param>
         void deleteClient(Connection connection, ClientDTO clientDTO);
-        /**
-        * Trouve tous les clients. La liste est classée par ordre croissant sur <code>sortByPropertyName</code>. Si aucun
-        * client n'est trouvé, une {@link List} vide est retournée.
-        *
-        * @param connection La connection à utiliser
-        * @param clientDTO Le client à lire
-        */
+        /// <summary>
+        /// Trouve tous les clients de la base de données. 
+        /// </summary>
+        /// <param name="connection">La connexion à utiliser</param>
+        /// <param name="sortByPropertyName">La liste est classée par ordre croissant sur <code>sortByPropertyName</code>.</param>
+        /// <returns>Si aucun client n'est trouvé, une liste vide est retournée.</returns>
         List<ClientDTO> getAllClients(Connection connection,
         String sortByPropertyName);
-        /*Trouve un client à partir d'un nom
-        *
-        *@param connection La connection à utiliser
-        *@param nom Le nom à trouver
-        *@param sortByPropertyName Le nom de la propriété à utiliser pour classer
-        */
+        /// <summary>
+        /// Trouve les clients à partir d'un nom. La liste est classée par ordre croissant sur <code>sortByPropertyName</code>. 
+        /// Si aucun clients n'est trouvé, une liste vide est retournée.
+        /// </summary>
+        /// <param name="connection">La connexion à utiliser</param>
+        /// <param name="nom">Le nom à trouver</param>
+        /// <param name="sortByPropertyName">La liste est classée par ordre croissant sur <code>sortByPropertyName</code>.</param>
+        /// <returns>Si aucun client n'est trouvée, une liste vide est retournée.</returns>
         List<ClientDTO> findByNom(Connection connection, String nom, String SortByPropertyName);
-
-        /*Inscrit un client
-        *
-        *@param connection La connection à utiliser
-        *@param clientDTO Le client à inscrire
-        */
+        /// <summary>
+        /// Inscrire un client.
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="clientDTO"></param>
         void inscrireClient(Connection connection, ClientDTO clientDTO);
-        /*Desinscrit un client
-        *
-        *@param connection La connection à utiliser
-        *@param clientDTO Le client à desinscrire
-        */
+        /// <summary>
+        /// Desinscrire un client.
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="clientDTO"></param>
         void desinscrireClient(Connection connection, ClientDTO clientDTO);
-
+        /// <summary>
+        /// Mettre à jour un client.
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="clientDTO"></param>
         void mettreAJourClient(Connection connection, ClientDTO clientDTO);
     }
 }
