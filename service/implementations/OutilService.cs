@@ -9,10 +9,18 @@ using System.Collections.Generic;
 
 namespace CentreLocationOutils.service.implementations
 {
+    /// <summary>
+    /// Service de la table <code>outil</code>.
+    /// </summary>
     public class OutilService : Service, IOutilService
     {
         private IOutilDAO outilDAO;
 
+
+        /// <summary>
+        /// Crée le service de la table <code>outil</code>.
+        /// </summary>
+        /// <param name="outilDAO">Le DAO de la table <code>outil</code></param>
         public OutilService(IOutilDAO outilDAO)
             : base()
         {
@@ -22,7 +30,7 @@ namespace CentreLocationOutils.service.implementations
             }
             setOutilDAO(outilDAO);
         }
-
+        #region Getters & Setters
         /// <summary>
         /// Getter de la variable d'instance outilDAO
         /// </summary>
@@ -39,7 +47,9 @@ namespace CentreLocationOutils.service.implementations
         {
             this.outilDAO = outilDAO;
         }
+        #endregion
 
+        #region CRUD
         /// <inheritdoc />
         public void addOutil(Connection connection,
         OutilDTO outilDTO)
@@ -113,7 +123,7 @@ namespace CentreLocationOutils.service.implementations
                 throw new ServiceException(daoException.Message);
             }
         }
-
+        /// <inheritdoc />
         public void acquerirOutil(Connection connection, OutilDTO outilDTO)
         {
             if (connection == null)
@@ -133,6 +143,7 @@ namespace CentreLocationOutils.service.implementations
                 throw new ServiceException("", daoException);
             }
         }
+        /// <inheritdoc />
         public void vendreOutil(Connection connection, OutilDTO outilDTO)
         {
             if (connection == null)
@@ -152,7 +163,7 @@ namespace CentreLocationOutils.service.implementations
                 throw new ServiceException("", daoException);
             }
         }
-
+        /// <inheritdoc />
         public List<OutilDTO> findByNom(Connection connection, OutilDTO outilDTO)
         {
             if (connection == null)
@@ -173,6 +184,6 @@ namespace CentreLocationOutils.service.implementations
             }
         }
 
-
+        #endregion
     }
 }
