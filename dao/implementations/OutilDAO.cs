@@ -36,10 +36,14 @@ namespace CentreLocationOutils.dao.implementations
         private static string CREATE_PRIMARY_KEY = "SELECT SEQ_OUTIL_ID.NEXTVAL from DUAL";
 
 
-        //public OutilDAO(OutilDTO outilDTOClass) : base(outilDTOClass) { }
+        /// <summary>
+        /// Crée le DAO de la table Outil <code>outil</code>
+        /// </summary>
+        /// <param name="outilDTOClass">La classe de outil DTO à utiliser</param>
 
         public OutilDAO() : base() { }
 
+        /// <inheritdoc />
         public void add(Connection connection,
         OutilDTO outilDTO)
         {
@@ -51,12 +55,6 @@ namespace CentreLocationOutils.dao.implementations
             {
                 throw new InvalidDTOException("Le DTO ne peut être null");
             }
-            //if (!dto.GetType().Equals(getDtoClass()))
-            //{
-            //    throw new InvalidDTOClassException("Le DTO doit être un "
-            //        + getDtoClass().getName());
-            //}
-            //OutilDTO outilDTO = outilDTO;//(OutilDTO) dto;
             try
             {
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
@@ -78,6 +76,7 @@ namespace CentreLocationOutils.dao.implementations
             }
         }
 
+        /// <inheritdoc />
         public OutilDTO get(Connection connection,
         string primaryKey)
         {
@@ -119,23 +118,18 @@ namespace CentreLocationOutils.dao.implementations
             return outilDTO;
         }
 
+        /// <inheritdoc />
         public void update(Connection connection,
         OutilDTO outilDTO)
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut être null");
             }
             if (outilDTO == null)
             {
                 throw new InvalidDTOException("Le DTO ne peut être null");
             }
-            //if (!dto.GetType().Equals(getDtoClass()))
-            //{
-            //    throw new InvalidDTOClassException("Le DTO doit être un "
-            //        + getDtoClass().getName());
-            //}
-            //OutilDTO outilDTO = (OutilDTO)dto;
             try
             {
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
@@ -157,24 +151,18 @@ namespace CentreLocationOutils.dao.implementations
             }
         }
 
+        /// <inheritdoc />
         public void delete(Connection connection,
         OutilDTO outilDTO)
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut être null");
             }
             if (outilDTO == null)
             {
                 throw new InvalidDTOException("Le DTO ne peut être null");
             }
-            //if (!dto.GetType().Equals(getDtoClass()))
-            //{
-            //    throw new InvalidDTOClassException("Le DTO doit être un "
-            //        + getDtoClass().getName());
-            //}
-           // OutilDTO outilDTO = (OutilDTO)dto;
-
             try
             {
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
@@ -190,13 +178,13 @@ namespace CentreLocationOutils.dao.implementations
             }
         }
 
-
+        /// <inheritdoc />
         public List<OutilDTO> getAll(Connection connection,
         string sortByPropertyName)
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut être null");
             }
             if (sortByPropertyName == null)
             {
@@ -234,13 +222,13 @@ namespace CentreLocationOutils.dao.implementations
             return outils;
         }
 
-
+        /// <inheritdoc />
         public List<OutilDTO> findByNom(Connection connection, string nom,
         string sortByPropertyName)
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut être null");
             }
             if (nom == null)
             {
