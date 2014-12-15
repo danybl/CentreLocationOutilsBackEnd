@@ -36,7 +36,7 @@ namespace CentreLocationOutils.dao.implementations
         private static string CREATE_PRIMARY_KEY = "SELECT SEQ_CATEG_ID.NEXTVAL from DUAL";
 
         /// <summary>
-        /// Cree le DAO de la table categorie
+        /// Crée le DAO de la table categorie
         /// </summary>
         /// <param name="categorieDTOClass">La classe de categorieDTO à utiliser</param>
         public CategorieDAO() : base() { }

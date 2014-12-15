@@ -39,9 +39,9 @@ namespace CentreLocationOutils.dao.implementations
             + "WHERE ville = :ville";
 
         /// <summary>
-        /// Cree le DAO de la table adresse
+        /// Crée le DAO de la table adresse
         /// </summary>
-        /// <param name="adresseDTOClass">La classe de adresseDTO a utiliser</param>
+        /// <param name="adresseDTOClass">La classe de adresseDTO à utiliser</param>
         public AdresseDAO() : base() { }
 
         /// <inheritdoc />
