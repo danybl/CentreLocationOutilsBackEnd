@@ -10,11 +10,18 @@ using System.Data.Common;
 
 namespace CentreLocationOutils.service.implementations
 {
+    /// <summary>
+    /// Service de la table <code>categorie</code>.
+    /// </summary>
     public class CategorieService : Service, ICategorieService
     {
 
         private ICategorieDAO categorieDAO;
 
+        /// <summary>
+        /// Crée le service de la table <code>categorie</code>.
+        /// </summary>
+        /// <param name="categorieDAO">Le DAO de la table <code>categorie</code></param>
         public CategorieService(ICategorieDAO categorieDAO)
         {
 
@@ -25,17 +32,29 @@ namespace CentreLocationOutils.service.implementations
             setCategorieDAO(categorieDAO);
         }
 
-        //set et get
+        #region Getters & Setters
+
+        /// <summary>
+        /// Getter de la variable d'instance <code>this.categorieDAO</code>.
+        /// </summary>
+        /// <returns>La variable d'instance <code>this.categorieDAO</code></returns>
         private ICategorieDAO getCategorieDAO()
         {
             return this.categorieDAO;
         }
+        /// <summary>
+        /// Setter de la variable d'instance <code>this.categorieDAO</code>.
+        /// </summary>
+        /// <param name="categorieDAO">La valeur à utiliser pour la variable d'instance <code>this.categorieDAO</code></param>
         private void setCategorieDAO(ICategorieDAO categorieDAO)
         {
             this.categorieDAO = categorieDAO;
         }
 
-        //Ajout d'une catégorie
+        #endregion
+
+        #region CRUD
+        /// <inheritdoc />
         public void add(Connection connection, CategorieDTO categorieDTO)
         {
             try
@@ -48,7 +67,7 @@ namespace CentreLocationOutils.service.implementations
                 throw new DAOException(dbException);
             }
         }
-        //Lecture des catégories
+        /// <inheritdoc />
         public CategorieDTO get(Connection connection, String idCategorie)
         {
             try
@@ -62,7 +81,7 @@ namespace CentreLocationOutils.service.implementations
             }
         }
 
-        //Mise à jour d'une catégorie
+        /// <inheritdoc />
         public void update(Connection connection,
         CategorieDTO categorieDTO)
         {
@@ -76,7 +95,7 @@ namespace CentreLocationOutils.service.implementations
                 throw new DAOException(dbException);
             }
         }
-        //Suppression d'une catégorie
+        /// <inheritdoc />
         public void delete(Connection connection,
         CategorieDTO categorieDTO)
         {
@@ -90,7 +109,7 @@ namespace CentreLocationOutils.service.implementations
                 throw new DAOException(dbException);
             }
         }
-        //Lecture de toutes les catégories
+        /// <inheritdoc />
         public List<CategorieDTO> getAll(Connection connection,
         String sortByPropertyName)
         {
@@ -104,7 +123,7 @@ namespace CentreLocationOutils.service.implementations
                 throw new DAOException(dbException);
             }
         }
-        //Trouver une catégorie par son nom
+        /// <inheritdoc />
         public List<CategorieDTO> findByNom(Connection connection,
         String nom,
         String sortByPropertyName)
@@ -120,6 +139,6 @@ namespace CentreLocationOutils.service.implementations
                 throw new DAOException(dbException);
             }
         }
-
+        #endregion
     }
 }
