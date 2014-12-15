@@ -39,10 +39,9 @@ namespace CentreLocationOutils.dao.implementations
             + "WHERE ville = :ville";
 
         /// <summary>
-        /// Crée le DAO de la table adresse
+        /// Cree le DAO de la table adresse
         /// </summary>
-        /// <param name="reservationDTOClass">La classe de réservationDTO à utiliser</param>
-        //public AdresseDAO(AdresseDTO adresseDTOClass) : base(adresseDTOClass) { }
+        /// <param name="adresseDTOClass">La classe de adresseDTO a utiliser</param>
         public AdresseDAO() : base() { }
 
         /// <inheritdoc />
@@ -57,18 +56,12 @@ namespace CentreLocationOutils.dao.implementations
         {
             if (connection == null)
             {
-                throw new InvalidConnectionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut etre null");
             }
             if (adresseDTO == null)
             {
-                throw new InvalidDTOException("Le DTO ne peut être null");
+                throw new InvalidDTOException("Le DTO ne peut etre null");
             }
-            //if (!dto.GetType().Equals(getDtoClass()))
-            //{
-            //    throw new InvalidDTOClassException("Le DTO doit être un "
-            //        + getDtoClass().getName());
-            //}
-            //EmployeDTO employeDTO = employeDTO;//(EmployeDTO) dto;
             try
             {
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
@@ -97,11 +90,11 @@ namespace CentreLocationOutils.dao.implementations
         {
             if (connection == null)
             {
-                throw new InvalidConnectionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut etre null");
             }
             if (primaryKey == null)
             {
-                throw new InvalidPrimaryKeyException("La clef primaire ne peut être null");
+                throw new InvalidPrimaryKeyException("La clef primaire ne peut etre null");
             }
             string idReservation = primaryKey.ToString();
             AdresseDTO adresseDTO = null;
@@ -135,22 +128,16 @@ namespace CentreLocationOutils.dao.implementations
         }
 
         /// <inheritdoc />
-        public   void update(Connection connection, AdresseDTO adresseDTO)
+        public void update(Connection connection, AdresseDTO adresseDTO)
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut etre null");
             }
             if (adresseDTO == null)
             {
-                throw new InvalidDTOException("Le DTO ne peut être null");
+                throw new InvalidDTOException("Le DTO ne peut etre null");
             }
-            //if (!dto.GetType().Equals(getDtoClass()))
-            //{
-            //    throw new InvalidDTOClassException("Le DTO doit être un "
-            //        + getDtoClass().getName());
-            //}
-            //EmployeDTO employeDTO = (EmployeDTO)dto;
             try
             {
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
@@ -175,23 +162,16 @@ namespace CentreLocationOutils.dao.implementations
         }
 
         /// <inheritdoc />
-        public   void delete(Connection connection, AdresseDTO adresseDTO)
+        public void delete(Connection connection, AdresseDTO adresseDTO)
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut etre null");
             }
             if (adresseDTO == null)
             {
-                throw new InvalidDTOException("Le DTO ne peut être null");
+                throw new InvalidDTOException("Le DTO ne peut etre null");
             }
-            //if (!dto.GetType().Equals(getDtoClass()))
-            //{
-            //    throw new InvalidDTOClassException("Le DTO doit être un "
-            //        + getDtoClass().getName());
-            //}
-            // EmployeDTO employeDTO = (EmployeDTO)dto;
-
             try
             {
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
@@ -211,11 +191,11 @@ namespace CentreLocationOutils.dao.implementations
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut etre null");
             }
             if (sortByPropertyName == null)
             {
-                throw new InvalidSortByPropertyException("La propriété utilisée pour classer ne peut être null");
+                throw new InvalidSortByPropertyException("La propriete utilisee pour classer ne peut etre null");
             }
             List<AdresseDTO> adresses = new List<AdresseDTO>();
 
@@ -226,7 +206,7 @@ namespace CentreLocationOutils.dao.implementations
                 command.CommandText = AdresseDAO.FINF_BY_VILLE;
 
                 DbDataReader dataReader = command.ExecuteReader();
-                AdresseDTO adresseDTO= null;
+                AdresseDTO adresseDTO = null;
 
                 if (dataReader.NextResult())
                 {
@@ -234,14 +214,14 @@ namespace CentreLocationOutils.dao.implementations
                     do
                     {
                         adresseDTO = new AdresseDTO();
-                    adresseDTO.IdAdresse = dataReader.GetString(1);
-                    adresseDTO.Numero = dataReader.GetString(2);
-                    adresseDTO.Rue = dataReader.GetString(3);
-                    adresseDTO.Appartement = dataReader.GetString(4);
-                    adresseDTO.CodePostal = dataReader.GetString(5);
-                    adresseDTO.Ville = dataReader.GetString(6);
-                    adresseDTO.Province = dataReader.GetString(7);
-                    adresseDTO.Pays = dataReader.GetString(8);
+                        adresseDTO.IdAdresse = dataReader.GetString(1);
+                        adresseDTO.Numero = dataReader.GetString(2);
+                        adresseDTO.Rue = dataReader.GetString(3);
+                        adresseDTO.Appartement = dataReader.GetString(4);
+                        adresseDTO.CodePostal = dataReader.GetString(5);
+                        adresseDTO.Ville = dataReader.GetString(6);
+                        adresseDTO.Province = dataReader.GetString(7);
+                        adresseDTO.Pays = dataReader.GetString(8);
 
                         adresses.Add(adresseDTO);
                     }
@@ -260,15 +240,15 @@ namespace CentreLocationOutils.dao.implementations
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut etre null");
             }
             if (ville == null)
             {
-                throw new InvalidCriterionException("La ville ne peut être null");
+                throw new InvalidCriterionException("La ville ne peut etre null");
             }
             if (sortByPropertyName == null)
             {
-                throw new InvalidSortByPropertyException("La propriété utilisée pour classer ne peut être null");
+                throw new InvalidSortByPropertyException("La propriete utilisee pour classer ne peut etre null");
             }
 
             List<AdresseDTO> adresses = new List<AdresseDTO>();
