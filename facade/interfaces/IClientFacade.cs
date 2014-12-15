@@ -17,6 +17,6 @@ namespace CentreLocationOutils.facade.interfaces
 
         void desinscrire(Connection connection, ClientDTO clientDTO);
 
-
+        void mettreAJourClient(Connection connection, ClientDTO clientDTO);
     }
 }

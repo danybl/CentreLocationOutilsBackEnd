@@ -71,6 +71,8 @@ namespace CentreLocationOutils.service.interfaces
         *@param clientDTO Le client à desinscrire
         */
         void desinscrireClient(Connection connection, ClientDTO clientDTO);
+
+        void mettreAJourClient(Connection connection, ClientDTO clientDTO);
     }
 }
 

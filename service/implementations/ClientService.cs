@@ -146,5 +146,19 @@ namespace CentreLocationOutils.service.implementations
             deleteClient(connection, clientDTO);
         }
 
+
+
+         public void mettreAJourClient(Connection connection, ClientDTO clientDTO)
+         {
+             if (connection == null)
+             {
+                 throw new InvalidConnectionException("La connection ne peut être null");
+             }
+             if (clientDTO == null)
+             {
+                 throw new InvalidDTOException("Le client ne peut être null");
+             }
+             updateClient(connection, clientDTO);
+         }
     }
 }

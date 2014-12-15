@@ -85,5 +85,17 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("", serviceException);
             }
         }
+
+        public void mettreAJourClient(Connection connection, ClientDTO clientDTO)
+        {
+            try
+            {
+                getClientService().updateClient(connection, clientDTO);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("", serviceException);
+            }
+        }
     }
 }
