@@ -43,7 +43,7 @@ namespace CentreLocationOutils.service.implementations
         /// <summary>
         /// Setter de la variable d'instance <code>this.clientDAO</code>.
         /// </summary>
-        /// <param name="adresseDAO">La valeur à utiliser pour la variable d'instance <code>this.clientDAO</code></param>
+        /// <param name="clientDAO">La valeur à utiliser pour la variable d'instance <code>this.clientDAO</code></param>
         private void setClientDAO(IClientDAO clientDAO)
         {
             this.clientDAO = clientDAO;
