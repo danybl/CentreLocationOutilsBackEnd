@@ -12,28 +12,24 @@ namespace CentreLocationOutils.dao.implementations
     {
         private dynamic dtoClass;
 
-        //protected DAO(dynamic dtoClass)
-        //    : base()
-        //{
-        //    if (dtoClass == null)
-        //    {
-        //        throw new InvalidDTOClassException("La classe de DTO ne peut être null");
-        //    }
-        //    setDtoClass(dtoClass);
-        //}
-
+        /// <summary>
+        /// Le DAO.
+        /// </summary>
         protected DAO() :base() { }
 
+        /// <inheritdoc />
         protected dynamic getDtoClass()
         {
             return this.dtoClass;
         }
 
+        /// <inheritdoc />
         private void setDtoClass(dynamic dtoClass)
         {
             this.dtoClass = dtoClass;
         }
 
+        /// <inheritdoc />
         protected static string getPrimaryKey(Connection connection,
         string createPrimaryKeyRequest)
         {
