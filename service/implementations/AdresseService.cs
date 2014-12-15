@@ -133,13 +133,6 @@ namespace CentreLocationOutils.service.implementations
 
         #endregion
 
-
-        /// <inheritdoc />
-        public void IAdresseService.get(Connection connection, string idAdresse)
-        {
-            throw new NotImplementedException();
-        }
-
         /// <inheritdoc />
         public void changerAdresse(Connection connection, AdresseDTO adresseDTO)
         {

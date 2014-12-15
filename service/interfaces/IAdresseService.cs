@@ -26,7 +26,7 @@ namespace CentreLocationOutils.service.interfaces
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>
         /// <param name="adresseDTO">L'adresse à trouver</param>
-        void get(Connection connection, string idAdresse);
+        AdresseDTO get(Connection connection, string idAdresse);
 
         /// <summary>
         /// Met à jour une adresse dans la base de données.
