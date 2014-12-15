@@ -46,14 +46,14 @@ namespace CentreLocationOutils.dao.implementations
         /// Crée le DAO de la table réservation
         /// </summary>
         /// <param name="reservationDTOClass">La classe de réservationDTO à utiliser</param>
-        //public ReservationDAO(ReservationDTO reservationDTOClass) : base(reservationDTOClass) { }
-
+       
         public ReservationDAO() : base() { }
 
+        /// <inheritdoc />
         private static String getPrimaryKey(Connection connection) {
         return DAO.getPrimaryKey(connection,
             ReservationDAO.CREATE_PRIMARY_KEY);
-    }
+       }
 
         /// <inheritdoc />
         public void add(Connection connection,
@@ -67,12 +67,6 @@ namespace CentreLocationOutils.dao.implementations
             {
                 throw new InvalidDTOException("Le DTO ne peut être null");
             }
-            //if (!dto.GetType().Equals(getDtoClass()))
-            //{
-            //    throw new InvalidDTOClassException("Le DTO doit être un "
-            //        + getDtoClass().getName());
-            //}
-            //EmployeDTO employeDTO = employeDTO;//(EmployeDTO) dto;
             try
             {
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
@@ -143,18 +137,12 @@ namespace CentreLocationOutils.dao.implementations
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut être null");
             }
             if (reservationDTO == null)
             {
                 throw new InvalidDTOException("Le DTO ne peut être null");
             }
-            //if (!dto.GetType().Equals(getDtoClass()))
-            //{
-            //    throw new InvalidDTOClassException("Le DTO doit être un "
-            //        + getDtoClass().getName());
-            //}
-            //EmployeDTO employeDTO = (EmployeDTO)dto;
             try
             {
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
@@ -177,19 +165,12 @@ namespace CentreLocationOutils.dao.implementations
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut être null");
             }
             if (reservationDTO == null)
             {
                 throw new InvalidDTOException("Le DTO ne peut être null");
             }
-            //if (!dto.GetType().Equals(getDtoClass()))
-            //{
-            //    throw new InvalidDTOClassException("Le DTO doit être un "
-            //        + getDtoClass().getName());
-            //}
-            // EmployeDTO employeDTO = (EmployeDTO)dto;
-
             try
             {
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
@@ -210,7 +191,7 @@ namespace CentreLocationOutils.dao.implementations
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut être null");
             }
             if (sortByPropertyName == null)
             {
