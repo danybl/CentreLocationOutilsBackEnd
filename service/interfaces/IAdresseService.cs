@@ -25,21 +25,21 @@ namespace CentreLocationOutils.service.interfaces
         /// Lit une adresse à partir de la base de données.
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>
-        /// <param name="adresseDTO">L'adresse à ajouter</param>
+        /// <param name="adresseDTO">L'adresse à trouver</param>
         void get(Connection connection, string idAdresse);
 
         /// <summary>
         /// Met à jour une adresse dans la base de données.
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>
-        /// <param name="adresseDTO">L'adresse à ajouter</param>
+        /// <param name="adresseDTO">L'adresse à mettre à jour</param>
         void update(Connection connection, AdresseDTO adresseDTO);
 
         /// <summary>
         /// Supprime une adresse de la base de données.
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>
-        /// <param name="adresseDTO">L'adresse à ajouter</param>
+        /// <param name="adresseDTO">L'adresse à enlever</param>
         void delete(Connection connection, AdresseDTO adresseDTO);
 
         /// <summary>
