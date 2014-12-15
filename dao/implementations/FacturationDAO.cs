@@ -46,8 +46,7 @@ namespace CentreLocationOutils.dao.implementations
         /// Crée le DAO de la table Facturation <code>facturation</code>
         /// </summary>
         /// <param name="facturationDTOClass">La classe de facturation DTO à utiliser</param>
-        //public FacturationDAO(FacturationDTO facturationDTOClass) : base(facturationDTOClass) { }
-
+        
         public FacturationDAO() : base() { }
 
         /// <inheritdoc />
@@ -69,12 +68,6 @@ namespace CentreLocationOutils.dao.implementations
             {
                 throw new InvalidDTOException("Le DTO ne peut être null");
             }
-            //if (!dto.GetType().Equals(getDtoClass()))
-            //{
-            //    throw new InvalidDTOClassException("Le DTO doit être un "
-            //        + getDtoClass().getName());
-            //}
-            //EmployeDTO employeDTO = employeDTO;//(EmployeDTO) dto;
             try
             {
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
@@ -93,6 +86,7 @@ namespace CentreLocationOutils.dao.implementations
             }
         }
 
+        /// <inheritdoc />
         public FacturationDTO get(Connection connection,
         string primaryKey)
         {
@@ -141,18 +135,12 @@ namespace CentreLocationOutils.dao.implementations
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut être null");
             }
             if (facturationDTO == null)
             {
                 throw new InvalidDTOException("Le DTO ne peut être null");
             }
-            //if (!dto.GetType().Equals(getDtoClass()))
-            //{
-            //    throw new InvalidDTOClassException("Le DTO doit être un "
-            //        + getDtoClass().getName());
-            //}
-            //EmployeDTO employeDTO = (EmployeDTO)dto;
             try
             {
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
@@ -175,19 +163,12 @@ namespace CentreLocationOutils.dao.implementations
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut être null");
             }
             if (facturationDTO == null)
             {
                 throw new InvalidDTOException("Le DTO ne peut être null");
             }
-            //if (!dto.GetType().Equals(getDtoClass()))
-            //{
-            //    throw new InvalidDTOClassException("Le DTO doit être un "
-            //        + getDtoClass().getName());
-            //}
-            // EmployeDTO employeDTO = (EmployeDTO)dto;
-
             try
             {
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
@@ -209,7 +190,7 @@ namespace CentreLocationOutils.dao.implementations
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut être null");
             }
             if (sortByPropertyName == null)
             {
@@ -258,7 +239,7 @@ namespace CentreLocationOutils.dao.implementations
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut être null");
             }
             if (idEmploye == null)
             {
@@ -311,7 +292,7 @@ namespace CentreLocationOutils.dao.implementations
         {
             if (connection == null)
             {
-                //throw new InvalidHibernateSessionException("La connexion ne peut être null");
+                throw new InvalidConnectionException("La connexion ne peut être null");
             }
             if (idClient == null)
             {

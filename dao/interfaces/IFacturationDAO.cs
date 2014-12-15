@@ -18,7 +18,7 @@ namespace CentreLocationOutils.dao.interfaces
         /// <summary>
         /// Lit un DTO à partir de la base de données
         /// </summary>
-        /// <param name="connection">La connection ;a utiliser</param>
+        /// <param name="connection">La connection à utiliser</param>
         /// <param name="primaryKey">La clé primaire du DTO à lire</param>
         /// <returns>Le DTO à retourner</returns>
         FacturationDTO get(Connection connection,
@@ -45,28 +45,28 @@ namespace CentreLocationOutils.dao.interfaces
         /// DTO n'est trouvé, une List vide est retournée.
         /// </summary>
         /// <param name="connection">La connection à utiliser</param>
-        /// <param name="sortByPropertyName">Le nom de la propriété à uriliser pour classer la liste</param>
+        /// <param name="sortByPropertyName">Le nom de la propriété à utiliser pour classer la liste</param>
         /// <returns>La liste de tous les DTOs</returns>
         List<FacturationDTO> getAll(Connection connection,
        string sortByPropertyName);
 
         /// <summary>
         /// Trouve les prêts à partir d'un client. La liste est classée par ordre croissant sur <code>sortByPropertyName</code>. 
-        /// Si aucun prêt n'est trouvé, une {@link List} vide est retournée.
+        /// Si aucun prêt n'est trouvé, une liste vide est retournée.
         /// </summary>
         /// <param name="connection">La connection à utiliser</param>
-        /// <param name="sortByPropertyName">Le nom de la propriété à uriliser pour classer la liste</param>
-        /// <returns>La liste des factures correspondants ; une liste vide sinon</returns>
+        /// <param name="sortByPropertyName">Le nom de la propriété à utiliser pour classer la liste</param>
+        /// <returns>La liste des factures correspondants à une liste vide sinon</returns>
         List<FacturationDTO> findByClient(Connection connection, string idClient, string sortByPropertyName);
 
         /// <summary>
         /// Trouve les prêts à partir d'un employe. La liste est classée par ordre croissant sur <code>sortByPropertyName</code>. 
-        /// Si aucun prêt n'est trouvé, une {@link List} vide est retournée.
+        /// Si aucun prêt n'est trouvé, une liste vide est retournée.
         /// </summary>
         /// <param name="connection">La connection à utiliser</param>
         /// <param name="idEmploye">L'ID du employe à trouver</param>
-        /// <param name="sortByPropertyName">Le nom de la propriété à uriliser pour classer la liste</param>
-        /// <returns>La liste des factures correspondants ; une liste vide sinon</returns>
+        /// <param name="sortByPropertyName">Le nom de la propriété à utiliser pour classer la liste</param>
+        /// <returns>La liste des factures correspondants à une liste vide sinon</returns>
         List<FacturationDTO> findByEmploye(Connection connection, string idEmploye, string sortByPropertyName);
 
     }
