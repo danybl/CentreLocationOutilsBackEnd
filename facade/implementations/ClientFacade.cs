@@ -97,5 +97,16 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("", serviceException);
             }
         }
+        public List<ClientDTO> getAllClients(Connection connection, string sortByPropertyName)
+        {
+            try
+            {
+                return getClientService().getAllClients(connection, ClientDTO.ID_CLIENT_COLUMN_NAME);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("", serviceException);
+            }
+        }
     }
 }

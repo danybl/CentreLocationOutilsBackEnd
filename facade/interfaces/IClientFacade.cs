@@ -18,5 +18,8 @@ namespace CentreLocationOutils.facade.interfaces
         void desinscrire(Connection connection, ClientDTO clientDTO);
 
         void mettreAJourClient(Connection connection, ClientDTO clientDTO);
+
+        List<ClientDTO> getAllClients(Connection connection, string sortByPropertyName);
+
     }
 }
