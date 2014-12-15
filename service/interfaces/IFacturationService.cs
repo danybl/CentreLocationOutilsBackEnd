@@ -34,14 +34,14 @@ namespace CentreLocationOutils.service.interfaces
         /// Met à jour une facture dans la base de données.
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>
-        /// <param name="facturationDTO">La facturation à ajoute</param>
+        /// <param name="facturationDTO">La facturation à mettre à jour</param>
         void update(Connection connection, FacturationDTO facturationDTO);
 
         /// <summary>
         /// Supprime une facture de la base de données.
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>
-        /// <param name="facturationDTO">La facturation à ajoute</param>
+        /// <param name="facturationDTO">La facturation à enlever</param>
         void delete(Connection connection, FacturationDTO facturationDTO);
 
         /// <summary>
@@ -49,27 +49,27 @@ namespace CentreLocationOutils.service.interfaces
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>
         /// <param name="sortByPropertyName">Le nom de la propriété à uriliser pour classer la liste</param>
-        /// <returns>La liste de tous les factures ; une liste vide sinon</returns>
+        /// <returns>La liste de tous les factures à une liste vide sinon</returns>
         List<FacturationDTO> getall(Connection connection, string sortByPropertyName);
 
         /// <summary>
         /// Trouve les factures à partir d'un client. La liste est classée par ordre croissant sur <code>sortByPropertyName</code>. 
-        /// Si aucune adresse * n'est trouvé, une {@link List} vide est retournée. 
+        /// Si aucune adresse n'est trouvé, une liste vide est retournée. 
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>
         /// <param name="idClient">L'ID du client à trouver</param>
         /// <param name="sortByPropertyName">Le nom de la propriété à uriliser pour classer la liste</param>
-        /// <returns>Si aucune facturation n'est trouvée, une {@link List} vide est retournée.</returns>
+        /// <returns>Si aucune facturation n'est trouvée, une liste vide est retournée.</returns>
         List<FacturationDTO> findByClient(Connection connection, string idClient, string sortByPropertyName);
 
         /// <summary>
         /// Trouve les factures à partir d'un employe. La liste est classée par ordre croissant sur <code>sortByPropertyName</code>. 
-        /// Si aucune adresse * n'est trouvé, une {@link List} vide est retournée.  
+        /// Si aucune adresse n'est trouvé, une liste vide est retournée.  
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>
         /// <param name="idEmploye">L'ID du employe à trouver</param>
-        /// <param name="sortByPropertyName">Le nom de la propriété à uriliser pour classer la liste</param>
-        /// <returns>Si aucune facturation n'est trouvée, une {@link List} vide est retournée.</returns>
+        /// <param name="sortByPropertyName">Le nom de la propriété à utiliser pour classer la liste</param>
+        /// <returns>Si aucune facturation n'est trouvée, une liste vide est retournée.</returns>
         List<FacturationDTO> findByEmploye(Connection connection, string idEmploye, string sortByPropertyName);
 
     }

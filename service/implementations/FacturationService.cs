@@ -18,6 +18,10 @@ namespace CentreLocationOutils.service.implementations
     {
         private IFacturationDAO facturationDAO;
 
+        /// <summary>
+        /// Crée le service de la facturation <code>facturation</code>.
+        /// </summary>
+        /// <param name="facturationDAO">Le DAO de la table <code>facturation</code></param>
         public FacturationService(IFacturationDAO facturationDAO)
             : base()
         {
