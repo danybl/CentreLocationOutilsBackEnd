@@ -61,7 +61,7 @@ namespace CentreLocationOutils.dao.implementations
                 command.CommandType = CommandType.Text;
                 command.CommandText = OutilDAO.ADD_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idOutil", getPrimaryKey(connection, OutilDAO.CREATE_PRIMARY_KEY)));
-                command.Parameters.Add(new OracleParameter(":idCategorie", outilDTO.IdCategorie));
+                command.Parameters.Add(new OracleParameter(":idCategorie", outilDTO.CategorieDTO.IdCategorie));
                 command.Parameters.Add(new OracleParameter(":nom", outilDTO.Nom));
                 command.Parameters.Add(new OracleParameter(":numSerie", outilDTO.NumSerie));
                 command.Parameters.Add(new OracleParameter(":dateAcquisition", outilDTO.DateAcquisition));
@@ -102,11 +102,13 @@ namespace CentreLocationOutils.dao.implementations
                     {
                         outilDTO = new OutilDTO();
                         outilDTO.IdOutil = dataReader.GetString(1);
-                        outilDTO.IdCategorie = dataReader.GetString(2);
+                        CategorieDTO categorieDTO = new CategorieDTO();
+                        categorieDTO.IdCategorie = dataReader.GetString(2);
+                        outilDTO.CategorieDTO = categorieDTO;
                         outilDTO.Nom = dataReader.GetString(3);
                         outilDTO.NumSerie = dataReader.GetString(4); 
                         outilDTO.PrixLocation = dataReader.GetString(5);
-                        outilDTO.DateAcquisition = dataReader.GetDateTime(6);
+                        outilDTO.DateAcquisition = dataReader.GetString(6);
                         outilDTO.Description = dataReader.GetString(7);
 
                     }
@@ -135,7 +137,7 @@ namespace CentreLocationOutils.dao.implementations
                 DbCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = OutilDAO.UPDATE_REQUEST;
-                command.Parameters.Add(new OracleParameter(":idCategorie", outilDTO.IdCategorie));
+                command.Parameters.Add(new OracleParameter(":idCategorie", outilDTO.CategorieDTO.IdCategorie));
                 command.Parameters.Add(new OracleParameter(":nom", outilDTO.Nom));
                 command.Parameters.Add(new OracleParameter(":numSerie", outilDTO.NumSerie));
                 command.Parameters.Add(new OracleParameter(":dateAcquisition", outilDTO.DateAcquisition));
@@ -206,7 +208,7 @@ namespace CentreLocationOutils.dao.implementations
                     outilDTO = new OutilDTO();
                     do{
                         command.Parameters.Add(new OracleParameter(":idOutil", outilDTO.IdOutil));
-                        command.Parameters.Add(new OracleParameter(":idCategorie", outilDTO.IdCategorie));
+                        command.Parameters.Add(new OracleParameter(":idCategorie", outilDTO.CategorieDTO.IdCategorie));
                         command.Parameters.Add(new OracleParameter(":nom", outilDTO.Nom));
                         command.Parameters.Add(new OracleParameter(":numSerie", outilDTO.NumSerie));
                         command.Parameters.Add(new OracleParameter(":dateAcquisition", outilDTO.DateAcquisition));
@@ -255,11 +257,13 @@ namespace CentreLocationOutils.dao.implementations
                     do
                     {
                         outilDTO.IdOutil = dataReader.GetString(1);
-                        outilDTO.IdCategorie = dataReader.GetString(2);
+                        CategorieDTO categorieDTO = new CategorieDTO();
+                        categorieDTO.IdCategorie = dataReader.GetString(2);
+                        outilDTO.CategorieDTO = categorieDTO;
                         outilDTO.Nom = dataReader.GetString(3);
                         outilDTO.NumSerie = dataReader.GetString(4);
                         outilDTO.PrixLocation = dataReader.GetString(5);
-                        outilDTO.DateAcquisition = dataReader.GetDateTime(6);
+                        outilDTO.DateAcquisition = dataReader.GetString(6);
                         outilDTO.Description = dataReader.GetString(7);
                         outils.Add(outilDTO);
                     }

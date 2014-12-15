@@ -17,10 +17,10 @@ namespace CentreLocationOutils.dto
         public static   string DATEACQUISITION_COLUMN_NAME = "dateAcquisition";
 
         public string IdOutil { get; set; }
-        public string IdCategorie { get; set; }
+        public CategorieDTO CategorieDTO { get; set; }
         public string Nom { get; set; }
         public string NumSerie { get; set; }
-        public DateTime DateAcquisition { get; set; }
+        public string DateAcquisition { get; set; }
         public string PrixLocation { get; set; }
         public string Description { get; set; }
 
