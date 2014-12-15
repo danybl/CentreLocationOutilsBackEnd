@@ -59,20 +59,20 @@ namespace CentreLocationOutils.service.interfaces
         /// <summary>
         /// Inscrire un client.
         /// </summary>
-        /// <param name="connection"></param>
-        /// <param name="clientDTO"></param>
+        /// <param name="connection">La connexion à utiliser</param>
+        /// <param name="clientDTO">Le client à inscrire</param>
         void inscrireClient(Connection connection, ClientDTO clientDTO);
         /// <summary>
         /// Desinscrire un client.
         /// </summary>
-        /// <param name="connection"></param>
-        /// <param name="clientDTO"></param>
+        /// <param name="connection">La connexion à utiliser</param>
+        /// <param name="clientDTO">Le client à desinscrire</param>
         void desinscrireClient(Connection connection, ClientDTO clientDTO);
         /// <summary>
         /// Mettre à jour un client.
         /// </summary>
-        /// <param name="connection"></param>
-        /// <param name="clientDTO"></param>
+        /// <param name="connection">La connexion à utiliser</param>
+        /// <param name="clientDTO">Le client à mettre à jour</param>
         void mettreAJourClient(Connection connection, ClientDTO clientDTO);
     }
 }
