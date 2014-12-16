@@ -11,6 +11,9 @@ using System.Text;
 
 namespace CentreLocationOutils.facade.implementations
 {
+    /// <summary>
+    /// Facade pour interagir avec le service d'adresse.
+    /// </summary>
     public class AdresseFacade : IAdresseFacade
     {
         private IAdresseService adresseService;
@@ -24,17 +27,30 @@ namespace CentreLocationOutils.facade.implementations
             setAdresseService(adresseService);
         }
 
+        #region Getters and Setters
+
+        /// <summary>
+        /// Getter de la variable d'instance <code>this.adresseService</code>.
+        /// </summary>
+        /// <returns>La variable d'instance <code>this.adresseService</code></returns>
         private IAdresseService getAdresseService()
         {
             return this.adresseService;
         }
 
+        /// <summary>
+        /// Setter de la variable d'instance <code>this.adresseService</code>.
+        /// </summary>
+        /// <param name="adresseService">La valeur à utiliser pour la variable d'instance <code>this.adresseService</code></param>
         private void setAdresseService(IAdresseService adresseService)
         {
             this.adresseService = adresseService;
         }
 
-        public   void changerAdresse(Connection connection, AdresseDTO adresseDTO)
+        #endregion
+        #region CRUD
+        /// <inheritdoc />
+        public void changerAdresse(Connection connection, AdresseDTO adresseDTO)
         {
             try
             {
@@ -45,11 +61,6 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("", serviceExcpetion);
             }
         }
-
-
-        public void changerLocation(Connection connection, AdresseDTO adresseDTO)
-        {
-            //TODO changer location
-        }
+        #endregion
     }
 }
