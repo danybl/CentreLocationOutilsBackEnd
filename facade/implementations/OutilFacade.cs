@@ -68,6 +68,24 @@ namespace CentreLocationOutils.facade.implementations
             }
         }
 
+        public void updateOutil(Connection connection, OutilDTO outilDTO)
+        {
+            if (connection == null)
+            {
+                throw new InvalidConnectionException("La connection ne peut être null");
+            }
+            if (outilDTO == null) {
+                throw new InvalidDTOException("L'outil ne peut être null");
+            }
+            try {
+                getOutilService().updateOutil(connection,outilDTO);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("Il y a eu un erreur : " + serviceException);
+            }
+        }
+        
         public void deleteOutil(Connection connection, OutilDTO outilDTO)
         {
             try
