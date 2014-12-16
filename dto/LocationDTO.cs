@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CentreLocationOutils.dto
 {
-    public class LocationDTO
+    public class LocationDTO : DTO
     {
 
         public static   string ID_LOCATION_COLUMN_NAME = "idLocation";

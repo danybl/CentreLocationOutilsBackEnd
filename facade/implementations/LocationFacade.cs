@@ -11,7 +11,7 @@ namespace CentreLocationOutils.facade.implementations
     /// <summary>
     /// Facade pour interagir avec le service de location.
     /// </summary>
-    public class LocationFacade : ILocationFacade
+    public class LocationFacade : Facade, ILocationFacade
     {
         private ILocationService locationService;
 

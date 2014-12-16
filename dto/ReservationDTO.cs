@@ -6,7 +6,7 @@ using CentreLocationOutils.dto;
 
 namespace CentreLocationOutils.dto
 {
-    public class ReservationDTO
+    public class ReservationDTO : DTO
     {
 
         public static   string ID_RESERVATION_COLUMN_NAME = "idReservation";

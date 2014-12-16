@@ -15,7 +15,7 @@ namespace CentreLocationOutils.facade.implementations
     /// <summary>
     /// Facade pour interagir avec le service de categorie.
     /// </summary>
-    public class CategorieFacade : ICategorieFacade
+    public class CategorieFacade : Facade, ICategorieFacade
     {
         private ICategorieService categorieService;
         public CategorieFacade(ICategorieService categorieService)

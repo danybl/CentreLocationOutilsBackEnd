@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CentreLocationOutils.dto
 {
-    public class FacturationDTO
+    public class FacturationDTO : DTO
     {
 
         public static   string ID_FACTURATION_COLUMN_NAME = "idFacturation";

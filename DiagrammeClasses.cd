@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CentreLocationOutils.facade.implementations.AdresseFacade" Collapsed="true">
+    <Position X="17.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAMAAAAAAAAAAABAAAAIQAAkAAAAA=</HashCode>
+      <FileName>facade\implementations\AdresseFacade.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.facade.implementations.CategorieFacade" Collapsed="true">
+    <Position X="24.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAACAAAACAACQCAAgAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>facade\implementations\CategorieFacade.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.facade.implementations.ClientFacade" Collapsed="true">
+    <Position X="29" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAIAAEAAAABAAAAAAAEAAGAAAAAAAAQAAAAABAAAA=</HashCode>
+      <FileName>facade\implementations\ClientFacade.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.facade.implementations.EmployeFacade" Collapsed="true">
+    <Position X="20" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAACAAIACAAAAAAAAgAAAAAAEAAAAAAAMAAAAAAAA=</HashCode>
+      <FileName>facade\implementations\EmployeFacade.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.facade.implementations.Facade" Collapsed="true">
+    <Position X="25.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>facade\implementations\Facade.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.facade.implementations.FacturationFacade" Collapsed="true">
+    <Position X="31.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAABAIAAAAAAAAAgEAAAAAAIAAEAAAAAAACMA=</HashCode>
+      <FileName>facade\implementations\FacturationFacade.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.facade.implementations.LocationFacade" Collapsed="true">
+    <Position X="22.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAIBAAIAEAAIAAAAAAAAAAEAAEAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>facade\implementations\LocationFacade.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.facade.implementations.OutilFacade" Collapsed="true">
+    <Position X="26.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgABAAAAAAAAQAAAAAABAJAAAAAAAAAAAAAAAEBAACA=</HashCode>
+      <FileName>facade\implementations\OutilFacade.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.facade.implementations.ReservationFacade" Collapsed="true">
+    <Position X="33.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAIAAAAAAEAAAAAAAAAAAQAgIAIAAAAgAEAA=</HashCode>
+      <FileName>facade\implementations\ReservationFacade.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.service.implementations.AdresseService" Collapsed="true">
+    <Position X="17.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIIAAAAAAAAAAEAAAQQACIAAAAAAAAgAAAMAGAAA=</HashCode>
+      <FileName>service\implementations\AdresseService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.service.implementations.CategorieService" Collapsed="true">
+    <Position X="24.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAACAAAAAEQQQAAAAAAABAAAAAAAAJGAAA=</HashCode>
+      <FileName>service\implementations\CategorieService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.service.implementations.ClientService" Collapsed="true">
+    <Position X="31.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAIAAAABAAgAIAAAABEAAAAAQAAAAgAAAAAABAAgg=</HashCode>
+      <FileName>service\implementations\ClientService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.service.implementations.EmployeService" Collapsed="true">
+    <Position X="20" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAgAACCAAAAAAAgAAAEkAEAAAAAAAEAAABIAAA=</HashCode>
+      <FileName>service\implementations\EmployeService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.service.implementations.FacturationService" Collapsed="true">
+    <Position X="26.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAABAIABAQAAAAQwEAAAAAAAAAAgAAAAAGAEA=</HashCode>
+      <FileName>service\implementations\FacturationService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.service.implementations.LocationService" Collapsed="true">
+    <Position X="33.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAIAAAIAEJAIAAAAAAAAAAAAAEAAAiAAAAcAIAEAEAA=</HashCode>
+      <FileName>service\implementations\LocationService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.service.implementations.OutilService" Collapsed="true">
+    <Position X="22.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AiAAIAAAAAAAQAAAAAAAAIIAAABAAAAAAIAAAEJAACA=</HashCode>
+      <FileName>service\implementations\OutilService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.service.implementations.ReservationService" Collapsed="true">
+    <Position X="29" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAJAIAAAAEAAAAAAAAAAAQAAIAAMAIAEAEAY=</HashCode>
+      <FileName>service\implementations\ReservationService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.service.implementations.Service" Collapsed="true">
+    <Position X="25.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>service\implementations\Service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CentreLocationOutils.dao.implementations.AdresseDAO" Collapsed="true">
+    <Position X="14.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEAAIIAgAAAAAgAAEAAAQQAAAAAAQAAAAAAAAAIGAAQ=</HashCode>
+      <FileName>dao\implementations\AdresseDAO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.dao.implementations.CategorieDAO" Collapsed="true">
+    <Position X="19" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEAAIAAgAAAAAAAAEAQAQQAAAAAAAAAAAAAAAAJGAAQ=</HashCode>
+      <FileName>dao\implementations\CategorieDAO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.dao.implementations.Client_AdresseDAO" Collapsed="true">
+    <Position X="25.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIAAgAAAAAAAAEAAAQQAAAAAAAAAAAAAAAAIGAAA=</HashCode>
+      <FileName>dao\implementations\Client_AdresseDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CentreLocationOutils.dao.implementations.ClientDAO" Collapsed="true">
+    <Position X="32.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEAAIAAgAAAAAgAAEAQAQQAAAAAAAAAAAAAAAAJGAAQ=</HashCode>
+      <FileName>dao\implementations\ClientDAO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.dao.implementations.DAO" Collapsed="true">
+    <Position X="24.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAgAAAAAIAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>dao\implementations\DAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CentreLocationOutils.dao.implementations.Employe_AdresseDAO" Collapsed="true">
+    <Position X="21.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>dao\implementations\Employe_AdresseDAO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CentreLocationOutils.dao.implementations.EmployeDAO" Collapsed="true">
+    <Position X="30.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEAAIAAgAAAAAAAAEAQAQQAAAAAAAAAAAAAAAAJGAAQ=</HashCode>
+      <FileName>dao\implementations\EmployeDAO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.dao.implementations.FacturationDAO" Collapsed="true">
+    <Position X="34.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEAAIAAgAAAIAgIAEAAAQwAAIAAAAAAAAAAAAAIGAAQ=</HashCode>
+      <FileName>dao\implementations\FacturationDAO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.dao.implementations.LocationDAO" Collapsed="true">
+    <Position X="16.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEAAIAAgAAAYAAAAEAAAQQAAAAAAAAAAAQAAAAIGEAQ=</HashCode>
+      <FileName>dao\implementations\LocationDAO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.dao.implementations.OutilDAO" Collapsed="true">
+    <Position X="23.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEAAIAAgAAAAAAAAEAQAQQAAAAAAAAAAAAAAAAJGAAQ=</HashCode>
+      <FileName>dao\implementations\OutilDAO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.dao.implementations.ReservationDAO" Collapsed="true">
+    <Position X="28" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEAAIAAgAAAYAgAAEAAAQQAAAAAAAAAAAQAAAAIGEAQ=</HashCode>
+      <FileName>dao\implementations\ReservationDAO.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CentreLocationOutils.dto.AdresseDTO" Collapsed="true">
+    <Position X="11.75" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAACQAAAQAAAAAAAAAAAAAEECQAAAAAAAAAgABAAo=</HashCode>
+      <FileName>dto\AdresseDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CentreLocationOutils.dto.CategorieDTO" Collapsed="true">
+    <Position X="16.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAACAgAAAAAAAAAAAEACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>dto\CategorieDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CentreLocationOutils.dto.Client_AdresseDTO" Collapsed="true">
+    <Position X="23" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAg=</HashCode>
+      <FileName>dto\Client_AdresseDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CentreLocationOutils.dto.ClientDTO" Collapsed="true">
+    <Position X="27.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQACAAEAACAAAAAAAAACAAAAIAAKAABAgAAAA=</HashCode>
+      <FileName>dto\ClientDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CentreLocationOutils.dto.DTO" Collapsed="true">
+    <Position X="20.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>dto\DTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CentreLocationOutils.dto.EmployeDTO" Collapsed="true">
+    <Position X="18.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAACAAAAAAAAAIAAAAACAAEAAAAKQAAAAAAIA=</HashCode>
+      <FileName>dto\EmployeDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CentreLocationOutils.dto.FacturationDTO" Collapsed="true">
+    <Position X="25.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAIAAAAAAAAAAAAAgAAABAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>dto\FacturationDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CentreLocationOutils.dto.LocationDTO" Collapsed="true">
+    <Position X="29.75" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAMCAAAAAACEACAAAAAEBEAAAAAAAAABAAgACAAQA=</HashCode>
+      <FileName>dto\LocationDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CentreLocationOutils.dto.OutilDTO" Collapsed="true">
+    <Position X="14" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAhIAAAACAgAAAAAAAAAAAEAKAAAAAACAAAAAQAAAA=</HashCode>
+      <FileName>dto\OutilDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CentreLocationOutils.dto.ReservationDTO" Collapsed="true">
+    <Position X="20.75" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAMAQEAAAAAEACAAAAAMAEAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>dto\ReservationDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -14,7 +14,7 @@ namespace CentreLocationOutils.facade.implementations
     /// <summary>
     /// Facade pour interagir avec le service d'adresse.
     /// </summary>
-    public class AdresseFacade : IAdresseFacade
+    public class AdresseFacade : Facade, IAdresseFacade
     {
         private IAdresseService adresseService;
         public AdresseFacade(IAdresseService adresseService)
