@@ -50,6 +50,7 @@ namespace CentreLocationOutils.facade.implementations
         #endregion
 
         #region CRUD
+
         /// <inheritdoc />
         public List<FacturationDTO> findByClient(Connection connection, string idClient, string sortByPropertyName) {
             try

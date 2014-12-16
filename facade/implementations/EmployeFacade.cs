@@ -48,6 +48,7 @@ namespace CentreLocationOutils.facade.implementations
 
         #endregion
 
+        /// <inheritdoc />
         public EmployeDTO getEmploye(Connection connection, string idEmploye)
         {
             try

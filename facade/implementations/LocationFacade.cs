@@ -47,6 +47,11 @@ namespace CentreLocationOutils.facade.implementations
             this.locationService = locationService;
         }
 
+         #endregion
+
+        #region CRUD
+
+        /// <inheritdoc />
         public LocationDTO getLocation(Connection connection, string idLocation)
         {
             try
