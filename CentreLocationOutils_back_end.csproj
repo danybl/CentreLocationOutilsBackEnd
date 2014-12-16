@@ -157,9 +157,6 @@
     <Compile Include="util\FormatteurDate.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="lib\ConnexionControl.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx" />
   </ItemGroup>
   <ItemGroup>

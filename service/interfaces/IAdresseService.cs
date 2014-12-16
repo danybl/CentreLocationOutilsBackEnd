@@ -61,10 +61,24 @@ namespace CentreLocationOutils.service.interfaces
         List<AdresseDTO> findByVille(Connection connection, string ville, string sortByPropertyName);
 
         /// <summary>
+        /// Ajoute une nouvelle adresse
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="adresseDTO"></param>
+        void ajouterAdresse(Connection connection, AdresseDTO adresseDTO);
+
+        /// <summary>
         /// Change l'adresse d'un client déjà existant dans le système.
         /// </summary>
         /// <param name="connection">La connection à utiliser</param>
         /// <param name="adresseDTO">L'adresse à changer</param>
         void changerAdresse(Connection connection, AdresseDTO adresseDTO);
+
+        /// <summary>
+        /// Supprime une adresse
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="adresseDTO"></param>
+        void supprimerAdresse(Connection connection, AdresseDTO adresseDTO);
     }
 }

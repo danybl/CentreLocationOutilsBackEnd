@@ -135,10 +135,43 @@ namespace CentreLocationOutils.service.implementations
 
         #endregion
 
+        public void ajouterAdresse(Connection connection, AdresseDTO adresseDTO)
+        {
+            try
+            {
+                add(connection, adresseDTO);
+            }
+            catch (DAOException daoException)
+            {
+                throw new ServiceException("Erreur : " + daoException); 
+            }
+        }
+
         /// <inheritdoc />
         public void changerAdresse(Connection connection, AdresseDTO adresseDTO)
         {
-            throw new NotImplementedException();
+            try
+            {
+                update(connection, adresseDTO);
+            }
+            catch (DAOException daoException)
+            {
+                throw new ServiceException("Il y a un erreur : " + daoException);
+            }
+            
+            //throw new NotImplementedException();
+        }
+
+        public void supprimerAdresse(Connection connection, AdresseDTO adresseDTO)
+        {
+            try
+            {
+                delete(connection, adresseDTO);
+            }
+            catch (DAOException daoException)
+            {
+                throw new ServiceException("Erreur : " + daoException);
+            }
         }
     }
 }
