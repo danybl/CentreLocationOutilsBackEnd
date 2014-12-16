@@ -34,7 +34,7 @@ namespace CentreLocationOutils.dao.implementations
         private static string GET_ALL_REQUEST = "SELECT idAdresse, numero, rue, appartement, codePostal, ville, province, pays "
             + "FROM adresse";
 
-        private static string FINF_BY_VILLE = "SELECT idAdresse, numero, rue, appartement, codePostal, ville, province, pays "
+        private static string FIND_BY_VILLE = "SELECT idAdresse, numero, rue, appartement, codePostal, ville, province, pays "
             + "FROM adresse "
             + "WHERE ville = :ville";
 
@@ -77,6 +77,7 @@ namespace CentreLocationOutils.dao.implementations
                 command.Parameters.Add(new OracleParameter(":pays", adresseDTO.Pays));
 
                 command.ExecuteNonQuery();
+                command.Dispose();
             }
             catch (OracleException oracleException)
             {
@@ -96,14 +97,13 @@ namespace CentreLocationOutils.dao.implementations
             {
                 throw new InvalidPrimaryKeyException("La clef primaire ne peut etre null");
             }
-            string idReservation = primaryKey.ToString();
             AdresseDTO adresseDTO = null;
             try
             {
                 OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = AdresseDAO.READ_REQUEST;
-                command.Parameters.Add(new OracleParameter(":idReservation", idReservation));
+                command.Parameters.Add(new OracleParameter(":idReservation", primaryKey));
 
                 OracleDataReader dataReader = command.ExecuteReader();
                 if (dataReader.NextResult())
@@ -119,11 +119,13 @@ namespace CentreLocationOutils.dao.implementations
                     adresseDTO.Pays = dataReader.GetString(8);
 
                 }
+                command.Dispose();
             }
             catch (OracleException oracleException)
             {
                 throw new DAOException(oracleException);
             }
+            
             return adresseDTO;
         }
 
@@ -154,6 +156,7 @@ namespace CentreLocationOutils.dao.implementations
                 command.Parameters.Add(new OracleParameter(":idAdresse", adresseDTO.IdAdresse));
 
                 command.ExecuteNonQuery();
+                command.Dispose();
             }
             catch (OracleException OracleException)
             {
@@ -203,7 +206,7 @@ namespace CentreLocationOutils.dao.implementations
             {
                 OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
-                command.CommandText = AdresseDAO.FINF_BY_VILLE;
+                command.CommandText = AdresseDAO.FIND_BY_VILLE;
 
                 OracleDataReader dataReader = command.ExecuteReader();
                 AdresseDTO adresseDTO = null;
@@ -227,6 +230,8 @@ namespace CentreLocationOutils.dao.implementations
                     }
                     while (dataReader.NextResult());
                 }
+                dataReader.Dispose();
+                command.Dispose();
             }
             catch (OracleException OracleException)
             {
@@ -257,7 +262,8 @@ namespace CentreLocationOutils.dao.implementations
             {
                 OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
-                command.CommandText = AdresseDAO.GET_ALL_REQUEST;
+                command.CommandText = AdresseDAO.FIND_BY_VILLE;
+                command.Parameters.Add(new OracleParameter(":ville", ville));
 
                 OracleDataReader dataReader = command.ExecuteReader();
                 AdresseDTO adresseDTO = null;
@@ -281,6 +287,8 @@ namespace CentreLocationOutils.dao.implementations
                     }
                     while (dataReader.NextResult());
                 }
+                dataReader.Dispose();
+                command.Dispose();
             }
             catch (OracleException OracleException)
             {
