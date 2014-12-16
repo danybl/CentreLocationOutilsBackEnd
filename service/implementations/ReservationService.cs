@@ -9,21 +9,28 @@ using System.Collections.Generic;
 
 namespace CentreLocationOutils.service.implementations
 {
+    /// <summary>
+    /// Service de la table <code>reservation</code>.
+    /// </summary>
     public class ReservationService : Service, IReservationService
     {
         private IReservationDAO reservationDAO;
         private ILocationDAO locationDAO;
-        // private IOutilDAO outilDAO;
 
+        /// <summary>
+        /// Crée le service de la table <code>reservation</code>.
+        /// </summary>
+        /// <param name="reservationDAO">Le DAO de la table <code>reservation</code></param>
         public ReservationService(IReservationDAO reservationDAO, ILocationDAO locationDAO)
             : base()
-        {
+            {
             if (reservationDAO == null)
             {
                 throw new InvalidDAOException("Le DAO de la réservation ne peut être null");
             }
-            setEmployeDAO(reservationDAO);
+            setReservationDAO(reservationDAO);
         }
+        #region Getters & Setters
         /// <summary>
         /// Getter de la variable d'instance reservationDAO
         /// </summary>
@@ -36,29 +43,29 @@ namespace CentreLocationOutils.service.implementations
         /// Setter de la variable d'instance reservationDAO
         /// </summary>
         /// <param name="reservationDAO">Valeur à utiliser pour la variable d'instance</param>
-        private void setEmployeDAO(IReservationDAO reservationDAO)
+        private void setReservationDAO(IReservationDAO reservationDAO)
         {
             this.reservationDAO = reservationDAO;
         }
-
+        /// <summary>
+        /// Getter de la variable d'instance locationDAO
+        /// </summary>
+        /// <param name="locationDAO">Valeur à utiliser pour la variable d'instance</param>
         private ILocationDAO getLocationDAO()
         {
             return this.locationDAO;
         }
+        /// <summary>
+        /// Setter de la variable d'instance locationDAO
+        /// </summary>
+        /// <param name="locationDAO">Valeur à utiliser pour la variable d'instance</param>
         private void setLocationDAO(ILocationDAO locationDAO)
         {
             this.locationDAO = locationDAO;
         }
-        //private IOutilDAO getOutilDAO()
-        //{
-        //    return this.outilDAO;
-        //}
-        //private void setOutilDAO(IOutilDAO outilDAO)
-        //{
-        //    this.outilDAO = outilDAO;
-        //}
+        #endregion
 
-
+        #region CRUD
         /// <inheritdoc />
         public void addReservation(Connection connection,
         ReservationDTO reservationDTO)
@@ -149,11 +156,10 @@ namespace CentreLocationOutils.service.implementations
                     + ")");
                 }
             }
-            //reservationDTO.DateReservation = (System.DateTime.Now);
             addReservation(connection, reservationDTO);
 
         }
-
+        /// <inheritdoc />
         public void utiliserReservation(Connection connection, ReservationDTO reservationDTO)
         {
             if (connection == null)
@@ -223,7 +229,6 @@ namespace CentreLocationOutils.service.implementations
                 locationDTO.ClientDTO.NbLocations = (int.Parse(locationDTO.ClientDTO.NbLocations + 1)).ToString();
                 locationDTO.OutilDTO = reservationDTO.OutilDTO;
                 locationDTO.DateLocation = System.DateTime.Now.Ticks.ToString();
-                // locationDTO.DateRetour = new System.DateTime();
                 getLocationDAO().add(connection, locationDTO);
                 annulerReservation(connection, reservationDTO);
             }
@@ -294,5 +299,6 @@ namespace CentreLocationOutils.service.implementations
                 throw new ServiceException("", daoException);
             }
         }
+        #endregion
     }
 }
