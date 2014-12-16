@@ -5,6 +5,9 @@ using System.Text;
 
 namespace CentreLocationOutils
 {
+    /// <summary>
+    /// Classe Constants
+    /// </summary>
     class Constants
     {
     }

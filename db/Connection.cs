@@ -6,6 +6,9 @@ using Oracle.DataAccess.Client;
 
 namespace CentreLocationOutils.db
 {
+    /// <summary>
+    /// Classe de connexion
+    /// </summary>
     public class Connection
     {
         //private OracleConnection connection;
@@ -48,6 +51,7 @@ namespace CentreLocationOutils.db
         /// <param name="typeServeur"></param>
         /// <param name="nomUtilisateur"></param>
         /// <param name="motPasse"></param>
+        /// <inheritdoc />
         public Connection(string typeServeur,
             //string schema,
         string nomUtilisateur,
@@ -73,9 +77,7 @@ namespace CentreLocationOutils.db
             }
         }
 
-        /// <summary>
-        /// Effectue un Close sur la connexion
-        /// </summary>
+        /// <inheritdoc />
         public void close()
         {
             try
