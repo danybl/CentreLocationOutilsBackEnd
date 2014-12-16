@@ -69,7 +69,7 @@ namespace CentreLocationOutils.dao.implementations
             }
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = ReservationDAO.ADD_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idReservation", getPrimaryKey(connection, ReservationDAO.CREATE_PRIMARY_KEY)));
@@ -80,10 +80,11 @@ namespace CentreLocationOutils.dao.implementations
 
 
                 command.ExecuteNonQuery();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(oracleException);
             }
         }
 
@@ -99,16 +100,15 @@ namespace CentreLocationOutils.dao.implementations
             {
                 throw new InvalidPrimaryKeyException("La clef primaire ne peut être null");
             }
-            string idReservation = primaryKey.ToString();
             ReservationDTO reservationDTO = null;
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = ReservationDAO.READ_REQUEST;
-                command.Parameters.Add(new OracleParameter(":idReservation", idReservation));
+                command.Parameters.Add(new OracleParameter(":idReservation", primaryKey));
 
-                DbDataReader dataReader = command.ExecuteReader();
+                OracleDataReader dataReader = command.ExecuteReader();
                 if (dataReader.NextResult())
                 {
                     reservationDTO = new ReservationDTO();
@@ -123,10 +123,12 @@ namespace CentreLocationOutils.dao.implementations
                     reservationDTO.DateLimite = dataReader.GetDateTime(5).ToString();
 
                 }
+                dataReader.Dispose();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(oracleException);
             }
             return reservationDTO;
         }
@@ -145,17 +147,18 @@ namespace CentreLocationOutils.dao.implementations
             }
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = ReservationDAO.UPDATE_REQUEST;
                 command.Parameters.Add(new OracleParameter(":dateLimite", reservationDTO.DateLimite));
                 command.Parameters.Add(new OracleParameter(":idReservation", reservationDTO.IdReservation));
 
                 command.ExecuteNonQuery();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(oracleException);
             }
         }
 
@@ -173,15 +176,16 @@ namespace CentreLocationOutils.dao.implementations
             }
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = ReservationDAO.DELETE_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idReservation", reservationDTO.IdReservation));
                 command.ExecuteNonQuery();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(oracleException);
             }
         }
 
@@ -201,11 +205,11 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = ReservationDAO.GET_ALL_REQUEST;
 
-                DbDataReader dataReader = command.ExecuteReader();
+                OracleDataReader dataReader = command.ExecuteReader();
                 ReservationDTO reservationDTO = null;
 
                 if (dataReader.NextResult())
@@ -227,10 +231,12 @@ namespace CentreLocationOutils.dao.implementations
                     }
                     while (dataReader.NextResult());
                 }
+                dataReader.Dispose();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(oracleException);
             }
             return reservations;
         }
@@ -257,11 +263,12 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = ReservationDAO.FIND_BY_CLIENT_REQUEST;
+                command.Parameters.Add(new OracleParameter(":idClient", idClient));
 
-                DbDataReader dataReader = command.ExecuteReader();
+                OracleDataReader dataReader = command.ExecuteReader();
                 ReservationDTO reservationDTO = null;
 
                 if (dataReader.NextResult())
@@ -280,17 +287,19 @@ namespace CentreLocationOutils.dao.implementations
                         reservations.Add(reservationDTO);
                     } while (dataReader.NextResult());
                 }
+                dataReader.Dispose();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(oracleException);
             }
             return reservations;
         }
 
         /// <inheritdoc />
         public List<ReservationDTO> findByOutil(Connection connection,
-        String idClient,
+        String idOutil,
         String sortByPropertyName)
         {
 
@@ -298,7 +307,7 @@ namespace CentreLocationOutils.dao.implementations
             {
                 throw new InvalidConnectionException("La connexion ne peut être null");
             }
-            if (idClient == null)
+            if (idOutil == null)
             {
                 throw new InvalidCriterionException("L'ID du outil ne peut être null");
             }
@@ -310,11 +319,12 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = ReservationDAO.FIND_BY_OUTIL_REQUEST;
+                command.Parameters.Add(":idOutil", idOutil);
 
-                DbDataReader dataReader = command.ExecuteReader();
+                OracleDataReader dataReader = command.ExecuteReader();
                 ReservationDTO reservationDTO = null;
 
                 if (dataReader.NextResult())
@@ -333,10 +343,12 @@ namespace CentreLocationOutils.dao.implementations
                         reservations.Add(reservationDTO);
                     } while (dataReader.NextResult());
                 }
+                dataReader.Dispose();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(oracleException);
             }
             return reservations;
         }
