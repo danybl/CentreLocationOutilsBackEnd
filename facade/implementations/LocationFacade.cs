@@ -33,7 +33,7 @@ namespace CentreLocationOutils.facade.implementations
             this.locationService = locationService;
         }
 
-        private LocationDTO getLocation(Connection connection, string idLocation)
+        public LocationDTO getLocation(Connection connection, string idLocation)
         {
             try
             {
