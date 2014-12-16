@@ -37,9 +37,9 @@ namespace CentreLocationOutils.facade.interfaces
         /// Obtient une adresse 
         /// </summary>
         /// <param name="connection"></param>
-        /// <param name="adresseDTO"></param>
+        /// <param name="idAdresse"></param>
         /// <returns></returns>
-        AdresseDTO getAdresse(Connection connection, AdresseDTO adresseDTO);
+        AdresseDTO getAdresse(Connection connection, string idAdresse);
 
         /// <summary>
         /// Obtient toutes les adresses

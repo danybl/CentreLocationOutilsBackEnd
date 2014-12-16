@@ -50,7 +50,7 @@ namespace CentreLocationOutils.facade.implementations
         #endregion
 
         #region CRUD
-
+        /// <inheritdoc />
         public void ajouterFacturation(Connection connection, FacturationDTO facturationDTO)
         {
             try
@@ -62,7 +62,7 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("Un erreur s'est produit : " + serviceException);
             }
         }
-
+        /// <inheritdoc />
         public void mettreAJourFacturation(Connection connection, FacturationDTO facturationDTO)
         {
             try
@@ -75,7 +75,7 @@ namespace CentreLocationOutils.facade.implementations
             }
 
         }
-
+        /// <inheritdoc />
         public void supprimerFacturation(Connection connection, FacturationDTO facturationDTO)
         {
             try
@@ -87,7 +87,7 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("Un erreur s'est produit : " + serviceException);
             }
         }
-
+        /// <inheritdoc />
         public FacturationDTO getFacturation(Connection connection, string idFacturation)
         {
             try
@@ -99,7 +99,7 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("Un erreur s'est produit : " + serviceException);
             }
         }
-
+        /// <inheritdoc />
         public List<FacturationDTO> getAllFacturations(Connection connection, string sortByPropertyName)
         {
             try

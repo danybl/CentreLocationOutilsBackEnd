@@ -85,7 +85,7 @@ namespace CentreLocationOutils.facade.implementations
                throw new FacadeException("Un erreur s'est produit : " + serviceException);
            }
        }
-
+       /// <inheritdoc />
        public ReservationDTO getReservation(Connection connection, string idReservation)
        {
            try
@@ -97,7 +97,7 @@ namespace CentreLocationOutils.facade.implementations
                throw new FacadeException("Un erreur s'est produit : " + serviceException);
            }
        }
-
+       /// <inheritdoc />
        public List<ReservationDTO> getAllReservations(Connection connection, string sortByPropertyName)
        {
            try

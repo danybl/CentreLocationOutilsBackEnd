@@ -50,7 +50,7 @@ namespace CentreLocationOutils.facade.implementations
 
         #endregion
         #region CRUD
-
+        /// <inheritdoc />
         public void ajouterCategorie(Connection connection, CategorieDTO categorieDTO)
         {
             try
@@ -62,7 +62,7 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("Il s'est produit un erreur : " + serviceException);
             }
         }
-
+        /// <inheritdoc />
         public void mettreAJourCategorie(Connection connection, CategorieDTO categorieDTO)
         {
             try
@@ -74,7 +74,7 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("Il s'est produit un erreur : " + serviceException);
             }
         }
-
+        /// <inheritdoc />
         public void supprimerCategorie(Connection connection, CategorieDTO categorieDTO)
         {
             try
@@ -86,7 +86,7 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("Il s'est produit un erreur : " + serviceException);
             }
         }
-
+        /// <inheritdoc />
         public CategorieDTO getCategorie(Connection connection, string idCategorie)
         {
             try
@@ -98,7 +98,7 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("Il s'est produit un erreur : " + serviceException);
             }
         }
-
+        /// <inheritdoc />
         public List<CategorieDTO> getAllCategories(Connection connection, string sortByPropertyName)
         {
             try

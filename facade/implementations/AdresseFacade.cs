@@ -50,6 +50,7 @@ namespace CentreLocationOutils.facade.implementations
         #endregion
         #region CRUD
 
+        /// <inheritdoc />
         public void ajouterAdresse(Connection connection, AdresseDTO adresseDTO)
         {
             try
@@ -73,7 +74,7 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("Un erreur s'est produit : " + serviceExcpetion);
             }
         }
-
+        /// <inheritdoc />
         public void supprimerAdresse(Connection connection, AdresseDTO adresseDTO)
         {
             try
@@ -86,6 +87,7 @@ namespace CentreLocationOutils.facade.implementations
             }
         }
 
+        /// <inheritdoc />
         public AdresseDTO getAdresse(Connection connection, string idAdresse)
         {
             try
@@ -97,7 +99,7 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("Un erreur s'est produit : " + serviceExcpetion);
             }
         }
-
+        /// <inheritdoc />
         public List<AdresseDTO> getAllAdresses(Connection connection, string sortByPropertyName)
         {
             try

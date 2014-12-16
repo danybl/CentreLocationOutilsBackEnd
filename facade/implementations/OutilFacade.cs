@@ -63,7 +63,7 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("Il y a eu un erreur : " + serviceException);
             }
         }
-
+        /// <inheritdoc />
         public List<OutilDTO> getAllOutils(Connection connection, string sortByPropertyName)
         {
             try

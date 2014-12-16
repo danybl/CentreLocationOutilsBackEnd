@@ -20,6 +20,13 @@ namespace CentreLocationOutils.facade.interfaces
         void inscrireEmploye(Connection connection, EmployeDTO employeDTO);
 
         /// <summary>
+        /// Met à jour un employé
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="employeDTO"></param>
+        void mettreAJourEmploye(Connection connection, EmployeDTO employeDTO);
+
+        /// <summary>
         /// Desinscrire un employé
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>

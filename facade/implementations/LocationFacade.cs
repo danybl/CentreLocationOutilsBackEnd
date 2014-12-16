@@ -62,7 +62,7 @@ namespace CentreLocationOutils.facade.implementations
             }
         }
 
-
+        /// <inheritdoc />
         public List<LocationDTO> getAllLocations(Connection connection, string sortByPropertyName)
         {
             try
