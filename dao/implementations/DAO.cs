@@ -50,7 +50,10 @@ namespace CentreLocationOutils.dao.implementations
 
                 if (dataReader.NextResult())
                 {
-                    return dataReader.GetString(1);
+                    string primaryKey = dataReader.GetString(1);
+                    dataReader.Dispose();
+                    command.Dispose();
+                    return primaryKey;
                 }
                 throw new DAOException("Impossible de lire la séquence");
 
