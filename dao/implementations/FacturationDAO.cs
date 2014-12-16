@@ -148,6 +148,7 @@ namespace CentreLocationOutils.dao.implementations
             {
                 OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
+                command.CommandText = FacturationDAO.UPDATE_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idEmploye", facturationDTO.IdFacturation));
                 command.Parameters.Add(new OracleParameter(":idLocation", facturationDTO.LocationDTO.IdLocation));
                 command.Parameters.Add(new OracleParameter(":coutTotal", facturationDTO.CoutTotal));

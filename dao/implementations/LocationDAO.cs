@@ -149,6 +149,7 @@ namespace CentreLocationOutils.dao.implementations
             {
                 OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
+                command.CommandText = LocationDAO.UPDATE_REQUEST;
                 command.Parameters.Add(new OracleParameter(":dateLimite", locationDTO.DateLimite));
                 command.Parameters.Add(new OracleParameter(":idLocation", locationDTO.IdLocation));
 

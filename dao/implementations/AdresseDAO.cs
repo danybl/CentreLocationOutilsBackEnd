@@ -206,7 +206,7 @@ namespace CentreLocationOutils.dao.implementations
             {
                 OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
-                command.CommandText = AdresseDAO.FIND_BY_VILLE;
+                command.CommandText = AdresseDAO.GET_ALL_REQUEST;
 
                 OracleDataReader dataReader = command.ExecuteReader();
                 AdresseDTO adresseDTO = null;

@@ -29,7 +29,7 @@ namespace CentreLocationOutils.db
 
         //private static   string SERVEUR_DISTANT_CLASS = "com.mysql.jdbc.Driver";
 
-        private static   string SERVEUR_LOCAL_CLASS = "oracle.jdbc.driver.OracleDriver";
+        //private static   string SERVEUR_LOCAL_CLASS = "oracle.jdbc.driver.OracleDriver";
 
         //private static   string SERVEUR_POSTGRES_CLASS = "org.postgresql.Driver";
 
@@ -37,7 +37,7 @@ namespace CentreLocationOutils.db
 
         //private static   string SERVEUR_DISTANT_URL = "jdbc:mysql://localhost:3306/";
 
-        private static   string SERVEUR_LOCAL_URL = "jdbc:oracle:thin:@localhost:1521:";
+        //private static   string SERVEUR_LOCAL_URL = "jdbc:oracle:thin:@localhost:1521:";
 
         //	private static final string SERVEUR_DISTANT_URL = "jdbc:oracle:thin:@collegeahunstic.info:1521:";
 
