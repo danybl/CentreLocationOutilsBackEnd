@@ -11,6 +11,9 @@ using System.Text;
 
 namespace CentreLocationOutils.facade.implementations
 {
+    /// <summary>
+    /// Facade pour interagir avec le service de client.
+    /// </summary>
     public class ClientFacade : Facade, IClientFacade
     {
         private IClientService clientService;
@@ -25,18 +28,30 @@ namespace CentreLocationOutils.facade.implementations
             setClientService(clientService);
         }
 
+        #region Getters and Setters
+
+        /// <summary>
+        /// Getter de la variable d'instance <code>this.clientService</code>.
+        /// </summary>
+        /// <returns>La variable d'instance <code>this.clientService</code></returns>
         private IClientService getClientService()
         {
             return this.clientService;
         }
 
-
+        /// <summary>
+        /// Setter de la variable d'instance <code>this.clientService</code>.
+        /// </summary>
+        /// <param name="clientService">La valeur à utiliser pour la variable d'instance <code>this.clientService</code></param>
         private void setClientService(IClientService clientService)
         {
             this.clientService = clientService;
         }
 
-        public   ClientDTO getClient(Connection connection, string idClient)
+        #endregion
+        #region CRUD
+        /// <inheritdoc />
+        public ClientDTO getClient(Connection connection, string idClient)
         {
             try
             {
@@ -48,7 +63,7 @@ namespace CentreLocationOutils.facade.implementations
             }
         }
 
-
+        /// <inheritdoc />
         public List<ClientDTO> findByNom(Connection connection, String nom, String SortByPropertyName)
         {
             try
@@ -60,7 +75,7 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("", serviceException);
             }
         }
-
+        /// <inheritdoc />
         public void inscrire(Connection connection, ClientDTO clientDTO)
         {
             try
@@ -73,7 +88,7 @@ namespace CentreLocationOutils.facade.implementations
             }
         }
 
-
+        /// <inheritdoc />
         public void desinscrire(Connection connection, ClientDTO clientDTO)
         {
             try
@@ -85,7 +100,7 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("", serviceException);
             }
         }
-
+        /// <inheritdoc />
         public void mettreAJourClient(Connection connection, ClientDTO clientDTO)
         {
             try
@@ -97,6 +112,7 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("", serviceException);
             }
         }
+        /// <inheritdoc />
         public List<ClientDTO> getAllClients(Connection connection, string sortByPropertyName)
         {
             try
@@ -108,5 +124,6 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("", serviceException);
             }
         }
+        #endregion
     }
 }
