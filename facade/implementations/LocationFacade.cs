@@ -33,6 +33,18 @@ namespace CentreLocationOutils.facade.implementations
             this.locationService = locationService;
         }
 
+        private LocationDTO getLocation(Connection connection, string idLocation)
+        {
+            try
+            {
+                return getLocationService().getLocation(connection, idLocation);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("", serviceException);
+            }
+        }
+
         public   void commencerLocation(Connection connection, LocationDTO locationDTO)
         {
             try

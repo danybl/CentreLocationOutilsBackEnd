@@ -6,6 +6,7 @@ namespace CentreLocationOutils.facade.interfaces
 {
     public interface ILocationFacade : IFacade
     {
+        LocationDTO getLocation(Connection connection,string  idLocation);
         void commencerLocation(Connection connection, LocationDTO locationDTO);
         void renouvelerLocation(Connection connection, LocationDTO locationDTO);
         void terminerLocation(Connection connection, LocationDTO locationDTO);
