@@ -30,6 +30,7 @@ namespace CentreLocationOutils.service.implementations
 
             setAdresseDAO(adresseDAO);
         }
+
         #region Getters & Setters
 
         /// <summary>
@@ -53,6 +54,7 @@ namespace CentreLocationOutils.service.implementations
         #endregion
 
         #region CRUD
+
         /// <inheritdoc />
         public void add(Connection connection, AdresseDTO adresseDTO)
         {
