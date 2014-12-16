@@ -6,11 +6,14 @@ using System.Text;
 
 namespace CentreLocationOutils.facade.implementations
 {
+    /// <summary>
+    /// Classe de base pour tous les facades.
+    /// </summary>
     public class Facade : IFacade
     {
-        /**
-       * Crée une façade.
-       */
+        /// <summary>
+        /// Crée une facade.
+        /// </summary>
         protected Facade() : base() { }
     }
 }
