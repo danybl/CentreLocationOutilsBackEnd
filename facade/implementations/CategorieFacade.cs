@@ -12,6 +12,9 @@ using CentreLocationOutils.exception.db;
 
 namespace CentreLocationOutils.facade.implementations
 {
+    /// <summary>
+    /// Facade pour interagir avec le service de categorie.
+    /// </summary>
     public class CategorieFacade : ICategorieFacade
     {
         private ICategorieService categorieService;
@@ -25,17 +28,29 @@ namespace CentreLocationOutils.facade.implementations
             setCategorieService(categorieService);
         }
 
+        #region Getters and Setters
+
+        /// <summary>
+        /// Getter de la variable d'instance <code>this.categorieService</code>.
+        /// </summary>
+        /// <returns>La variable d'instance <code>this.categorieService</code></returns>
         private ICategorieService getCategorieService()
         {
             return this.categorieService;
         }
 
+        /// <summary>
+        /// Setter de la variable d'instance <code>this.categorieService</code>.
+        /// </summary>
+        /// <param name="categorieService">La valeur à utiliser pour la variable d'instance <code>this.categorieService</code></param>
         private void setCategorieService(ICategorieService categorieService)
         {
             this.categorieService = categorieService;
         }
 
-
+        #endregion
+        #region CRUD
+        /// <inheritdoc />
         public List<CategorieDTO> findByNom(Connection connection,
         String nom,
         String sortByPropertyName)
@@ -51,7 +66,7 @@ namespace CentreLocationOutils.facade.implementations
             }
         }
 
-
+        /// <inheritdoc />
         public CategorieDTO getCategorie(Connection connection, string idCategorie)
         {
             try
@@ -63,5 +78,6 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("", serviceException);
             }
         }
+        #endregion
     }
 }
