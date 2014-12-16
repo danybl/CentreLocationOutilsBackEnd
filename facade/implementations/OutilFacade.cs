@@ -119,7 +119,7 @@ namespace CentreLocationOutils.facade.implementations
         }
 
         /// <inheritdoc />
-        public void vendreOutil(Connection connection, OutilDTO outilDTO)
+        public void supprimerOutil(Connection connection, OutilDTO outilDTO)
         {
             if (connection == null)
             {

@@ -28,7 +28,7 @@ namespace CentreLocationOutils.facade.interfaces
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>
         /// <param name="outilDTO">L'outil à vendre</param>
-        void vendreOutil(Connection connection, OutilDTO outilDTO);
+        void supprimerOutil(Connection connection, OutilDTO outilDTO);
 
         /// <summary>
         /// Trouve les outils à partir d'une nom. 
