@@ -39,7 +39,7 @@ namespace CentreLocationOutils.facade.implementations
        /// <summary>
        /// Setter de la variable d'instance <code>this.reservationService</code>.
        /// </summary>
-       /// <returns>La variable d'instance <code>this.reservationService</code></returns>
+       /// <param name="reservationService">La valeur à utiliser pour la variable d'instance <code>this.reservationService</code></param>
        private void setReservationService(IReservationService reservationService)
        {
            this.reservationService = reservationService;

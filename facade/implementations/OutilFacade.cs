@@ -10,6 +10,9 @@ using System.Collections.Generic;
 
 namespace CentreLocationOutils.facade.implementations
 {
+    /// <summary>
+    /// Facade pour interagir avec le service d'outil.
+    /// </summary>
     public class OutilFacade : Facade, IOutilFacade
     {
         private IOutilService outilService;
@@ -24,18 +27,31 @@ namespace CentreLocationOutils.facade.implementations
             setOutilService(outilService);
         }
 
-        //Getters and Setters
+        #region Getters and Setters
 
+        /// <summary>
+        /// Getter de la variable d'instance <code>this.outilFacade</code>.
+        /// </summary>
+        /// <returns>La variable d'instance <code>this.outilFacade</code></returns>
         private IOutilService getOutilService()
         {
             return this.outilService;
         }
 
+        /// <summary>
+        /// Setter de la variable d'instance <code>this.outilFacade</code>.
+        /// </summary>
+        /// <param name="outilFacade">La valeur à utiliser pour la variable d'instance <code>this.outilFacade</code></param>
         private void setOutilService(IOutilService outilService)
         {
             this.outilService = outilService;
         }
 
+        #endregion
+
+        #region CRUD
+
+        /// <inheritdoc />
         public OutilDTO getOutil(Connection connection, string idOutil)
         {
             try
@@ -48,6 +64,7 @@ namespace CentreLocationOutils.facade.implementations
             }
         }
 
+        /// <inheritdoc />
         public void acquerirOutil(Connection connection, OutilDTO outilDTO)
         {
             if (connection == null)
@@ -68,6 +85,7 @@ namespace CentreLocationOutils.facade.implementations
             }
         }
 
+        /// <inheritdoc />
         public void updateOutil(Connection connection, OutilDTO outilDTO)
         {
             if (connection == null)
@@ -85,7 +103,8 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("Il y a eu un erreur : " + serviceException);
             }
         }
-        
+
+        /// <inheritdoc />
         public void deleteOutil(Connection connection, OutilDTO outilDTO)
         {
             try
@@ -99,6 +118,7 @@ namespace CentreLocationOutils.facade.implementations
             }
         }
 
+        /// <inheritdoc />
         public void vendreOutil(Connection connection, OutilDTO outilDTO)
         {
             if (connection == null)
@@ -119,6 +139,7 @@ namespace CentreLocationOutils.facade.implementations
             }
         }
 
+        /// <inheritdoc />
         public List<OutilDTO> findByNom(Connection connection, OutilDTO outilDTO)
         {
             if (connection == null)
@@ -138,7 +159,7 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("", serviceException);
             }
         }
-
+        #endregion
     }
 }
 

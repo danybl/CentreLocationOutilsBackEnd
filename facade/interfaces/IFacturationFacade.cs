@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace CentreLocationOutils.facade.interfaces
 {
-    // <summary>
+    /// <summary>
     /// Interface de façade pour manipuler les facturations dans la base de données.
     /// </summary>
     public interface IFacturationFacade : IFacade

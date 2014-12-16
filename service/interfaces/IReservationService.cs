@@ -22,7 +22,7 @@ namespace CentreLocationOutils.service.interfaces
         /// <param name="connection">La connexion à utiliser</param>
         /// <param name="reservationDTO">L'outil à ajouter</param>
         void addReservation(Connection connection,
-        OutilDTO reservationDTO);
+        ReservationDTO reservationDTO);
 
         /// <summary>
         /// Met à jour une reservation dans la base de données.
@@ -30,7 +30,7 @@ namespace CentreLocationOutils.service.interfaces
         /// <param name="connection">La connexion à utiliser</param>
         /// <param name="reservationDTO">La reservation à mettre à jour</param>
         void updateReservation(Connection connection,
-        OutilDTO reservationDTO);
+        ReservationDTO reservationDTO);
 
         /// <summary>
         /// Supprime une reservation de la base de données.
@@ -38,7 +38,7 @@ namespace CentreLocationOutils.service.interfaces
         /// <param name="connection">La connexion à utiliser</param>
         /// <param name="reservationDTO">La reservation à enlever</param>
         void deleteReservation(Connection connection,
-        OutilDTO reservationDTO);
+        ReservationDTO reservationDTO);
 
         /// <summary>
         /// Trouve tous les reservations de la base de données. 
