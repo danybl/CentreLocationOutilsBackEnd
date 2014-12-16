@@ -117,7 +117,7 @@ namespace CentreLocationOutils.facade.implementations
             }
             try
             {
-                getOutilService().vendreOutil(connection, outilDTO);
+                getOutilService().supprimerOutil(connection, outilDTO);
             }
             catch (ServiceException serviceException)
             {

@@ -95,21 +95,6 @@ namespace CentreLocationOutils.service.implementations
         }
 
         /// <inheritdoc />
-        public void deleteOutil(Connection connection,
-            OutilDTO outilDTO)
-        {
-            try
-            {
-                getOutilDAO().delete(connection,
-                    outilDTO);
-            }
-            catch (DAOException daoException)
-            {
-                throw new ServiceException(daoException.Message);
-            }
-        }
-
-        /// <inheritdoc />
         public List<OutilDTO> getAllOutils(Connection connection,
             string sortByPropertyName)
         {
@@ -144,7 +129,7 @@ namespace CentreLocationOutils.service.implementations
             }
         }
         /// <inheritdoc />
-        public void vendreOutil(Connection connection, OutilDTO outilDTO)
+        public void supprimerOutil(Connection connection, OutilDTO outilDTO)
         {
             if (connection == null)
             {
@@ -156,7 +141,7 @@ namespace CentreLocationOutils.service.implementations
             }
             try
             {
-                deleteOutil(connection, outilDTO);
+                supprimerOutil(connection, outilDTO);
             }
             catch (DAOException daoException)
             {

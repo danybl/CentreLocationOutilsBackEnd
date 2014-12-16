@@ -28,22 +28,6 @@ namespace CentreLocationOutils.service.interfaces
         string primaryKey);
 
         /// <summary>
-        /// Met à jour un outil dans la base de données.
-        /// </summary>
-        /// <param name="connection">La connexion à utiliser<</param>
-        /// <param name="outilDTO">L'outil à mettre à jour</param>
-        void updateOutil(Connection connection,
-        OutilDTO outilDTO);
-
-        /// <summary>
-        /// Supprime un outil de la base de données.
-        /// </summary>
-        /// <param name="connection">La connexion à utiliser</param>
-        /// <param name="outilDTO">L'outil à enlever</param>
-        void deleteOutil(Connection connection,
-        OutilDTO outilDTO);
-
-        /// <summary>
         /// Trouve tous les outils de la base de données. 
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>
@@ -60,8 +44,8 @@ namespace CentreLocationOutils.service.interfaces
         /// <param name="nom">Le nom à trouver</param>
         /// <param name="sortByPropertyName">La liste est classée par ordre croissant sur <code>sortByPropertyName</code>.</param>
         /// <returns>Si aucun outil n'est trouvée, une liste vide est retournée.</returns>
-        
         List<OutilDTO> findByNom(Connection connection, OutilDTO outil);
+
         /// <summary>
         /// Acquerir un outil.
         /// </summary>
@@ -70,10 +54,19 @@ namespace CentreLocationOutils.service.interfaces
         void acquerirOutil(Connection connection, OutilDTO outilDTO);
 
         /// <summary>
-        /// Vendre un outil.
+        /// Met à jour un outil dans la base de données.
+        /// </summary>
+        /// <param name="connection">La connexion à utiliser<</param>
+        /// <param name="outilDTO">L'outil à mettre à jour</param>
+        void updateOutil(Connection connection,
+        OutilDTO outilDTO);
+
+        /// <summary>
+        /// Supprime un outil de la base de données.
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>
-        /// <param name="outilDTO">L'outil à vendre</param>
-        void vendreOutil(Connection connection, OutilDTO outilDTO);
+        /// <param name="outilDTO">L'outil à enlever</param>
+        void supprimerOutil(Connection connection,
+        OutilDTO outilDTO);
     }
 }
