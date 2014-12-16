@@ -55,6 +55,7 @@ namespace CentreLocationOutils.dao.interfaces
         /// Si aucun prêt n'est trouvé, une liste vide est retournée.
         /// </summary>
         /// <param name="connection">La connection à utiliser</param>
+        /// <param name="idClient">L'ID du client à trouver</param>
         /// <param name="sortByPropertyName">Le nom de la propriété à utiliser pour classer la liste</param>
         /// <returns>La liste des factures correspondants à une liste vide sinon</returns>
         List<FacturationDTO> findByClient(Connection connection, string idClient, string sortByPropertyName);

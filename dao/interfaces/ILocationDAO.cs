@@ -11,7 +11,7 @@ namespace CentreLocationOutils.dao.interfaces
         /// Ajoute un nouveau DTO dans la base de données
         /// </summary>
         /// <param name="connection">La connection à utiliser</param>
-        /// <param name="dto">Le DTO à ajouter</param>
+        /// <param name="locationDTO">La location à ajouter</param>
         void add(Connection connection,
           LocationDTO locationDTO);
 
@@ -28,7 +28,7 @@ namespace CentreLocationOutils.dao.interfaces
         /// Met à jour un DTO dans la base de données
         /// </summary>
         /// <param name="connection">La connection à utiliser</param>
-        /// <param name="dto">Le DTO à mettre à jour</param>
+        /// <param name="locationDTO">La location à mettre à jour</param>
         void update(Connection connection,
           LocationDTO locationDTO);
 
@@ -36,7 +36,7 @@ namespace CentreLocationOutils.dao.interfaces
         /// Supprime un DTO de  la base de données
         /// </summary>
         /// <param name="connection">La connection à utiliser</param>
-        /// <param name="dto">Le DTO à supprimer</param>
+        /// <param name="locationDTO">La location à supprimer</param>
         void delete(Connection connection,
           LocationDTO locationDTO);
 

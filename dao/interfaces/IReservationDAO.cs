@@ -11,7 +11,7 @@ namespace CentreLocationOutils.dao.interfaces
         /// Ajoute un nouveau DTO dans la base de données
         /// </summary>
         /// <param name="connection">La connection à utiliser</param>
-        /// <param name="dto">Le DTO à ajouter</param>
+        /// <param name="reservationDTO">La reservation à ajouter</param>
         void add(Connection connection,
         ReservationDTO reservationDTO);
 
@@ -28,7 +28,7 @@ namespace CentreLocationOutils.dao.interfaces
         /// Met à jour un DTO dans la base de données
         /// </summary>
         /// <param name="connection">La connection à utiliser</param>
-        /// <param name="dto">Le DTO à mettre à jour</param>
+        /// <param name="reservationDTO">La reservation à mettre à jour</param>
         void update(Connection connection,
         ReservationDTO reservationDTO);
 
@@ -36,7 +36,7 @@ namespace CentreLocationOutils.dao.interfaces
         /// Supprime un DTO de  la base de données
         /// </summary>
         /// <param name="connection">La connection à utiliser</param>
-        /// <param name="dto">Le DTO à supprimer</param>
+        /// <param name="reservationDTO">La reservation à supprimer</param>
         void delete(Connection connection,
         ReservationDTO reservationDTO);
 
@@ -72,7 +72,7 @@ namespace CentreLocationOutils.dao.interfaces
         /// <param name="sortByPropertyName">Le nom de la propriété à utiliser pour classer</param>
         /// <returns>La liste des location correspondantes</returns>
         List<ReservationDTO> findByOutil(Connection connection,
-        String idClient,
+        String idOutil,
         String sortByPropertyName);
     }
 }
