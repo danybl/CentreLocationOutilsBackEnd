@@ -49,7 +49,9 @@ namespace CentreLocationOutils.facade.implementations
 
         #endregion
 
-        public   List<FacturationDTO> findByClient(Connection connection, string idClient, string sortByPropertyName) {
+        #region CRUD
+        /// <inheritdoc />
+        public List<FacturationDTO> findByClient(Connection connection, string idClient, string sortByPropertyName) {
             try
             {
                return getFacturationService().findByClient(connection, idClient, sortByPropertyName);
@@ -60,7 +62,8 @@ namespace CentreLocationOutils.facade.implementations
             }
         }
 
-        public   List<FacturationDTO> findByEmploye(Connection connection, string idEmploye, string sortByPropertyName)
+        /// <inheritdoc />
+        public List<FacturationDTO> findByEmploye(Connection connection, string idEmploye, string sortByPropertyName)
         {
             try {
                 return getFacturationService().findByEmploye(connection, idEmploye, sortByPropertyName);
@@ -69,5 +72,6 @@ namespace CentreLocationOutils.facade.implementations
                 throw new FacadeException("", serviceExcpetion);
             }
         }
+        #endregion
     }
 }

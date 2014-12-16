@@ -7,6 +7,9 @@ using CentreLocationOutils.dto;
 
 namespace CentreLocationOutils.facade.interfaces
 {
+    // <summary>
+    /// Interface de façade pour manipuler les clients dans la base de données.
+    /// </summary>
     public interface IClientFacade : IFacade
     {
         /// <summary>
