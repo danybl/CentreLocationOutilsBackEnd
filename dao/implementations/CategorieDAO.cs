@@ -55,7 +55,7 @@ namespace CentreLocationOutils.dao.implementations
             }
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = CategorieDAO.ADD_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idCategorie", getPrimaryKey(connection, CategorieDAO.CREATE_PRIMARY_KEY)));
@@ -63,10 +63,11 @@ namespace CentreLocationOutils.dao.implementations
                 command.Parameters.Add(new OracleParameter(":description", categorieDTO.Description));
 
                 command.ExecuteNonQuery();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(oracleException);
             }
         }
 
@@ -82,16 +83,15 @@ namespace CentreLocationOutils.dao.implementations
             {
                 throw new InvalidPrimaryKeyException("La clef primaire ne peut être null");
             }
-            string idCategorie = primaryKey.ToString();
             CategorieDTO categorieDTO = null;
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = CategorieDAO.READ_REQUEST;
-                command.Parameters.Add(new OracleParameter(":idCategorie", idCategorie));
+                command.Parameters.Add(new OracleParameter(":idCategorie", primaryKey));
 
-                    DbDataReader dataReader = command.ExecuteReader();
+                    OracleDataReader dataReader = command.ExecuteReader();
                     if (dataReader.NextResult())
                     {
                         categorieDTO = new CategorieDTO();
@@ -100,10 +100,12 @@ namespace CentreLocationOutils.dao.implementations
                         categorieDTO.Description = dataReader.GetString(3);
 
                     }
+                    dataReader.Dispose();
+                    command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException OracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(OracleException);
             }
             return categorieDTO;
         }
@@ -122,7 +124,7 @@ namespace CentreLocationOutils.dao.implementations
             }
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = CategorieDAO.UPDATE_REQUEST;
                 command.Parameters.Add(new OracleParameter(":nom", categorieDTO.Nom));
@@ -130,10 +132,11 @@ namespace CentreLocationOutils.dao.implementations
                 command.Parameters.Add(new OracleParameter(":idCategorie", categorieDTO.IdCategorie));
 
                 command.ExecuteNonQuery();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException OracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(OracleException);
             }
         }
 
@@ -151,16 +154,17 @@ namespace CentreLocationOutils.dao.implementations
             }
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = CategorieDAO.DELETE_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idCategorie", categorieDTO.IdCategorie));
 
                 command.ExecuteNonQuery();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException OracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(OracleException);
             }
         }
 
@@ -180,11 +184,11 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = CategorieDAO.GET_ALL_REQUEST;
 
-                DbDataReader dataReader = command.ExecuteReader();
+                OracleDataReader dataReader = command.ExecuteReader();
                 CategorieDTO categorieDTO= null;
 
                 if (dataReader.NextResult())
@@ -198,8 +202,10 @@ namespace CentreLocationOutils.dao.implementations
                     }
                         while(dataReader.NextResult());
                     }
-                }catch(DbException dbException){
-                    throw new DAOException(dbException);
+                dataReader.Dispose();
+                command.Dispose();
+                }catch(OracleException OracleException){
+                    throw new DAOException(OracleException);
                 }
             return categories;
         }
@@ -224,11 +230,12 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = CategorieDAO.FIND_BY_NOM;
+                command.Parameters.Add(new OracleParameter(":nom", nom));
 
-                DbDataReader dataReader = command.ExecuteReader();
+                OracleDataReader dataReader = command.ExecuteReader();
                 CategorieDTO categorieDTO = null;
 
                 if (dataReader.NextResult())
@@ -243,10 +250,12 @@ namespace CentreLocationOutils.dao.implementations
                     }
                     while (dataReader.NextResult());
                 }
+                dataReader.Dispose();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException OracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(OracleException);
             }
             return categories;
         }
