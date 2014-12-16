@@ -24,7 +24,14 @@ namespace CentreLocationOutils.facade.interfaces
         void acquerirOutil(Connection connection, OutilDTO outilDTO);
 
         /// <summary>
-        /// Vendre un outil.
+        /// Mettre à jour un outil.
+        /// </summary>
+        /// <param name="connection">La connexion à utiliser</param>
+        /// <param name="outilDTO">L'outil à mettre à jour</param>
+        void updateOutil(Connection connection, OutilDTO outilDTO);
+
+        /// <summary>
+        /// Supprimer un outil.
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>
         /// <param name="outilDTO">L'outil à vendre</param>

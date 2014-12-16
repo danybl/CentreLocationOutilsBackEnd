@@ -105,20 +105,6 @@ namespace CentreLocationOutils.facade.implementations
         }
 
         /// <inheritdoc />
-        public void deleteOutil(Connection connection, OutilDTO outilDTO)
-        {
-            try
-            {
-                getOutilService().deleteOutil(connection,
-                    outilDTO);
-            }
-            catch (ServiceException serviceException)
-            {
-                throw new FacadeException("Il y a eu un erreur : " + serviceException);
-            }
-        }
-
-        /// <inheritdoc />
         public void supprimerOutil(Connection connection, OutilDTO outilDTO)
         {
             if (connection == null)
