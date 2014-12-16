@@ -2,6 +2,7 @@
 using CentreLocationOutils.db;
 using CentreLocationOutils.dto;
 using CentreLocationOutils.exception.dao;
+using CentreLocationOutils.exception.dto;
 using CentreLocationOutils.exception.service;
 using CentreLocationOutils.service.interfaces;
 using System;
@@ -56,7 +57,7 @@ namespace CentreLocationOutils.service.implementations
 
         #region CRUD
             /// <inheritdoc />
-            public   void add(Connection connection, FacturationDTO facturationDTO)
+            public void add(Connection connection, FacturationDTO facturationDTO)
                 {
                     try
                     {
@@ -69,7 +70,7 @@ namespace CentreLocationOutils.service.implementations
                 }
 
             /// <inheritdoc />
-            public   FacturationDTO get(Connection connection, string idFacturation)
+            public FacturationDTO get(Connection connection, string idFacturation)
                 {
                     try
                     {
@@ -82,7 +83,7 @@ namespace CentreLocationOutils.service.implementations
                 }
 
             /// <inheritdoc />
-            public   void update(Connection connection, FacturationDTO facturationDTO)
+            public void update(Connection connection, FacturationDTO facturationDTO)
             {
                 try
                 {
@@ -95,7 +96,7 @@ namespace CentreLocationOutils.service.implementations
             }
 
             /// <inheritdoc />
-            public   void delete(Connection connection, FacturationDTO facturationDTO)
+            public void delete(Connection connection, FacturationDTO facturationDTO)
             {
                 try
                 {
@@ -111,7 +112,7 @@ namespace CentreLocationOutils.service.implementations
 
         #region AUTRES
         /// <inheritdoc />
-        public   List<FacturationDTO> getall(Connection connection, string sortByPropertyName)
+        public List<FacturationDTO> getall(Connection connection, string sortByPropertyName)
         {
             try
             {
@@ -125,7 +126,7 @@ namespace CentreLocationOutils.service.implementations
 
 
         /// <inheritdoc />
-        public   List<FacturationDTO> findByClient(Connection connection, string idClient, string sortByPropertyName)
+        public List<FacturationDTO> findByClient(Connection connection, string idClient, string sortByPropertyName)
         {
             try
             {
@@ -138,7 +139,7 @@ namespace CentreLocationOutils.service.implementations
         }
 
         /// <inheritdoc />
-        public   List<FacturationDTO> findByEmploye(Connection connection, string idEmploye, string sortByPropertyName)
+        public List<FacturationDTO> findByEmploye(Connection connection, string idEmploye, string sortByPropertyName)
         {
             try
             {
@@ -150,5 +151,44 @@ namespace CentreLocationOutils.service.implementations
             }
         }
         #endregion
+
+        public void ajouterFacturation(Connection connection, FacturationDTO facturationDTO)
+        {
+            if (connection == null)
+            {
+                throw new InvalidConnectionException("La connection ne peut pas etre null");
+            }
+            if (facturationDTO == null)
+            {
+                throw new InvalidDTOException("La facturationDTO ne peut pas etre null");
+            }
+            add(connection, facturationDTO);
+        }
+
+        public void mettreAJourFacturation(Connection connection, FacturationDTO facturationDTO)
+        {
+            if (connection == null)
+            {
+                throw new InvalidConnectionException("La connection ne peut pas etre null");
+            }
+            if (facturationDTO == null)
+            {
+                throw new InvalidDTOException("La facturationDTO ne peut pas etre null");
+            }
+            update(connection, facturationDTO);
+        }
+
+        public void supprimerFacturation(Connection connection, FacturationDTO facturationDTO)
+        {
+            if (connection == null)
+            {
+                throw new InvalidConnectionException("La connection ne peut pas etre null");
+            }
+            if (facturationDTO == null)
+            {
+                throw new InvalidDTOException("La facturationDTO ne peut pas etre null");
+            }
+            delete(connection, facturationDTO);
+        }
     }
 }

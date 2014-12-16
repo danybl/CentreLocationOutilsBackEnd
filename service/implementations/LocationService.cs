@@ -253,6 +253,11 @@ namespace CentreLocationOutils.service.implementations
             updateLocation(connection, locationDTO);
         }
 
+        public void supprimerLocation(Connection connection, LocationDTO locationDTO)
+        {
+            deleteLocation(connection, locationDTO);
+        }
+
         /// <inheritdoc />
         public List<LocationDTO> findByClient(Connection connection, LocationDTO locationDTO)
         {

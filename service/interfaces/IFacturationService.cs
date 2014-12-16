@@ -72,5 +72,26 @@ namespace CentreLocationOutils.service.interfaces
         /// <returns>Si aucune facturation n'est trouvée, une liste vide est retournée.</returns>
         List<FacturationDTO> findByEmploye(Connection connection, string idEmploye, string sortByPropertyName);
 
+        /// <summary>
+        /// Ajoute une facturation
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="facturationDTO"></param>
+        void ajouterFacturation(Connection connection, FacturationDTO facturationDTO);
+
+        /// <summary>
+        /// Met à jour une facturation
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="facturationDTO"></param>
+        void mettreAJourFacturation(Connection connection, FacturationDTO facturationDTO);
+
+        /// <summary>
+        /// Supprime une facturation
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="facturationDTO"></param>
+        void supprimerFacturation(Connection connection, FacturationDTO facturationDTO);
+
     }
 }

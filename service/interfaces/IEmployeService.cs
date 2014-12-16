@@ -79,5 +79,12 @@ namespace CentreLocationOutils.service.interfaces
         /// <param name="connection">La connexion à utiliser</param>
         /// <param name="employeDTO">L'employe à desinscrire</param>
         void desinscrireEmploye(Connection connection, EmployeDTO employeDTO);
+
+        /// <summary>
+        /// Met à jout un employé
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="employeDTO"></param>
+        void mettreAJourEmploye(Connection connection, EmployeDTO employeDTO);
     }
 }

@@ -61,7 +61,7 @@ namespace CentreLocationOutils.service.implementations
         }
         catch (DAOException daoException)
         {
-            throw new ServiceException(daoException.Message);
+            throw new ServiceException("Erreur : " + daoException);
         }
         }
 
@@ -73,7 +73,7 @@ namespace CentreLocationOutils.service.implementations
         }
         catch (DAOException daoException)
         {
-            throw new ServiceException(daoException.Message);
+            throw new ServiceException("Erreur : " + daoException);
         }
         }
 
@@ -87,7 +87,7 @@ namespace CentreLocationOutils.service.implementations
             }
             catch (DAOException daoException)
             {
-                throw new ServiceException(daoException.Message);
+                throw new ServiceException("Erreur : " + daoException);
             }
         }
 
@@ -101,7 +101,7 @@ namespace CentreLocationOutils.service.implementations
             }
             catch (DAOException daoException)
             {
-                throw new ServiceException(daoException.Message);
+                throw new ServiceException("Erreur : " + daoException);
             }
         }
 

@@ -61,7 +61,7 @@ namespace CentreLocationOutils.service.implementations
             }
             catch (DAOException daoException)
             {
-                throw new ServiceException(daoException.Message);
+                throw new ServiceException("Il y a eu un erreur : ", daoException);
             }
         }
         /// <inheritdoc />
@@ -75,7 +75,7 @@ namespace CentreLocationOutils.service.implementations
             }
             catch (DAOException daoException)
             {
-                throw new ServiceException(daoException.Message);
+                throw new ServiceException("Il y a eu un erreur : ", daoException);
             }
         }
 
@@ -90,7 +90,19 @@ namespace CentreLocationOutils.service.implementations
             }
             catch (DAOException daoException)
             {
-                throw new ServiceException(daoException.Message);
+                throw new ServiceException("Il y a eu un erreur : ", daoException);
+            }
+        }
+
+        public void deleteOutil(Connection connection, OutilDTO outilDTO)
+        {
+            try
+            {
+                getOutilDAO().delete(connection, outilDTO);
+            }
+            catch (DAOException daoException)
+            {
+                throw new ServiceException("Il y a eu un erreur : ", daoException);
             }
         }
 
@@ -105,7 +117,7 @@ namespace CentreLocationOutils.service.implementations
             }
             catch (DAOException daoException)
             {
-                throw new ServiceException(daoException.Message);
+                throw new ServiceException("Il y a eu un erreur : ", daoException);
             }
         }
         /// <inheritdoc />
@@ -119,14 +131,21 @@ namespace CentreLocationOutils.service.implementations
             {
                 throw new InvalidDTOException("L'employé ne peut être null");
             }
-            try
-            {
+           
                 addOutil(connection, outilDTO);
-            }
-            catch (DAOException daoException)
+        }
+
+        public void mettreAJourOutil(Connection connection, OutilDTO outilDTO)
+        {
+            if (connection == null)
             {
-                throw new ServiceException("", daoException);
+                throw new InvalidConnectionException("La connection ne peut être null");
             }
+            if (outilDTO == null)
+            {
+                throw new InvalidDTOException("L'employé ne peut être null");
+            }
+            updateOutil(connection, outilDTO);
         }
         /// <inheritdoc />
         public void supprimerOutil(Connection connection, OutilDTO outilDTO)
@@ -139,14 +158,8 @@ namespace CentreLocationOutils.service.implementations
             {
                 throw new InvalidDTOException("L'employé ne peut être null");
             }
-            try
-            {
-                supprimerOutil(connection, outilDTO);
-            }
-            catch (DAOException daoException)
-            {
-                throw new ServiceException("", daoException);
-            }
+            
+                deleteOutil(connection, outilDTO);
         }
         /// <inheritdoc />
         public List<OutilDTO> findByNom(Connection connection, OutilDTO outilDTO)

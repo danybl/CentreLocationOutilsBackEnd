@@ -2,6 +2,7 @@
 using CentreLocationOutils.db;
 using CentreLocationOutils.dto;
 using CentreLocationOutils.exception.dao;
+using CentreLocationOutils.exception.dto;
 using CentreLocationOutils.exception.service;
 using CentreLocationOutils.service.interfaces;
 using System;
@@ -62,9 +63,9 @@ namespace CentreLocationOutils.service.implementations
                 getCategorieDAO().add(connection,
                     categorieDTO);
             }
-            catch (DbException dbException)
+            catch (DAOException daoException)
             {
-                throw new DAOException(dbException);
+                throw new ServiceException("Erreur : " + daoException);
             }
         }
         /// <inheritdoc />
@@ -75,9 +76,9 @@ namespace CentreLocationOutils.service.implementations
                 return getCategorieDAO().get(connection,
                     idCategorie);
             }
-            catch (DbException dbException)
+            catch (DAOException daoException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(daoException);
             }
         }
 
@@ -90,9 +91,9 @@ namespace CentreLocationOutils.service.implementations
                 getCategorieDAO().update(connection,
                     categorieDTO);
             }
-            catch (DbException dbException)
+            catch (DAOException daoException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(daoException);
             }
         }
         /// <inheritdoc />
@@ -104,9 +105,9 @@ namespace CentreLocationOutils.service.implementations
                 getCategorieDAO().delete(connection,
                     categorieDTO);
             }
-            catch (DbException dbException)
+            catch (DAOException daoException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(daoException);
             }
         }
         /// <inheritdoc />
@@ -118,9 +119,9 @@ namespace CentreLocationOutils.service.implementations
                 return getCategorieDAO().getAll(connection,
                     sortByPropertyName);
             }
-            catch (DbException dbException)
+            catch (DAOException daoException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(daoException);
             }
         }
         /// <inheritdoc />
@@ -134,11 +135,50 @@ namespace CentreLocationOutils.service.implementations
                     nom,
                     sortByPropertyName);
             }
-            catch (DbException dbException)
+            catch (DAOException DAOException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(DAOException);
             }
         }
         #endregion
+
+        public void ajouterCategorie(Connection connection, CategorieDTO categorieDTO)
+        {
+            if (connection == null)
+            {
+                throw new InvalidConnectionException("La connection ne peut pas etre null");
+            }
+            if (categorieDTO == null)
+            {
+                throw new InvalidDTOException("La categorieDTO ne peut pas etre null");
+            }
+           add(connection, categorieDTO);
+        }
+
+        public void mettreAJourCategorie(Connection connection, CategorieDTO categorieDTO)
+        {
+            if (connection == null)
+            {
+                throw new InvalidConnectionException("La connection ne peut pas etre null");
+            }
+            if (categorieDTO == null)
+            {
+                throw new InvalidDTOException("La categorieDTO ne peut pas etre null");
+            }
+            update(connection, categorieDTO);
+        }
+
+        public void supprimerCategorie(Connection connection, CategorieDTO categorieDTO)
+        {
+            if (connection == null)
+            {
+                throw new InvalidConnectionException("La connection ne peut pas etre null");
+            }
+            if (categorieDTO == null)
+            {
+                throw new InvalidDTOException("La categorieDTO ne peut pas etre null");
+            }
+            delete(connection, categorieDTO);
+        }
     }
 }

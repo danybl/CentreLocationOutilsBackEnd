@@ -73,6 +73,13 @@ namespace CentreLocationOutils.service.interfaces
         void terminerLocation(Connection connection, LocationDTO locationDTO);
 
         /// <summary>
+        /// Supprime une location.
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="locationDTO"></param>
+        void supprimerLocation(Connection connection, LocationDTO locationDTO);
+
+        /// <summary>
         /// Trouve les locations à partir d'un client. 
         /// Si aucune location n'est trouvé, une liste vide est retournée.  
         /// </summary>

@@ -54,7 +54,7 @@ namespace CentreLocationOutils.facade.implementations
         {
             try
             {
-                getAdresseService().changerAdresse(connection, adresseDTO);
+                getAdresseService().mettreAJourAddresse(connection, adresseDTO);
             }
             catch (ServiceException serviceExcpetion)
             {

@@ -2,6 +2,7 @@
 using CentreLocationOutils.db;
 using CentreLocationOutils.dto;
 using CentreLocationOutils.exception.dao;
+using CentreLocationOutils.exception.dto;
 using CentreLocationOutils.exception.service;
 using CentreLocationOutils.service.interfaces;
 using System;
@@ -137,41 +138,42 @@ namespace CentreLocationOutils.service.implementations
 
         public void ajouterAdresse(Connection connection, AdresseDTO adresseDTO)
         {
-            try
+            if (connection == null)
             {
-                add(connection, adresseDTO);
+                throw new InvalidConnectionException("La connection ne peut pas être null");
             }
-            catch (DAOException daoException)
+            if (adresseDTO == null)
             {
-                throw new ServiceException("Erreur : " + daoException); 
+                throw new InvalidDTOException("L'adresseDTO ne peut pas être null");
             }
+            add(connection, adresseDTO);
         }
 
         /// <inheritdoc />
-        public void changerAdresse(Connection connection, AdresseDTO adresseDTO)
+        public void mettreAJourAddresse(Connection connection, AdresseDTO adresseDTO)
         {
-            try
+            if (connection == null)
             {
-                update(connection, adresseDTO);
+                throw new InvalidConnectionException("La connection ne peut pas être null");
             }
-            catch (DAOException daoException)
+            if (adresseDTO == null)
             {
-                throw new ServiceException("Il y a un erreur : " + daoException);
+                throw new InvalidDTOException("L'adresseDTO ne peut pas être null");
             }
-            
-            //throw new NotImplementedException();
+            update(connection, adresseDTO);
         }
 
         public void supprimerAdresse(Connection connection, AdresseDTO adresseDTO)
         {
-            try
+            if (connection == null)
             {
-                delete(connection, adresseDTO);
+                throw new InvalidConnectionException("La connection ne peut pas être null");
             }
-            catch (DAOException daoException)
+            if (adresseDTO == null)
             {
-                throw new ServiceException("Erreur : " + daoException);
+                throw new InvalidDTOException("L'adresseDTO ne peut pas être null");
             }
+            delete(connection, adresseDTO); 
         }
     }
 }

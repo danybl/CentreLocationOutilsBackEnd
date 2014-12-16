@@ -77,7 +77,7 @@ namespace CentreLocationOutils.service.implementations
             }
             catch (DAOException daoException)
             {
-                throw new ServiceException(daoException.Message);
+                throw new ServiceException("Il y a eu un erreur : ", daoException);
             }
         }
 
@@ -94,7 +94,7 @@ namespace CentreLocationOutils.service.implementations
             }
             catch (DAOException daoException)
             {
-                throw new ServiceException(daoException.Message);
+                throw new ServiceException("Il y a eu un erreur : ", daoException);
             }
         }
 
@@ -109,7 +109,7 @@ namespace CentreLocationOutils.service.implementations
             }
             catch (DAOException daoException)
             {
-                throw new ServiceException(daoException.Message);
+                throw new ServiceException("Il y a eu un erreur : ", daoException);
             }
         }
 
@@ -124,7 +124,7 @@ namespace CentreLocationOutils.service.implementations
             }
             catch (DAOException daoException)
             {
-                throw new ServiceException(daoException.Message);
+                throw new ServiceException("Il y a eu un erreur : ", daoException);
             }
         }
 
@@ -170,9 +170,8 @@ namespace CentreLocationOutils.service.implementations
             {
                 throw new InvalidDTOException("La réservation ne peut être null");
             }
-            try
-            {
-                List<ReservationDTO> reservations = getReservationDAO().findByOutil(connection, reservationDTO.OutilDTO.IdOutil, ReservationDTO.ID_OUTIL_COLUMN_NAME);
+            
+            List<ReservationDTO> reservations = getReservationDAO().findByOutil(connection, reservationDTO.OutilDTO.IdOutil, ReservationDTO.ID_OUTIL_COLUMN_NAME);
                 if (reservations.Count > 0)
                 {
                     ReservationDTO uneReservationDTO = reservations[0];
@@ -231,11 +230,6 @@ namespace CentreLocationOutils.service.implementations
                 locationDTO.DateLocation = System.DateTime.Now.Ticks.ToString();
                 getLocationDAO().add(connection, locationDTO);
                 annulerReservation(connection, reservationDTO);
-            }
-            catch (DAOException daoException)
-            {
-                throw new ServiceException("", daoException);
-            }
         }
 
         /// <inheritdoc />
@@ -249,14 +243,8 @@ namespace CentreLocationOutils.service.implementations
             {
                 throw new InvalidDTOException("La réservation ne peut être null");
             }
-            try
-            {
+           
                 deleteReservation(connection, reservationDTO);
-            }
-            catch (DAOException daoException)
-            {
-                throw new ServiceException("", daoException);
-            }
         }
 
         /// <inheritdoc />
@@ -276,7 +264,7 @@ namespace CentreLocationOutils.service.implementations
             }
             catch (DAOException daoException)
             {
-                throw new ServiceException("", daoException);
+                throw new ServiceException("Il y a eu un erreur : ", daoException);
             }
         }
         /// <inheritdoc />
@@ -296,7 +284,7 @@ namespace CentreLocationOutils.service.implementations
             }
             catch (DAOException daoException)
             {
-                throw new ServiceException("", daoException);
+                throw new ServiceException("Il y a eu un erreur : ", daoException);
             }
         }
         #endregion

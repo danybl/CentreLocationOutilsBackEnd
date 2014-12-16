@@ -62,7 +62,7 @@ namespace CentreLocationOutils.service.implementations
             }
             catch (DAOException daoException)
             {
-                throw new ServiceException(daoException.Message);
+                throw new ServiceException("Erreur : " + daoException);
             }
         }
 
@@ -76,7 +76,7 @@ namespace CentreLocationOutils.service.implementations
             }
             catch (DAOException daoException)
             {
-                throw new ServiceException(daoException.Message);
+                throw new ServiceException("Erreur : " + daoException);
             }
         }
 
@@ -92,7 +92,7 @@ namespace CentreLocationOutils.service.implementations
             }
             catch (DAOException daoException)
             {
-                throw new ServiceException(daoException.Message);
+                throw new ServiceException("Erreur : " + daoException);
             }
         }
 
@@ -107,7 +107,7 @@ namespace CentreLocationOutils.service.implementations
             }
             catch (DAOException daoException)
             {
-                throw new ServiceException(daoException.Message);
+                throw new ServiceException("Erreur : " + daoException);
             }
         }
 
@@ -122,7 +122,7 @@ namespace CentreLocationOutils.service.implementations
             }
             catch (DAOException daoException)
             {
-                throw new ServiceException(daoException.Message);
+                throw new ServiceException("Erreur : " + daoException);
             }
         }
 
@@ -143,7 +143,7 @@ namespace CentreLocationOutils.service.implementations
             }
             catch (DAOException daoException)
             {
-                throw new ServiceException("", daoException);
+                throw new ServiceException("Erreur : " + daoException);
             }
         }
 
@@ -175,6 +175,19 @@ namespace CentreLocationOutils.service.implementations
             }
 
             deleteEmploye(connection, employeDTO);
+        }
+
+        public void mettreAJourEmploye(Connection connection, EmployeDTO employeDTO)
+        {
+            if (connection == null)
+            {
+                throw new InvalidConnectionException("La connection ne peut être null");
+            }
+            if (employeDTO == null)
+            {
+                throw new InvalidDTOException("L'employé ne peut être null");
+            }
+            updateEmploye(connection, employeDTO);
         }
 
         #endregion

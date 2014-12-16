@@ -68,5 +68,25 @@ namespace CentreLocationOutils.service.interfaces
         String nom,
         String sortByPropertyName);
 
+        /// <summary>
+        /// Ajoute une nouvelle catégorie
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="categorieDTO"></param>
+        void ajouterCategorie(Connection connection, CategorieDTO categorieDTO);
+
+        /// <summary>
+        /// Met à jour une categorie
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="categorieDTO"></param>
+        void mettreAJourCategorie(Connection connection, CategorieDTO categorieDTO);
+
+        /// <summary>
+        /// Supprime une categorie
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="categorieDTO"></param>
+        void supprimerCategorie(Connection connection, CategorieDTO categorieDTO);
     }
 }

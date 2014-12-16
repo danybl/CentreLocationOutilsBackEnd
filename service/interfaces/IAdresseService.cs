@@ -72,7 +72,7 @@ namespace CentreLocationOutils.service.interfaces
         /// </summary>
         /// <param name="connection">La connection à utiliser</param>
         /// <param name="adresseDTO">L'adresse à changer</param>
-        void changerAdresse(Connection connection, AdresseDTO adresseDTO);
+        void mettreAJourAddresse(Connection connection, AdresseDTO adresseDTO);
 
         /// <summary>
         /// Supprime une adresse

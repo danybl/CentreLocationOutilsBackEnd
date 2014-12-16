@@ -28,6 +28,21 @@ namespace CentreLocationOutils.service.interfaces
         string primaryKey);
 
         /// <summary>
+        /// Met à jour un outil dans la base de données.
+        /// </summary>
+        /// <param name="connection">La connexion à utiliser<</param>
+        /// <param name="outilDTO">L'outil à mettre à jour</param>
+        void updateOutil(Connection connection,
+        OutilDTO outilDTO);
+
+        /// <summary>
+        /// Supprime un outilDTO de la base des données
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="outilDTO"></param>
+        void deleteOutil(Connection connection, OutilDTO outilDTO);
+
+        /// <summary>
         /// Trouve tous les outils de la base de données. 
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>
@@ -53,16 +68,10 @@ namespace CentreLocationOutils.service.interfaces
         /// <param name="outilDTO">L'outil à acquerir</param>
         void acquerirOutil(Connection connection, OutilDTO outilDTO);
 
-        /// <summary>
-        /// Met à jour un outil dans la base de données.
-        /// </summary>
-        /// <param name="connection">La connexion à utiliser<</param>
-        /// <param name="outilDTO">L'outil à mettre à jour</param>
-        void updateOutil(Connection connection,
-        OutilDTO outilDTO);
+       
 
         /// <summary>
-        /// Supprime un outil de la base de données.
+        /// Supprime un outil
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>
         /// <param name="outilDTO">L'outil à enlever</param>
