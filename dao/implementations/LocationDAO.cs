@@ -38,7 +38,7 @@ namespace CentreLocationOutils.dao.implementations
 
         private static   String FIND_BY_OUTIL_REQUEST = "SELECT idLocation, idClient, idEmploye, idOutil, dateLocation, dateLimite, dateRetour "
             + "FROM location "
-            + "WHERE idOutil = ? "
+            + "WHERE idOutil = :idOutil "
             + "ORDER BY dateLocation ASC";
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace CentreLocationOutils.dao.implementations
             }
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = LocationDAO.ADD_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idLocation", getPrimaryKey(connection, LocationDAO.CREATE_PRIMARY_KEY)));
@@ -76,10 +76,11 @@ namespace CentreLocationOutils.dao.implementations
 
 
                 command.ExecuteNonQuery();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(oracleException);
             }
         }
 
@@ -99,12 +100,12 @@ namespace CentreLocationOutils.dao.implementations
             LocationDTO locationDTO = null;
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = LocationDAO.READ_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idLocation", idLocation));
 
-                DbDataReader dataReader = command.ExecuteReader();
+                OracleDataReader dataReader = command.ExecuteReader();
                 if (dataReader.NextResult())
                 {
                     locationDTO = new LocationDTO();
@@ -122,10 +123,12 @@ namespace CentreLocationOutils.dao.implementations
                     locationDTO.DateRetour = dataReader.GetDateTime(7).ToString();
 
                 }
+                dataReader.Dispose();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(oracleException);
             }
             return locationDTO;
         }
@@ -144,16 +147,17 @@ namespace CentreLocationOutils.dao.implementations
             }
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.Parameters.Add(new OracleParameter(":dateLimite", locationDTO.DateLimite));
                 command.Parameters.Add(new OracleParameter(":idLocation", locationDTO.IdLocation));
 
                 command.ExecuteNonQuery();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(oracleException);
             }
         }
 
@@ -171,16 +175,17 @@ namespace CentreLocationOutils.dao.implementations
             }
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = LocationDAO.DELETE_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idLocation", locationDTO.IdLocation));
 
                 command.ExecuteNonQuery();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(oracleException);
             }
         }
 
@@ -200,11 +205,11 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = LocationDAO.GET_ALL_REQUEST;
 
-                DbDataReader dataReader = command.ExecuteReader();
+                OracleDataReader dataReader = command.ExecuteReader();
                 LocationDTO locationDTO = null;
 
                 if (dataReader.NextResult())
@@ -229,10 +234,12 @@ namespace CentreLocationOutils.dao.implementations
                     }
                     while (dataReader.NextResult());
                 }
+                dataReader.Dispose();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(oracleException);
             }
             return locations;
         }
@@ -259,11 +266,12 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = LocationDAO.FIND_BY_CLIENT_REQUEST;
+                command.Parameters.Add(new OracleParameter(":idClient", idClient));
 
-                DbDataReader dataReader = command.ExecuteReader();
+                OracleDataReader dataReader = command.ExecuteReader();
                 LocationDTO locationDTO = null;
 
                 if (dataReader.NextResult())
@@ -286,17 +294,19 @@ namespace CentreLocationOutils.dao.implementations
                         locations.Add(locationDTO);
                     } while (dataReader.NextResult());
                 }
+                dataReader.Dispose();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(oracleException);
             }
             return locations;
         }
 
         /// <inheritdoc />
         public List<LocationDTO> findByOutil(Connection connection,
-        String idClient,
+        String idOutil,
         String sortByPropertyName)
         {
 
@@ -304,7 +314,7 @@ namespace CentreLocationOutils.dao.implementations
             {
                 throw new InvalidConnectionException("La connexion ne peut être null");
             }
-            if (idClient == null)
+            if (idOutil == null)
             {
                 throw new InvalidCriterionException("L'ID du outil ne peut être null");
             }
@@ -316,11 +326,12 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = LocationDAO.FIND_BY_OUTIL_REQUEST;
+                command.Parameters.Add(new OracleParameter(":idOutil", idOutil));
 
-                DbDataReader dataReader = command.ExecuteReader();
+                OracleDataReader dataReader = command.ExecuteReader();
                 LocationDTO locationDTO = null;
 
                 if (dataReader.NextResult())
@@ -343,10 +354,12 @@ namespace CentreLocationOutils.dao.implementations
                         locations.Add(locationDTO);
                     } while (dataReader.NextResult());
                 }
+                dataReader.Dispose();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(oracleException);
             }
             return locations;
         }
