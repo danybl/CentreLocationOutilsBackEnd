@@ -18,6 +18,8 @@ namespace CentreLocationOutils.dao.implementations
             + "FROM client "
             + "WHERE idClient = :idClient";
 
+        private static string UPDATE_REQUEST = "UPDATE client_Adresse"; // TODO 
+
         private static   string DELETE_REQUEST = "DELETE FROM client "
             + "WHERE idClient = :idClient";
 
@@ -46,17 +48,18 @@ namespace CentreLocationOutils.dao.implementations
             }
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = Client_AdresseDAO.ADD_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idClient", client_AdresseDTO.IdClient));
                 command.Parameters.Add(new OracleParameter(":idAdresse", client_AdresseDTO.IdAdresse));
 
                 command.ExecuteNonQuery();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException OracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(OracleException);
             }
         }
 
@@ -76,12 +79,12 @@ namespace CentreLocationOutils.dao.implementations
             Client_AdresseDTO client_AdresseDTO = null;
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = Client_AdresseDAO.READ_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idClient", idClient));
 
-                DbDataReader dataReader = command.ExecuteReader();
+                OracleDataReader dataReader = command.ExecuteReader();
                 if (dataReader.NextResult())
                 {
                     client_AdresseDTO = new Client_AdresseDTO();
@@ -89,12 +92,38 @@ namespace CentreLocationOutils.dao.implementations
                     client_AdresseDTO.IdAdresse = dataReader.GetString(2);
 
                 }
+                dataReader.Dispose();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException OracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(OracleException);
             }
             return client_AdresseDTO;
+        }
+
+        public void update(Connection connection, Client_AdresseDTO client_AdresseDTO)
+        {
+            if (connection == null)
+            {
+                throw new InvalidConnectionException("La connexion ne peut être null");
+            }
+            if (client_AdresseDTO == null)
+            {
+                throw new InvalidDTOException("Le DTO ne peut être null");
+            }
+            try
+            {
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
+                command.CommandType = CommandType.Text;
+                command.CommandText = Client_AdresseDAO.DELETE_REQUEST;
+                command.Parameters.Add(new OracleParameter(":idClient", client_AdresseDTO.IdClient));
+
+            }
+            catch (OracleException OracleException)
+            {
+                throw new DAOException(OracleException);
+            }
         }
 
         /// <inheritdoc />
@@ -111,15 +140,15 @@ namespace CentreLocationOutils.dao.implementations
             }
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = Client_AdresseDAO.DELETE_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idClient", client_AdresseDTO.IdClient));
 
             }
-            catch (DbException dbException)
+            catch (OracleException OracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(OracleException);
             }
         }
 
@@ -139,11 +168,11 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = Client_AdresseDAO.GET_ALL_REQUEST;
 
-                DbDataReader dataReader = command.ExecuteReader();
+                OracleDataReader dataReader = command.ExecuteReader();
                 Client_AdresseDTO client_AdresseDTO = null;
 
                 if (dataReader.NextResult())
@@ -159,9 +188,9 @@ namespace CentreLocationOutils.dao.implementations
                     while (dataReader.NextResult());
                 }
             }
-            catch (DbException dbException)
+            catch (OracleException OracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(OracleException);
             }
             return client_Adresses;
         }
