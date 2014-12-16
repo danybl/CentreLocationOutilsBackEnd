@@ -17,6 +17,14 @@ namespace CentreLocationOutils.facade.interfaces
         LocationDTO getLocation(Connection connection,string  idLocation);
 
         /// <summary>
+        /// Obtient toutes les locations
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="sortByPropertyName"></param>
+        /// <returns></returns>
+        List<LocationDTO> getAllLocations(Connection connection, string sortByPropertyName);
+
+        /// <summary>
         /// Commencer une location.
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>

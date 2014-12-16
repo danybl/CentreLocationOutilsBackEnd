@@ -15,8 +15,6 @@ namespace CentreLocationOutils.facade.implementations
     {
         private ILocationService locationService;
 
-        private IEmployeService employeService;
-
         public LocationFacade(ILocationService locationService)
             : base()
         {
@@ -60,9 +58,24 @@ namespace CentreLocationOutils.facade.implementations
             }
             catch (ServiceException serviceException)
             {
-                throw new FacadeException("", serviceException);
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
             }
         }
+
+
+        public List<LocationDTO> getAllLocations(Connection connection, string sortByPropertyName)
+        {
+            try
+            {
+                return getLocationService().getAllLocations(connection, sortByPropertyName);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
+            }
+        }
+
+
 
         /// <inheritdoc />
         public void commencerLocation(Connection connection, LocationDTO locationDTO)
@@ -73,7 +86,7 @@ namespace CentreLocationOutils.facade.implementations
             }
             catch (ServiceException serviceException)
             {
-                throw new FacadeException("", serviceException);
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
             }
         }
 
@@ -86,7 +99,7 @@ namespace CentreLocationOutils.facade.implementations
             }
             catch (ServiceException serviceException)
             {
-                throw new FacadeException("", serviceException);
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
             }
         }
 
@@ -99,7 +112,7 @@ namespace CentreLocationOutils.facade.implementations
             }
             catch (ServiceException serviceException)
             {
-                throw new FacadeException("", serviceException);
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
             }
         }
 
@@ -112,7 +125,7 @@ namespace CentreLocationOutils.facade.implementations
             }
             catch (ServiceException serviceException)
             {
-                throw new FacadeException("", serviceException);
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
             }
         }
 
@@ -125,7 +138,7 @@ namespace CentreLocationOutils.facade.implementations
             }
             catch (ServiceException serviceException)
             {
-                throw new FacadeException("", serviceException);
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
             }
         }
         #endregion

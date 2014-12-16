@@ -41,6 +41,14 @@ namespace CentreLocationOutils.service.interfaces
         ReservationDTO reservationDTO);
 
         /// <summary>
+        /// Obtient une reservation
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="idReservation"></param>
+        /// <returns></returns>
+        ReservationDTO getReservation(Connection connection, string idReservation);
+
+        /// <summary>
         /// Trouve tous les reservations de la base de données. 
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>

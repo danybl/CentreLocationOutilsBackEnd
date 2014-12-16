@@ -17,6 +17,14 @@ namespace CentreLocationOutils.facade.interfaces
         OutilDTO getOutil(Connection connection, string idOutil);
 
         /// <summary>
+        /// Obient tous les outils
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="sortByPropertyName"></param>
+        /// <returns></returns>
+        List<OutilDTO> getAllOutils(Connection connection, string sortByPropertyName);
+
+        /// <summary>
         /// Acquerir un outil.
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>
@@ -28,7 +36,7 @@ namespace CentreLocationOutils.facade.interfaces
         /// </summary>
         /// <param name="connection">La connexion à utiliser</param>
         /// <param name="outilDTO">L'outil à mettre à jour</param>
-        void updateOutil(Connection connection, OutilDTO outilDTO);
+        void mettreAJourOutil(Connection connection, OutilDTO outilDTO);
 
         /// <summary>
         /// Supprimer un outil.

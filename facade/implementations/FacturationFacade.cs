@@ -51,15 +51,76 @@ namespace CentreLocationOutils.facade.implementations
 
         #region CRUD
 
+        public void ajouterFacturation(Connection connection, FacturationDTO facturationDTO)
+        {
+            try
+            {
+                getFacturationService().ajouterFacturation(connection, facturationDTO);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
+            }
+        }
+
+        public void mettreAJourFacturation(Connection connection, FacturationDTO facturationDTO)
+        {
+            try
+            {
+                getFacturationService().mettreAJourFacturation(connection, facturationDTO);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
+            }
+
+        }
+
+        public void supprimerFacturation(Connection connection, FacturationDTO facturationDTO)
+        {
+            try
+            {
+                getFacturationService().supprimerFacturation(connection, facturationDTO);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
+            }
+        }
+
+        public FacturationDTO getFacturation(Connection connection, string idFacturation)
+        {
+            try
+            {
+                return getFacturationService().get(connection, idFacturation);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
+            }
+        }
+
+        public List<FacturationDTO> getAllFacturations(Connection connection, string sortByPropertyName)
+        {
+            try
+            {
+               return getFacturationService().getall(connection, sortByPropertyName);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
+            }
+        }
+
         /// <inheritdoc />
         public List<FacturationDTO> findByClient(Connection connection, string idClient, string sortByPropertyName) {
             try
             {
                return getFacturationService().findByClient(connection, idClient, sortByPropertyName);
             }
-            catch (ServiceException serviceExcpetion)
+            catch (ServiceException serviceException)
             {
-                throw new FacadeException("", serviceExcpetion);
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
             }
         }
 
@@ -69,8 +130,8 @@ namespace CentreLocationOutils.facade.implementations
             try {
                 return getFacturationService().findByEmploye(connection, idEmploye, sortByPropertyName);
             }
-            catch (ServiceException serviceExcpetion) {
-                throw new FacadeException("", serviceExcpetion);
+            catch (ServiceException serviceException) {
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
             }
         }
         #endregion

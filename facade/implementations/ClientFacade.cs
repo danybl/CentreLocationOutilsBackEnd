@@ -59,7 +59,7 @@ namespace CentreLocationOutils.facade.implementations
             }
             catch (ServiceException serviceException)
             {
-                throw new FacadeException("", serviceException);
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
             }
         }
 
@@ -72,7 +72,7 @@ namespace CentreLocationOutils.facade.implementations
             }
             catch (ServiceException serviceException)
             {
-                throw new FacadeException("", serviceException);
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
             }
         }
         /// <inheritdoc />
@@ -84,7 +84,7 @@ namespace CentreLocationOutils.facade.implementations
             }
             catch (ServiceException serviceException)
             {
-                throw new FacadeException("", serviceException);
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
             }
         }
 
@@ -97,7 +97,7 @@ namespace CentreLocationOutils.facade.implementations
             }
             catch (ServiceException serviceException)
             {
-                throw new FacadeException("", serviceException);
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
             }
         }
         /// <inheritdoc />
@@ -109,7 +109,7 @@ namespace CentreLocationOutils.facade.implementations
             }
             catch (ServiceException serviceException)
             {
-                throw new FacadeException("", serviceException);
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
             }
         }
         /// <inheritdoc />
@@ -121,7 +121,7 @@ namespace CentreLocationOutils.facade.implementations
             }
             catch (ServiceException serviceException)
             {
-                throw new FacadeException("", serviceException);
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
             }
         }
         #endregion

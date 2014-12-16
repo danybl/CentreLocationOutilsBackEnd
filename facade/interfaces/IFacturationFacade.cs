@@ -10,6 +10,42 @@ namespace CentreLocationOutils.facade.interfaces
     public interface IFacturationFacade : IFacade
     {
         /// <summary>
+        /// Ajoute une facturation
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="facturationDTO"></param>
+        void ajouterFacturation(Connection connection, FacturationDTO facturationDTO);
+
+        /// <summary>
+        /// Met à jour une facturation
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="facturationDTO"></param>
+        void mettreAJourFacturation(Connection connection, FacturationDTO facturationDTO);
+
+        /// <summary>
+        /// Supprime une facturation
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="facturationDTO"></param>
+        void supprimerFacturation(Connection connection, FacturationDTO facturationDTO);
+
+        /// <summary>
+        /// Obtient une facturation
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="idFacturation"></param>
+        /// <returns></returns>
+        FacturationDTO getFacturation(Connection connection, string idFacturation);
+
+        /// <summary>
+        /// Obtient toutes les facturations
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="sortByPropertyName"></param>
+        /// <returns></returns>
+        List<FacturationDTO> getAllFacturations(Connection connection, string sortByPropertyName);
+        /// <summary>
         /// Trouve les factures à partir d'un client. La liste est classée par ordre croissant sur <code>sortByPropertyName</code>. 
         /// Si aucune adresse n'est trouvé, une liste vide est retournée. 
         /// </summary>

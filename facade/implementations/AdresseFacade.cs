@@ -49,8 +49,20 @@ namespace CentreLocationOutils.facade.implementations
 
         #endregion
         #region CRUD
+
+        public void ajouterAdresse(Connection connection, AdresseDTO adresseDTO)
+        {
+            try
+            {
+                getAdresseService().ajouterAdresse(connection, adresseDTO);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("Un erreur s'est produit : " + serviceException);
+            }
+        }
         /// <inheritdoc />
-        public void changerAdresse(Connection connection, AdresseDTO adresseDTO)
+        public void mettreAJourAdresse(Connection connection, AdresseDTO adresseDTO)
         {
             try
             {
@@ -58,7 +70,43 @@ namespace CentreLocationOutils.facade.implementations
             }
             catch (ServiceException serviceExcpetion)
             {
-                throw new FacadeException("", serviceExcpetion);
+                throw new FacadeException("Un erreur s'est produit : " + serviceExcpetion);
+            }
+        }
+
+        public void supprimerAdresse(Connection connection, AdresseDTO adresseDTO)
+        {
+            try
+            {
+                getAdresseService().supprimerAdresse(connection, adresseDTO);
+            }
+            catch (ServiceException serviceExcpetion)
+            {
+                throw new FacadeException("Un erreur s'est produit : " + serviceExcpetion);
+            }
+        }
+
+        public AdresseDTO getAdresse(Connection connection, string idAdresse)
+        {
+            try
+            {
+               return getAdresseService().get(connection, idAdresse);
+            }
+            catch (ServiceException serviceExcpetion)
+            {
+                throw new FacadeException("Un erreur s'est produit : " + serviceExcpetion);
+            }
+        }
+
+        public List<AdresseDTO> getAllAdresses(Connection connection, string sortByPropertyName)
+        {
+            try
+            {
+                return getAdresseService().getall(connection, sortByPropertyName);
+            }
+            catch (ServiceException serviceExcpetion)
+            {
+                throw new FacadeException("Un erreur s'est produit : " + serviceExcpetion);
             }
         }
         #endregion

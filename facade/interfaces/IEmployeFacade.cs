@@ -33,5 +33,13 @@ namespace CentreLocationOutils.facade.interfaces
         /// <param name="idEmploye">L'id de L'employé</param>
         /// <returns></returns>
         EmployeDTO getEmploye(Connection connection, string idEmploye);
+
+        /// <summary>
+        /// Obtient tous les employes
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="sortByPropertyName"></param>
+        /// <returns></returns>
+        List<EmployeDTO> getAllEmployes(Connection connection, string sortByPropertyName);
     }
 }

@@ -57,7 +57,7 @@ namespace CentreLocationOutils.facade.implementations
             }
             catch (ServiceException serviceException)
             {
-                throw new FacadeException("", serviceException);
+                throw new FacadeException("Il y a eu un erreur : " + serviceException);
             }
         }
 
@@ -82,6 +82,18 @@ namespace CentreLocationOutils.facade.implementations
             {
                 getEmployeService().desinscrireEmploye(connection,
                     employeDTO);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("Il y a eu un erreur : " + serviceException);
+            }
+        }
+
+        public List<EmployeDTO> getAllEmployes(Connection connection, string sortByPropertyName)
+        {
+            try
+            {
+                return getEmployeService().getAllEmployes(connection, sortByPropertyName);
             }
             catch (ServiceException serviceException)
             {

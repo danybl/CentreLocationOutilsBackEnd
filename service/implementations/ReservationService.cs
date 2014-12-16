@@ -113,6 +113,18 @@ namespace CentreLocationOutils.service.implementations
             }
         }
 
+        public ReservationDTO getReservation(Connection connection, string idReservation)
+        {
+            try
+            {
+                return getReservationDAO().get(connection, idReservation);
+            }
+            catch (DAOException daoException)
+            {
+                throw new ServiceException("Il y a eu un erreur : ", daoException);
+            }
+        }
+
         /// <inheritdoc />
         public List<ReservationDTO> getAllReservations(Connection connection,
             string sortByPropertyName)

@@ -18,7 +18,7 @@ namespace CentreLocationOutils.dao.implementations
             + "FROM client "
             + "WHERE idClient = :idClient";
 
-        private static string UPDATE_REQUEST = "UPDATE client_Adresse"; // TODO 
+        //private static string UPDATE_REQUEST = "UPDATE client_Adresse"; // TODO 
 
         private static   string DELETE_REQUEST = "DELETE FROM client "
             + "WHERE idClient = :idClient";
@@ -26,7 +26,7 @@ namespace CentreLocationOutils.dao.implementations
         private static   string GET_ALL_REQUEST = "SELECT idClient, idAdresse "
             + "FROM client";
 
-        private static   string CREATE_PRIMARY_KEY = "SELECT SEQ_CLIENT_ID.NEXTVAL from DUAL";
+        //private static   string CREATE_PRIMARY_KEY = "SELECT SEQ_CLIENT_ID.NEXTVAL from DUAL";
 
         /// <summary>
         /// Crée le DAO de la table Client_Adresse <code>client_Adresse</code>

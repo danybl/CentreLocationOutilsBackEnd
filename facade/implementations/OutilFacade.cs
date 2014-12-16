@@ -60,21 +60,25 @@ namespace CentreLocationOutils.facade.implementations
             }
             catch (ServiceException serviceException)
             {
-                throw new FacadeException("", serviceException);
+                throw new FacadeException("Il y a eu un erreur : " + serviceException);
+            }
+        }
+
+        public List<OutilDTO> getAllOutils(Connection connection, string sortByPropertyName)
+        {
+            try
+            {
+                return getOutilService().getAllOutils(connection, sortByPropertyName);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("Il y a eu un erreur : " + serviceException);
             }
         }
 
         /// <inheritdoc />
         public void acquerirOutil(Connection connection, OutilDTO outilDTO)
         {
-            if (connection == null)
-            {
-                throw new InvalidConnectionException("La connection ne peut être null");
-            }
-            if (outilDTO == null)
-            {
-                throw new InvalidDTOException("L'outil ne peut être null");
-            }
             try
             {
                 getOutilService().acquerirOutil(connection, outilDTO);
@@ -86,17 +90,10 @@ namespace CentreLocationOutils.facade.implementations
         }
 
         /// <inheritdoc />
-        public void updateOutil(Connection connection, OutilDTO outilDTO)
+        public void mettreAJourOutil(Connection connection, OutilDTO outilDTO)
         {
-            if (connection == null)
-            {
-                throw new InvalidConnectionException("La connection ne peut être null");
-            }
-            if (outilDTO == null) {
-                throw new InvalidDTOException("L'outil ne peut être null");
-            }
             try {
-                getOutilService().updateOutil(connection,outilDTO);
+                getOutilService().mettreAJourOutil(connection, outilDTO);
             }
             catch (ServiceException serviceException)
             {
@@ -107,14 +104,6 @@ namespace CentreLocationOutils.facade.implementations
         /// <inheritdoc />
         public void supprimerOutil(Connection connection, OutilDTO outilDTO)
         {
-            if (connection == null)
-            {
-                throw new InvalidConnectionException("La connection ne peut être null");
-            }
-            if (outilDTO == null)
-            {
-                throw new InvalidDTOException("L'outil ne peut être null");
-            }
             try
             {
                 getOutilService().supprimerOutil(connection, outilDTO);
@@ -142,7 +131,7 @@ namespace CentreLocationOutils.facade.implementations
             }
             catch (ServiceException serviceException)
             {
-                throw new FacadeException("", serviceException);
+                throw new FacadeException("Il y a eu un erreur : " + serviceException);
             }
         }
         #endregion

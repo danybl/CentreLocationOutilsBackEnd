@@ -68,7 +68,12 @@ namespace CentreLocationOutils.service.interfaces
         /// <param name="outilDTO">L'outil à acquerir</param>
         void acquerirOutil(Connection connection, OutilDTO outilDTO);
 
-       
+        /// <summary>
+        /// met à jour un outil
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <param name="outilDTO"></param>
+        void mettreAJourOutil(Connection connection, OutilDTO outilDTO);
 
         /// <summary>
         /// Supprime un outil

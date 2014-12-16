@@ -56,7 +56,7 @@ namespace CentreLocationOutils.facade.implementations
            }
            catch (ServiceException serviceException)
            {
-               throw new FacadeException("", serviceException);
+               throw new FacadeException("Un erreur s'est produit : " + serviceException);
            }
        }
 
@@ -69,7 +69,7 @@ namespace CentreLocationOutils.facade.implementations
            }
            catch (ServiceException serviceException)
            {
-               throw new FacadeException("", serviceException);
+               throw new FacadeException("Un erreur s'est produit : " + serviceException);
            }
        }
 
@@ -82,7 +82,31 @@ namespace CentreLocationOutils.facade.implementations
            }
            catch (ServiceException serviceException)
            {
-               throw new FacadeException("", serviceException);
+               throw new FacadeException("Un erreur s'est produit : " + serviceException);
+           }
+       }
+
+       public ReservationDTO getReservation(Connection connection, string idReservation)
+       {
+           try
+           {
+               return getReservationService().getReservation(connection, idReservation);
+           }
+           catch (ServiceException serviceException)
+           {
+               throw new FacadeException("Un erreur s'est produit : " + serviceException);
+           }
+       }
+
+       public List<ReservationDTO> getAllReservations(Connection connection, string sortByPropertyName)
+       {
+           try
+           {
+               return getReservationService().getAllReservations(connection, sortByPropertyName);
+           }
+           catch (ServiceException serviceException)
+           {
+               throw new FacadeException("Un erreur s'est produit : " + serviceException);
            }
        }
 
@@ -95,7 +119,7 @@ namespace CentreLocationOutils.facade.implementations
            }
            catch (ServiceException serviceException)
            {
-               throw new FacadeException("", serviceException);
+               throw new FacadeException("Un erreur s'est produit : " + serviceException);
            }
        }
        #endregion

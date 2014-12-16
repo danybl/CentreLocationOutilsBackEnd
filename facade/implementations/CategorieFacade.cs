@@ -50,6 +50,66 @@ namespace CentreLocationOutils.facade.implementations
 
         #endregion
         #region CRUD
+
+        public void ajouterCategorie(Connection connection, CategorieDTO categorieDTO)
+        {
+            try
+            {
+                getCategorieService().ajouterCategorie(connection, categorieDTO);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("Il s'est produit un erreur : " + serviceException);
+            }
+        }
+
+        public void mettreAJourCategorie(Connection connection, CategorieDTO categorieDTO)
+        {
+            try
+            {
+                getCategorieService().mettreAJourCategorie(connection, categorieDTO);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("Il s'est produit un erreur : " + serviceException);
+            }
+        }
+
+        public void supprimerCategorie(Connection connection, CategorieDTO categorieDTO)
+        {
+            try
+            {
+                getCategorieService().supprimerCategorie(connection, categorieDTO);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("Il s'est produit un erreur : " + serviceException);
+            }
+        }
+
+        public CategorieDTO getCategorie(Connection connection, string idCategorie)
+        {
+            try
+            {
+                return getCategorieService().get(connection, idCategorie);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("Il s'est produit un erreur : " + serviceException);
+            }
+        }
+
+        public List<CategorieDTO> getAllCategories(Connection connection, string sortByPropertyName)
+        {
+            try
+            {
+                return getCategorieService().getAll(connection, sortByPropertyName);
+            }
+            catch (ServiceException serviceException)
+            {
+                throw new FacadeException("Il s'est produit un erreur : " + serviceException);
+            }
+        }
         /// <inheritdoc />
         public List<CategorieDTO> findByNom(Connection connection,
         String nom,
@@ -62,20 +122,7 @@ namespace CentreLocationOutils.facade.implementations
             }
             catch (ServiceException serviceException)
             {
-                throw new FacadeException("", serviceException);
-            }
-        }
-
-        /// <inheritdoc />
-        public CategorieDTO getCategorie(Connection connection, string idCategorie)
-        {
-            try
-            {
-                return getCategorieService().get(connection, idCategorie);
-            }
-            catch (ServiceException serviceException)
-            {
-                throw new FacadeException("", serviceException);
+                throw new FacadeException("Il s'est produit un erreur : " + serviceException);
             }
         }
         #endregion
