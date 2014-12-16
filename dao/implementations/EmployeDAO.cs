@@ -56,7 +56,7 @@ namespace CentreLocationOutils.dao.implementations
             }
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = EmployeDAO.ADD_REQUEST;
                 command.Parameters.Add(new OracleParameter("idEmploye", getPrimaryKey(connection, EmployeDAO.CREATE_PRIMARY_KEY)));
@@ -68,10 +68,11 @@ namespace CentreLocationOutils.dao.implementations
                 command.Parameters.Add(new OracleParameter(":poste", employeDTO.Poste));
 
                 command.ExecuteNonQuery();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException.Message);
+                throw new DAOException(oracleException);
             }
         }
 
@@ -87,16 +88,16 @@ namespace CentreLocationOutils.dao.implementations
             {
                 throw new InvalidPrimaryKeyException("La clef primaire ne peut être null");
             }
-            string idEmploye = primaryKey.ToString();
+            
             EmployeDTO employeDTO = null;
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = EmployeDAO.READ_REQUEST;
-                command.Parameters.Add(new OracleParameter(":idEmploye", idEmploye));
+                command.Parameters.Add(new OracleParameter(":idEmploye", primaryKey));
 
-                    DbDataReader dataReader = command.ExecuteReader();
+                    OracleDataReader dataReader = command.ExecuteReader();
                     if (dataReader.NextResult())
                     {
                         employeDTO = new EmployeDTO();
@@ -109,10 +110,12 @@ namespace CentreLocationOutils.dao.implementations
                         employeDTO.Poste = dataReader.GetDateTime(7).ToString();
 
                     }
+                    dataReader.Dispose();
+                    command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException.Message);
+                throw new DAOException(oracleException);
             }
             return employeDTO;
         }
@@ -131,7 +134,7 @@ namespace CentreLocationOutils.dao.implementations
             }
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = EmployeDAO.UPDATE_REQUEST;
                 command.Parameters.Add(new OracleParameter(":nom", employeDTO.Nom));
@@ -142,10 +145,11 @@ namespace CentreLocationOutils.dao.implementations
                 command.Parameters.Add(new OracleParameter("idEmploye", employeDTO.IdEmploye));
 
                 command.ExecuteNonQuery();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(oracleException);
             }
         }
 
@@ -163,17 +167,17 @@ namespace CentreLocationOutils.dao.implementations
             }
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = EmployeDAO.DELETE_REQUEST;
                 command.Parameters.Add(new OracleParameter(":idEmploye", employeDTO.IdEmploye));
 
                 command.ExecuteNonQuery();
-
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException.Message);
+                throw new DAOException(oracleException);
             }
         }
 
@@ -193,11 +197,11 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = EmployeDAO.GET_ALL_REQUEST;
 
-                DbDataReader dataReader = command.ExecuteReader();
+                OracleDataReader dataReader = command.ExecuteReader();
                 EmployeDTO employeDTO= null;
 
                 if (dataReader.NextResult())
@@ -215,10 +219,12 @@ namespace CentreLocationOutils.dao.implementations
                     }
                         while(dataReader.NextResult());
                     }
+                dataReader.Dispose();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                    throw new DAOException(dbException.Message);
+                    throw new DAOException(oracleException);
                 }
             return employes;
         }
@@ -243,11 +249,11 @@ namespace CentreLocationOutils.dao.implementations
 
             try
             {
-                DbCommand command = connection.ConnectionOracle.CreateCommand();
+                OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = EmployeDAO.FIND_BY_NOM;
 
-                DbDataReader dataReader = command.ExecuteReader();
+                OracleDataReader dataReader = command.ExecuteReader();
                 EmployeDTO employeDTO = null;
 
                 if (dataReader.NextResult())
@@ -266,10 +272,12 @@ namespace CentreLocationOutils.dao.implementations
                     }
                     while (dataReader.NextResult());
                 }
+                dataReader.Dispose();
+                command.Dispose();
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException.Message);
+                throw new DAOException(oracleException);
             }
             return employes;
         }

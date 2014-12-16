@@ -124,9 +124,9 @@ namespace CentreLocationOutils.dao.implementations
                 dataReader.Dispose();
                 command.Dispose();
             }
-            catch (OracleException OracleException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(OracleException);
+                throw new DAOException(oracleException);
             }
             return clientDTO;
         }
@@ -160,9 +160,9 @@ namespace CentreLocationOutils.dao.implementations
                 command.ExecuteNonQuery();
                 command.Dispose();
             }
-            catch (OracleException OracleException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(OracleException);
+                throw new DAOException(oracleException);
             }
         }
 
@@ -187,9 +187,9 @@ namespace CentreLocationOutils.dao.implementations
                 command.ExecuteNonQuery();
                 command.Dispose();
             }
-            catch (OracleException OracleException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(OracleException);
+                throw new DAOException(oracleException);
             }
         }
 
@@ -236,9 +236,9 @@ namespace CentreLocationOutils.dao.implementations
                 dataReader.Dispose();
                 command.Dispose();
             }
-            catch (OracleException OracleException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(OracleException);
+                throw new DAOException(oracleException);
             }
             return clients;
         }
@@ -291,9 +291,9 @@ namespace CentreLocationOutils.dao.implementations
                 dataReader.Dispose();
                 command.Dispose();
             }
-            catch (OracleException OracleException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(OracleException);
+                throw new DAOException(oracleException);
             }
             return clients;
         }

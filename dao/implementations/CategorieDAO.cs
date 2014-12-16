@@ -103,9 +103,9 @@ namespace CentreLocationOutils.dao.implementations
                     dataReader.Dispose();
                     command.Dispose();
             }
-            catch (OracleException OracleException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(OracleException);
+                throw new DAOException(oracleException);
             }
             return categorieDTO;
         }
@@ -134,9 +134,9 @@ namespace CentreLocationOutils.dao.implementations
                 command.ExecuteNonQuery();
                 command.Dispose();
             }
-            catch (OracleException OracleException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(OracleException);
+                throw new DAOException(oracleException);
             }
         }
 
@@ -162,9 +162,9 @@ namespace CentreLocationOutils.dao.implementations
                 command.ExecuteNonQuery();
                 command.Dispose();
             }
-            catch (OracleException OracleException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(OracleException);
+                throw new DAOException(oracleException);
             }
         }
 
@@ -204,8 +204,8 @@ namespace CentreLocationOutils.dao.implementations
                     }
                 dataReader.Dispose();
                 command.Dispose();
-                }catch(OracleException OracleException){
-                    throw new DAOException(OracleException);
+                }catch(OracleException oracleException){
+                    throw new DAOException(oracleException);
                 }
             return categories;
         }
@@ -253,9 +253,9 @@ namespace CentreLocationOutils.dao.implementations
                 dataReader.Dispose();
                 command.Dispose();
             }
-            catch (OracleException OracleException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(OracleException);
+                throw new DAOException(oracleException);
             }
             return categories;
         }
