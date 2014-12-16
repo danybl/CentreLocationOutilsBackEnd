@@ -46,7 +46,7 @@ namespace CentreLocationOutils.dao.implementations
                 OracleCommand command = connection.ConnectionOracle.CreateCommand();
                 command.CommandType = CommandType.Text;
                 command.CommandText = createPrimaryKeyRequest;
-                DbDataReader dataReader = command.ExecuteReader();
+                OracleDataReader dataReader = command.ExecuteReader();
 
                 if (dataReader.NextResult())
                 {
@@ -55,9 +55,9 @@ namespace CentreLocationOutils.dao.implementations
                 throw new DAOException("Impossible de lire la séquence");
 
             }
-            catch (DbException dbException)
+            catch (OracleException oracleException)
             {
-                throw new DAOException(dbException);
+                throw new DAOException(oracleException);
             }
         }
     }
