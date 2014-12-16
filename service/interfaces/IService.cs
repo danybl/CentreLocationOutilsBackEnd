@@ -11,6 +11,5 @@ namespace CentreLocationOutils.service.interfaces
     /// </summary>
     public interface IService
     {
-        //Rien à faire pour le moment
     }
 }
